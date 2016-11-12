@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Contracts="http:///schemas/Contracts/_Ig5nQIIsEeafK64Rq2tVkA/34" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/Contracts/_Ig5nQIIsEeafK64Rq2tVkA/34 pathmap://UML_PROFILE/solidity_profiles.uml#_Ig94sIIsEeafK64Rq2tVkA">
+  <uml:Model xmi:id="_2OUWQPGoEeWhntI5ziJCkw" name="Library">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_2OUWQfGoEeWhntI5ziJCkw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/solidity_types.uml#_N0uwUKKsEeWvY9GWZZMftw"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_YnG8oPGvEeWhntI5ziJCkw" name="use-cases">
+      <packagedElement xmi:type="uml:Actor" xmi:id="_jqPS4PGvEeWhntI5ziJCkw" name="LibraryManager" useCase="_TInzUPGyEeWhntI5ziJCkw _DohX8PGxEeWhntI5ziJCkw _Hpn14PGxEeWhntI5ziJCkw _0OlCQPNMEeWfQ8Z7QKl4Uw _iIM8oPNVEeWTXOZC-cGziA _nT9P0PNVEeWTXOZC-cGziA"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_mmXs0PGvEeWhntI5ziJCkw" name="LibraryEmployee" useCase="_aC1B0PGxEeWhntI5ziJCkw _eIczYPGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_r6uiYPGvEeWhntI5ziJCkw" name="LibraryUser" useCase="_nux0cPGxEeWhntI5ziJCkw _huOx0PGyEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_DohX8PGxEeWhntI5ziJCkw" name="registerEmployee" subject="_jqPS4PGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_Hpn14PGxEeWhntI5ziJCkw" name="unregisterEmployee" subject="_jqPS4PGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_aC1B0PGxEeWhntI5ziJCkw" name="registerUser" subject="_mmXs0PGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_eIczYPGxEeWhntI5ziJCkw" name="unregisterUser" subject="_mmXs0PGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_nux0cPGxEeWhntI5ziJCkw" name="borrowBook" subject="_r6uiYPGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_TInzUPGyEeWhntI5ziJCkw" name="addBook" subject="_jqPS4PGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_aInEQPGyEeWhntI5ziJCkw" client="_mmXs0PGvEeWhntI5ziJCkw" supplier="_TInzUPGyEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_bf-f0PGyEeWhntI5ziJCkw" client="_jqPS4PGvEeWhntI5ziJCkw" supplier="_DohX8PGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_cr0n4PGyEeWhntI5ziJCkw" client="_jqPS4PGvEeWhntI5ziJCkw" supplier="_Hpn14PGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_eX2r4PGyEeWhntI5ziJCkw" client="_mmXs0PGvEeWhntI5ziJCkw" supplier="_aC1B0PGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_fFB68PGyEeWhntI5ziJCkw" client="_mmXs0PGvEeWhntI5ziJCkw" supplier="_eIczYPGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_huOx0PGyEeWhntI5ziJCkw" name="returnBook" subject="_r6uiYPGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_rpxN4PGyEeWhntI5ziJCkw" client="_r6uiYPGvEeWhntI5ziJCkw" supplier="_huOx0PGyEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_siTYYPGyEeWhntI5ziJCkw" client="_r6uiYPGvEeWhntI5ziJCkw" supplier="_nux0cPGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_DnDGYPGzEeWhntI5ziJCkw" client="_r6uiYPGvEeWhntI5ziJCkw" supplier="_aC1B0PGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Fbjw8PGzEeWhntI5ziJCkw" client="_r6uiYPGvEeWhntI5ziJCkw" supplier="_eIczYPGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_HMFTYPGzEeWhntI5ziJCkw" client="_mmXs0PGvEeWhntI5ziJCkw" supplier="_huOx0PGyEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_IG1EYPGzEeWhntI5ziJCkw" client="_mmXs0PGvEeWhntI5ziJCkw" supplier="_nux0cPGxEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_0OlCQPNMEeWfQ8Z7QKl4Uw" name="changeBookState" subject="_jqPS4PGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_4Y8w8PNMEeWfQ8Z7QKl4Uw" client="_mmXs0PGvEeWhntI5ziJCkw" supplier="_0OlCQPNMEeWfQ8Z7QKl4Uw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_iIM8oPNVEeWTXOZC-cGziA" name="registerManager" subject="_jqPS4PGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_nT9P0PNVEeWTXOZC-cGziA" name="unregisterManager" subject="_jqPS4PGvEeWhntI5ziJCkw"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_vVHp4PNVEeWTXOZC-cGziA" client="_jqPS4PGvEeWhntI5ziJCkw" supplier="_iIM8oPNVEeWTXOZC-cGziA"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_wDB4wPNVEeWTXOZC-cGziA" client="_jqPS4PGvEeWhntI5ziJCkw" supplier="_nT9P0PNVEeWTXOZC-cGziA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_aory0PGvEeWhntI5ziJCkw" name="contracts">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_yiIfIPH6EeWd5p4iEt0kHA">
+        <body>(c) Urs Zeidler
+</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_jD55YPG0EeWhntI5ziJCkw" name="Library">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_tJUnYPH6EeWd5p4iEt0kHA">
+          <body>A library can borrow books to registered users.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_J2j3oPHqEeWd5p4iEt0kHA" name="onlyManager" constrainedElement="_8oREcPG0EeWhntI5ziJCkw _BtqQ8PG1EeWhntI5ziJCkw _RxQ3cPG1EeWhntI5ziJCkw _VRpN8PG1EeWhntI5ziJCkw">
+          <specification xmi:type="uml:LiteralString" xmi:id="_oPH0sPHuEeWd5p4iEt0kHA" name="constraintSpec" value="if(!managers[msg.sender]) throw;"/>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_rHqE4PHqEeWd5p4iEt0kHA" name="onlyEmployee" constrainedElement="_I1nNcPHpEeWd5p4iEt0kHA _eMSQEPHpEeWd5p4iEt0kHA _8qyZ4PHpEeWd5p4iEt0kHA _RcNvgPHsEeWd5p4iEt0kHA _4Ta7kPHqEeWd5p4iEt0kHA _cHMg8PHrEeWd5p4iEt0kHA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_rHrTAPHqEeWd5p4iEt0kHA" name="constraintSpec" value="if(!employees[msg.sender]) throw;"/>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_pCwdcPG0EeWhntI5ziJCkw" name="managers" visibility="public">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aZLIcPG1EeWhntI5ziJCkw" name="employees" visibility="public">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_oDcX4PHoEeWd5p4iEt0kHA" name="userCount">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_u-rEoPHoEeWd5p4iEt0kHA" name="activeUserCount">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5McgMPHoEeWd5p4iEt0kHA" name="bookCount">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_753vwPHoEeWd5p4iEt0kHA" name="activeBooksCount">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AUxwoPHwEeWd5p4iEt0kHA" name="users">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ld4zEPHwEeWd5p4iEt0kHA" name="books">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_BCRTUPHxEeWd5p4iEt0kHA" name="usersAdresses" visibility="public">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DneCcKTDEeaLm-6hLaPing" name="managerCount">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MW4poKTDEeaLm-6hLaPing" name="employeeCount">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_a3uboPM0EeWm4cDEcULfcg" name="Library">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_7RszoPM0EeWm4cDEcULfcg">
+            <body>The sender will be the first manager.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_8oREcPG0EeWhntI5ziJCkw" name="registerManager">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ITY_QPHrEeWd5p4iEt0kHA">
+            <body>Register a manager.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_s88oAPHpEeWd5p4iEt0kHA" name="_address">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_BtqQ8PG1EeWhntI5ziJCkw" name="unregisterManager">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_KvEIwPHxEeWd5p4iEt0kHA">
+            <body>Unregister a manager.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uf1XEPHpEeWd5p4iEt0kHA" name="_address">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_RxQ3cPG1EeWhntI5ziJCkw" name="registerEmployee">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Qnp7gPHrEeWd5p4iEt0kHA" annotatedElement="_DohX8PGxEeWhntI5ziJCkw">
+            <body>Register a new employee.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_vCZRkPHpEeWd5p4iEt0kHA" name="_address">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_VRpN8PG1EeWhntI5ziJCkw" name="unregisterEmployee">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_OrapkPHxEeWd5p4iEt0kHA">
+            <body>Unregister an employee.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_vZ818PHpEeWd5p4iEt0kHA" name="_address">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_I1nNcPHpEeWd5p4iEt0kHA" name="registerUser">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RY4VYPHxEeWd5p4iEt0kHA" annotatedElement="_aC1B0PGxEeWhntI5ziJCkw">
+            <body>Register a library user.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_w3X2MPHpEeWd5p4iEt0kHA" name="_address">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_yqxXYPHyEeWd5p4iEt0kHA">
+              <body>The address of the user.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_zjO4IPHsEeWd5p4iEt0kHA" name="_name">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Nk7tMPHyEeWd5p4iEt0kHA">
+              <body>The name of the user.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_eMSQEPHpEeWd5p4iEt0kHA" name="unregisterUser">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_UdFGMPHxEeWd5p4iEt0kHA">
+            <body>Unregister a library user.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xXSsYPHpEeWd5p4iEt0kHA" name="_address">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_8qyZ4PHpEeWd5p4iEt0kHA" name="addBook">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_WxuCUPHxEeWd5p4iEt0kHA" annotatedElement="_TInzUPGyEeWhntI5ziJCkw">
+            <body>Add a book to the library.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_2I22kPHsEeWd5p4iEt0kHA" name="_titel">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_HUJroPHyEeWd5p4iEt0kHA">
+              <body>The titel of the added book.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_RcNvgPHsEeWd5p4iEt0kHA" name="changeBookState">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_etEvUPHxEeWd5p4iEt0kHA">
+            <body>Change the book state.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_BvkbAPHtEeWd5p4iEt0kHA" name="id">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_4hRtMPHxEeWd5p4iEt0kHA">
+              <body>The id of the book.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_a9DXIPHtEeWd5p4iEt0kHA" name="_state">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_n1lrIPMyEeWm4cDEcULfcg">
+              <body>The new state of the book.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_4Ta7kPHqEeWd5p4iEt0kHA" name="borrowBook">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_gr7osPHxEeWd5p4iEt0kHA">
+            <body>Borrows a book.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8iB_IPHsEeWd5p4iEt0kHA" name="id">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_3ZdJgPHxEeWd5p4iEt0kHA">
+              <body>The id of the book.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_1PRUcPHyEeWd5p4iEt0kHA" name="_address">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_1PRUcfHyEeWd5p4iEt0kHA">
+              <body>The address of the user.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_cHMg8PHrEeWd5p4iEt0kHA" name="returnBook">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_ipDcsPHxEeWd5p4iEt0kHA">
+            <body>Return the book.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ba7nwPHtEeWd5p4iEt0kHA" name="id">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_zEq6kPHxEeWd5p4iEt0kHA">
+              <body>The id of the book.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_4Dl2MPHyEeWd5p4iEt0kHA" name="_address">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_4Dl2MfHyEeWd5p4iEt0kHA">
+              <body>The address of the user.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ovDxoPHxEeWd5p4iEt0kHA" name="BookSate">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_EOT0MPMzEeWm4cDEcULfcg">
+            <body>When a book state changes this event ist called.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_04uSIPHxEeWd5p4iEt0kHA" name="id">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_04uSIfHxEeWd5p4iEt0kHA">
+              <body>The id of the book.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rTMacPMyEeWm4cDEcULfcg" name="_state">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_rTNBgPMyEeWm4cDEcULfcg">
+              <body>The new state of the book.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_9mTGQPHxEeWd5p4iEt0kHA" name="NewBook">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_B9cFoPHyEeWd5p4iEt0kHA" name="id">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_B9cFofHyEeWd5p4iEt0kHA">
+              <body>The id of the book.</body>
+            </ownedComment>
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_TSkSkKhWEea8PZ2KSCDq_g" name="titel">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GZyzwKT9EeaFg9udNCCoNA" name="getBook">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_P0mhUKT9EeaFg9udNCCoNA" name="_id">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_TUquwKT9EeaFg9udNCCoNA" name="name" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_XtfwMKT9EeaFg9udNCCoNA" name="state" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_czXXgKkTEeasqPJUlcDd_g" name="currentOwner" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_iXRncPG1EeWhntI5ziJCkw" name="LibraryUsers">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_r-vbgPG2EeWhntI5ziJCkw" name="userState" type="_1G2E8PG1EeWhntI5ziJCkw"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_6RlPAPG2EeWhntI5ziJCkw" name="userName">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="__182gPG2EeWhntI5ziJCkw" name="userId">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_H_fwgPG3EeWhntI5ziJCkw" name="borrowedBooks">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gPahQPHwEeWd5p4iEt0kHA"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gPdkkPHwEeWd5p4iEt0kHA" value="*"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_n82uEPHwEeWd5p4iEt0kHA" name="borrowedBooksCount">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedAttribute>
+        </nestedClassifier>
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_uYxqcPG1EeWhntI5ziJCkw" name="RegisteredBooks">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_lY1CAPG3EeWhntI5ziJCkw" name="bookTitel">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_onHi8PG3EeWhntI5ziJCkw" name="bookId">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_EBEjkPHtEeWd5p4iEt0kHA" name="bookState" type="_JlprcPG2EeWhntI5ziJCkw"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_9b9CAPHyEeWd5p4iEt0kHA" name="currentOwner">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedAttribute>
+        </nestedClassifier>
+        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_1G2E8PG1EeWhntI5ziJCkw" name="UserState">
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_5h-McPG1EeWhntI5ziJCkw" name="unknown"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_73q4gPG1EeWhntI5ziJCkw" name="registered"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_AOl1cPG2EeWhntI5ziJCkw" name="disabled"/>
+        </nestedClassifier>
+        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_JlprcPG2EeWhntI5ziJCkw" name="Bookstate">
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_NXDggPG2EeWhntI5ziJCkw" name="unknown"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_P8ht8PG2EeWhntI5ziJCkw" name="available"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_RK4XcPG2EeWhntI5ziJCkw" name="borrowed"/>
+          <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_oNf-gPG2EeWhntI5ziJCkw" name="disabled"/>
+        </nestedClassifier>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2OUWQvGoEeWhntI5ziJCkw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8K6RQKR1Eea8nfOoJyRWnA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RQaR1Eea8nfOoJyRWnA" key="Version" value="0.0.35"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RQqR1Eea8nfOoJyRWnA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RQ6R1Eea8nfOoJyRWnA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RRKR1Eea8nfOoJyRWnA" key="Date" value="2016-09-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RRaR1Eea8nfOoJyRWnA" key="Author" value="Urs Zeidler"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2OUWSfGoEeWhntI5ziJCkw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILE/solidity_profiles.uml#_Ig94sIIsEeafK64Rq2tVkA"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILE/solidity_profiles.uml#_uCE5EKHREeWjOZ0I8ilEXA"/>
+    </profileApplication>
+  </uml:Model>
+  <Contracts:Mapping xmi:id="_zmgwEPG0EeWhntI5ziJCkw" base_Property="_pCwdcPG0EeWhntI5ziJCkw">
+    <value xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_LedxoKKuEeWvY9GWZZMftw"/>
+  </Contracts:Mapping>
+  <Contracts:Function xmi:id="_FabdoPG1EeWhntI5ziJCkw" base_Operation="_8oREcPG0EeWhntI5ziJCkw"/>
+  <Contracts:Function xmi:id="_GNkx0PG1EeWhntI5ziJCkw" base_Operation="_BtqQ8PG1EeWhntI5ziJCkw"/>
+  <Contracts:Function xmi:id="_TnVBMPG1EeWhntI5ziJCkw" base_Operation="_RxQ3cPG1EeWhntI5ziJCkw"/>
+  <Contracts:Function xmi:id="_YRwwAPG1EeWhntI5ziJCkw" base_Operation="_VRpN8PG1EeWhntI5ziJCkw"/>
+  <Contracts:Mapping xmi:id="_eL-rsPG1EeWhntI5ziJCkw" base_Property="_aZLIcPG1EeWhntI5ziJCkw">
+    <value xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_LedxoKKuEeWvY9GWZZMftw"/>
+  </Contracts:Mapping>
+  <Contracts:Struct xmi:id="_qyYykPG1EeWhntI5ziJCkw" base_Class="_iXRncPG1EeWhntI5ziJCkw"/>
+  <Contracts:Struct xmi:id="_yrmxkPG1EeWhntI5ziJCkw" base_Class="_uYxqcPG1EeWhntI5ziJCkw"/>
+  <Contracts:Function xmi:id="_PFhFQPHpEeWd5p4iEt0kHA" base_Operation="_I1nNcPHpEeWd5p4iEt0kHA"/>
+  <Contracts:Function xmi:id="_eMVTYPHpEeWd5p4iEt0kHA" base_Operation="_eMSQEPHpEeWd5p4iEt0kHA"/>
+  <Contracts:Function xmi:id="_-wrIUPHpEeWd5p4iEt0kHA" base_Operation="_8qyZ4PHpEeWd5p4iEt0kHA"/>
+  <Contracts:Function xmi:id="_4Tel8PHqEeWd5p4iEt0kHA" base_Operation="_4Ta7kPHqEeWd5p4iEt0kHA"/>
+  <Contracts:Function xmi:id="_cHPkQPHrEeWd5p4iEt0kHA" base_Operation="_cHMg8PHrEeWd5p4iEt0kHA"/>
+  <Contracts:Function xmi:id="_RcRZ4PHsEeWd5p4iEt0kHA" base_Operation="_RcNvgPHsEeWd5p4iEt0kHA"/>
+  <Contracts:Mapping xmi:id="_D3iFsPHwEeWd5p4iEt0kHA" base_Property="_AUxwoPHwEeWd5p4iEt0kHA" value="_iXRncPG1EeWhntI5ziJCkw"/>
+  <Contracts:Mapping xmi:id="_RfKZAPHwEeWd5p4iEt0kHA" base_Property="_Ld4zEPHwEeWd5p4iEt0kHA" value="_uYxqcPG1EeWhntI5ziJCkw"/>
+  <Contracts:Mapping xmi:id="_BCVkwPHxEeWd5p4iEt0kHA" base_Property="_BCRTUPHxEeWd5p4iEt0kHA">
+    <value xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+  </Contracts:Mapping>
+  <Contracts:Event xmi:id="_uXKCkPHxEeWd5p4iEt0kHA" base_Operation="_ovDxoPHxEeWd5p4iEt0kHA"/>
+  <Contracts:Event xmi:id="__qUMcPHxEeWd5p4iEt0kHA" base_Operation="_9mTGQPHxEeWd5p4iEt0kHA"/>
+  <Contracts:Contract xmi:id="_m3s_MPM1EeWm4cDEcULfcg" base_Class="_jD55YPG0EeWhntI5ziJCkw"/>
+  <Contracts:Constructor xmi:id="_Apse0KR4Eea8nfOoJyRWnA" base_Operation="_a3uboPM0EeWm4cDEcULfcg"/>
+  <Contracts:Function xmi:id="_ZOJDkKT9EeaFg9udNCCoNA" base_Operation="_GZyzwKT9EeaFg9udNCCoNA" returnType="constant"/>
+</xmi:XMI>

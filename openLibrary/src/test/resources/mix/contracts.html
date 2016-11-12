@@ -1,0 +1,67 @@
+<!doctype>
+<html>
+<head>
+<!--
+<script type='text/javascript' src="contractsWeb3.js">
+</script>
+-->
+
+
+<script type='text/javascript' src="js/contracts-main.js">
+</script>
+
+<!-- Start of user code custom_contracts_scripts --> 
+
+<!-- End of user code -->
+
+<!-- start of style -->
+<style>
+.contract {
+	border-style: solid;
+	border-width: 1px;
+	} 
+.contract_attributes{
+	border-style: solid;
+	border-width: 1px;
+	} 
+.Struct_Mapping{}
+.Value_Mapping{}
+.contract_attribute{}
+.contract_attribute_value{}
+.function_execution{}
+.function_parameter{}
+.function_result{}
+
+</style>
+</head>
+<body bgcolor='#E6E6FA'>
+	<h1>Sample Interface for contracts</h1>
+
+
+<!-- Start of user code custom_contractshtml --> 
+<a href="#" onclick="mode('e')">employee</a> <a href="#" onclick="mode('m')">manager</a>
+<div id="Contracts-Gui" ></div>
+
+
+<div id="eventLog" ></div>
+
+<!-- End of user code -->
+
+
+<script type='text/javascript'>
+web3.eth.defaultAccount = web3.eth.accounts[0] ;
+var c = new ContractsPage('Contracts-Gui');
+//Start of user code page_Contracts_js_functions
+var l = contracts['Library'].contract;
+c.guim.addManager(l);
+
+mode = function(m){
+	c.changeMode(m);
+}
+	
+//End of user code
+c.createDefaultGui();
+
+</script>
+</body>
+</html>
