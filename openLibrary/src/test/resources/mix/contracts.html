@@ -2,7 +2,7 @@
 <html>
 <head>
 <!--
-<script type='text/javascript' src="contractsWeb3.js">
+<script type='text/javascript' src="js/contractsWeb3.js">
 </script>
 -->
 
@@ -19,6 +19,7 @@
 .contract {
 	border-style: solid;
 	border-width: 1px;
+	margin-bottom: 4px;
 	} 
 .contract_attributes{
 	border-style: solid;
@@ -30,13 +31,34 @@
 .contract_attribute_value{}
 .function_execution{}
 .function_parameter{}
+.function_input{}
+.function_btn{}
 .function_result{}
+.eventRow{
+	display: table-row;
+	width: auto;
+}
+.eventValue{	
+	float: left; /*fix for  buggy browsers*/
+	display: table-column;
+}
 
 </style>
 </head>
 <body bgcolor='#E6E6FA'>
 	<h1>Sample Interface for contracts</h1>
-
+<!--
+<div class="contract">Library
+<div id="Library_gui" ></div>
+</div>
+<div class="contract">test : Library
+<div id="TestLibrary_gui" ></div>
+</div>
+-->
+<div class="contract">test : contracts
+<div id="Contracts-Gui" ></div>
+</div>
+<div id="eventLog" ></div>
 
 <!-- Start of user code custom_contractshtml --> 
 <a href="#" onclick="mode('e')">employee</a> <a href="#" onclick="mode('m')">manager</a>
@@ -49,19 +71,19 @@
 
 
 <script type='text/javascript'>
-web3.eth.defaultAccount = web3.eth.accounts[0] ;
+
 var c = new ContractsPage('Contracts-Gui');
 //Start of user code page_Contracts_js_functions
 var l = contracts['Library'].contract;
 c.guim.addManager(l);
 
 mode = function(m){
-	c.changeMode(m);
-}
+	c.changeMode(m);};//
 	
 //End of user code
 c.createDefaultGui();
 
 </script>
+
 </body>
 </html>

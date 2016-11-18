@@ -96,6 +96,11 @@ public class LibraryTest{
 		//End of user code
 	}
 
+	protected void setFixture(Library f) {
+		this.fixture = f;
+	}
+
+
 	/**
 	 * Test the constructor for the Library contract.
 	 * @throws Exception

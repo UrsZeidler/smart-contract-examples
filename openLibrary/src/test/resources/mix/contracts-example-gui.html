@@ -1,0 +1,251 @@
+<!doctype>
+<html>
+<head>
+
+<!-- start of style -->
+<style>
+.contract {
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 4px;
+	} 
+.contract_attributes{
+	border-style: solid;
+	border-width: 1px;
+	} 
+.Struct_Mapping{}
+.Value_Mapping{}
+.contract_attribute{}
+.contract_attribute_value{}
+.function_execution{}
+.function_parameter{}
+.function_input{}
+.function_btn{}
+.function_result{}
+.eventRow{
+	display: table-row;
+	width: auto;
+}
+.eventValue{	
+	float: left; /*fix for  buggy browsers*/
+	display: table-column;
+}
+
+</style>
+</head>
+<body bgcolor='#E6E6FA'>
+	<h1>Sample Interface for contracts</h1>
+<!-- gui for Library_contract -->
+<div class="contract" id="Library_contract">
+Library:
+  <input type="text" id="Library_address"> <button id="LibraryController.setAddress" onclick="LibraryController.setAddress()">change Library Address</button>
+  <div class="contract_attributes" id="Library_contract_attributes"> attributes:
+    <div class="contract_attribute" id="Library_contract_attribute_employeeCount"> employeeCount:
+      <span class="contract_attribute_value" id="Library_employeeCount_value"> </span>
+    </div>
+    <div class="contract_attribute" id="Library_contract_attribute_userCount"> userCount:
+      <span class="contract_attribute_value" id="Library_userCount_value"> </span>
+    </div>
+    <div class="contract_attribute" id="Library_contract_attribute_activeUserCount"> activeUserCount:
+      <span class="contract_attribute_value" id="Library_activeUserCount_value"> </span>
+    </div>
+    <div class="contract_attribute" id="Library_contract_attribute_bookCount"> bookCount:
+      <span class="contract_attribute_value" id="Library_bookCount_value"> </span>
+    </div>
+    <div class="contract_attribute" id="Library_contract_attribute_activeBooksCount"> activeBooksCount:
+      <span class="contract_attribute_value" id="Library_activeBooksCount_value"> </span>
+    </div>
+    <div class="contract_attribute" id="Library_contract_attribute_managerCount"> managerCount:
+      <span class="contract_attribute_value" id="Library_managerCount_value"> </span>
+    </div>
+
+<div class="Value_Mapping" id="Library_contract_attribute_managers">mapping  managers:
+		<input class="function_input" type="text" id="Library_contract_attribute_managers_input">(address)
+    	<div class="Mapping_value" id="Library_contract_attribute_address"> bool:
+      		<span class="contract_attribute_value" id="Library_managers_value"> </span>
+    	</div>
+  </div>
+<div class="Value_Mapping" id="Library_contract_attribute_employees">mapping  employees:
+		<input class="function_input" type="text" id="Library_contract_attribute_employees_input">(address)
+    	<div class="Mapping_value" id="Library_contract_attribute_address"> bool:
+      		<span class="contract_attribute_value" id="Library_employees_value"> </span>
+    	</div>
+  </div>
+<div class="Struct_Mapping" id="Struc_Library_contract_attribute_users">struc mapping  users:
+		<input class="function_input" type="number" id="Library_contract_attribute_users_input">(uint)
+    	<div class="Struct_attribute" id="Library_contract_attribute_users_userState"> userState:
+      		<span class="Struct_attribute_value" id="Library_users_userState_value"> </span>
+    	</div>
+    	<div class="Struct_attribute" id="Library_contract_attribute_users_userName"> userName:
+      		<span class="Struct_attribute_value" id="Library_users_userName_value"> </span>
+    	</div>
+    	<div class="Struct_attribute" id="Library_contract_attribute_users_userId"> userId:
+      		<span class="Struct_attribute_value" id="Library_users_userId_value"> </span>
+    	</div>
+    	<div class="Struct_attribute" id="Library_contract_attribute_users_borrowedBooks"> borrowedBooks:
+      		<span class="Struct_attribute_value" id="Library_users_borrowedBooks_value"> </span>
+    	</div>
+    	<div class="Struct_attribute" id="Library_contract_attribute_users_borrowedBooksCount"> borrowedBooksCount:
+      		<span class="Struct_attribute_value" id="Library_users_borrowedBooksCount_value"> </span>
+    	</div>
+  </div>
+<div class="Struct_Mapping" id="Struc_Library_contract_attribute_books">struc mapping  books:
+		<input class="function_input" type="number" id="Library_contract_attribute_books_input">(uint)
+    	<div class="Struct_attribute" id="Library_contract_attribute_books_bookTitel"> bookTitel:
+      		<span class="Struct_attribute_value" id="Library_books_bookTitel_value"> </span>
+    	</div>
+    	<div class="Struct_attribute" id="Library_contract_attribute_books_bookId"> bookId:
+      		<span class="Struct_attribute_value" id="Library_books_bookId_value"> </span>
+    	</div>
+    	<div class="Struct_attribute" id="Library_contract_attribute_books_bookState"> bookState:
+      		<span class="Struct_attribute_value" id="Library_books_bookState_value"> </span>
+    	</div>
+    	<div class="Struct_attribute" id="Library_contract_attribute_books_currentOwner"> currentOwner:
+      		<span class="Struct_attribute_value" id="Library_books_currentOwner_value"> </span>
+    	</div>
+  </div>
+<div class="Value_Mapping" id="Library_contract_attribute_usersAdresses">mapping  usersAdresses:
+		<input class="function_input" type="text" id="Library_contract_attribute_usersAdresses_input">(address)
+    	<div class="Mapping_value" id="Library_contract_attribute_address"> uint:
+      		<span class="contract_attribute_value" id="Library_usersAdresses_value"> </span>
+    	</div>
+  </div>
+    <button class="function_btn" id="Library_updateAttributes" onclick="LibraryController._updateAttributes()">update Library attributes</button>
+  </div>
+  <fieldset class="function_execution" id="Library_contract_function_Library_returnBook_uint_address">
+<legend>returnBook</legend>
+	  <label class="function_parameter" for="Library_returnBook_uint_address_id">id
+		<input class="function_input" type="number" 
+          id="Library_returnBook_uint_address_id"
+		  placeholder="id">
+	</label>
+	  <label class="function_parameter" for="Library_returnBook_uint_address__address">_address
+		<input class="function_input" type="text" 
+          id="Library_returnBook_uint_address__address"
+		  placeholder="_address">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_returnBook_uint_address" onclick="LibraryController.Library_returnBook_uint_address()">returnBook</button>
+	<div class="function_result" id="Library_returnBook_uint_address_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_getBook_uint">
+<legend>getBook</legend>
+	  <label class="function_parameter" for="Library_getBook_uint__id">_id
+		<input class="function_input" type="number" 
+          id="Library_getBook_uint__id"
+		  placeholder="_id">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_getBook_uint" onclick="LibraryController.Library_getBook_uint()">getBook</button>
+	<div class="function_result" id="Library_getBook_uint_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_registerManager_address">
+<legend>registerManager</legend>
+	  <label class="function_parameter" for="Library_registerManager_address__address">_address
+		<input class="function_input" type="text" 
+          id="Library_registerManager_address__address"
+		  placeholder="_address">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_registerManager_address" onclick="LibraryController.Library_registerManager_address()">registerManager</button>
+	<div class="function_result" id="Library_registerManager_address_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_unregisterManager_address">
+<legend>unregisterManager</legend>
+	  <label class="function_parameter" for="Library_unregisterManager_address__address">_address
+		<input class="function_input" type="text" 
+          id="Library_unregisterManager_address__address"
+		  placeholder="_address">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_unregisterManager_address" onclick="LibraryController.Library_unregisterManager_address()">unregisterManager</button>
+	<div class="function_result" id="Library_unregisterManager_address_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_registerEmployee_address">
+<legend>registerEmployee</legend>
+	  <label class="function_parameter" for="Library_registerEmployee_address__address">_address
+		<input class="function_input" type="text" 
+          id="Library_registerEmployee_address__address"
+		  placeholder="_address">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_registerEmployee_address" onclick="LibraryController.Library_registerEmployee_address()">registerEmployee</button>
+	<div class="function_result" id="Library_registerEmployee_address_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_unregisterEmployee_address">
+<legend>unregisterEmployee</legend>
+	  <label class="function_parameter" for="Library_unregisterEmployee_address__address">_address
+		<input class="function_input" type="text" 
+          id="Library_unregisterEmployee_address__address"
+		  placeholder="_address">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_unregisterEmployee_address" onclick="LibraryController.Library_unregisterEmployee_address()">unregisterEmployee</button>
+	<div class="function_result" id="Library_unregisterEmployee_address_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_registerUser_address_string">
+<legend>registerUser</legend>
+	  <label class="function_parameter" for="Library_registerUser_address_string__address">_address
+		<input class="function_input" type="text" 
+          id="Library_registerUser_address_string__address"
+		  placeholder="_address">
+	</label>
+	  <label class="function_parameter" for="Library_registerUser_address_string__name">_name
+		<input class="function_input" type="text" 
+          id="Library_registerUser_address_string__name"
+		  placeholder="_name">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_registerUser_address_string" onclick="LibraryController.Library_registerUser_address_string()">registerUser</button>
+	<div class="function_result" id="Library_registerUser_address_string_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_unregisterUser_address">
+<legend>unregisterUser</legend>
+	  <label class="function_parameter" for="Library_unregisterUser_address__address">_address
+		<input class="function_input" type="text" 
+          id="Library_unregisterUser_address__address"
+		  placeholder="_address">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_unregisterUser_address" onclick="LibraryController.Library_unregisterUser_address()">unregisterUser</button>
+	<div class="function_result" id="Library_unregisterUser_address_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_addBook_string">
+<legend>addBook</legend>
+	  <label class="function_parameter" for="Library_addBook_string__titel">_titel
+		<input class="function_input" type="text" 
+          id="Library_addBook_string__titel"
+		  placeholder="_titel">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_addBook_string" onclick="LibraryController.Library_addBook_string()">addBook</button>
+	<div class="function_result" id="Library_addBook_string_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_changeBookState_uint_uint">
+<legend>changeBookState</legend>
+	  <label class="function_parameter" for="Library_changeBookState_uint_uint_id">id
+		<input class="function_input" type="number" 
+          id="Library_changeBookState_uint_uint_id"
+		  placeholder="id">
+	</label>
+	  <label class="function_parameter" for="Library_changeBookState_uint_uint__state">_state
+		<input class="function_input" type="number" 
+          id="Library_changeBookState_uint_uint__state"
+		  placeholder="_state">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_changeBookState_uint_uint" onclick="LibraryController.Library_changeBookState_uint_uint()">changeBookState</button>
+	<div class="function_result" id="Library_changeBookState_uint_uint_res"></div>
+  </fieldset>
+  <fieldset class="function_execution" id="Library_contract_function_Library_borrowBook_uint_address">
+<legend>borrowBook</legend>
+	  <label class="function_parameter" for="Library_borrowBook_uint_address_id">id
+		<input class="function_input" type="number" 
+          id="Library_borrowBook_uint_address_id"
+		  placeholder="id">
+	</label>
+	  <label class="function_parameter" for="Library_borrowBook_uint_address__address">_address
+		<input class="function_input" type="text" 
+          id="Library_borrowBook_uint_address__address"
+		  placeholder="_address">
+	</label>
+	<button class="function_btn" id="LibraryController.Library_borrowBook_uint_address" onclick="LibraryController.Library_borrowBook_uint_address()">borrowBook</button>
+	<div class="function_result" id="Library_borrowBook_uint_address_res"></div>
+  </fieldset>
+
+</div>
+
+<div id="eventLog" ></div>
+</body>
+</html>
+
