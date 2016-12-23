@@ -27,12 +27,11 @@ public class ContractsDeployer {
 	public ContractsDeployer(EthereumFacade ethereum) {
 		this(ethereum,filename);
 	}
-	
-	public ContractsDeployer(EthereumFacade ethereum,String contractSourceFile) {
+
+	public ContractsDeployer(EthereumFacade ethereum, String contractSourceFile) {
 		this.ethereum = ethereum;
 		try {
-			contractSource = SoliditySource
-					.from(new File(this.getClass().getResource(contractSourceFile).toURI()));
+			contractSource = SoliditySource.from(new File(this.getClass().getResource(contractSourceFile).toURI()));
 		} catch (URISyntaxException e) {
 			throw new IllegalArgumentException(e);
 		}
@@ -42,7 +41,6 @@ public class ContractsDeployer {
 	/**
 	 * Deploys a 'Library' on the blockchain.
 	 *  
-	 * @param ethereum the blockchain
 	 * @param sender the sender address
 	 * @return the address of the deployed contract
 	 */
@@ -54,25 +52,25 @@ public class ContractsDeployer {
 	/**
 	 * Deploys a 'Library' on the blockchain and wrapps the contcat proxy.
 	 *  
-	 * @param ethereum the blockchain
 	 * @param sender the sender address
 	 * @return the contract interface
 	 */
-	public Library createLibrary( EthAccount sender) throws IOException, InterruptedException, ExecutionException {
+	public Library createLibrary(EthAccount sender) throws IOException, InterruptedException, ExecutionException {
 		CompletableFuture<EthAddress> address = deployLibrary(sender);
 		return createLibrary(sender, address.get());
 	}
 
 	/**
-	 * Deploys a 'Library' on the blockchain and wrapps the contcat proxy.
+	 * Create a proxy for a deployed 'Library' contract.
 	 *  
-	 * @param ethereum the blockchain
 	 * @param sender the sender address
 	 * @param address the address of the contract
 	 * @return the contract interface
 	 */
 	public Library createLibrary(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
-		return ethereum.createContractProxy(contractSource, "Library", address, sender, Library.class);
+		Library library = ethereum
+        .createContractProxy(contractSource, "Library", address, sender, Library.class);
+		return library;
 	}
 
 }

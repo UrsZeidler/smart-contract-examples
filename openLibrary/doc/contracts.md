@@ -20,7 +20,7 @@
 	function changeBookState(uint id,uint _state) public  onlyEmployee 
 	function borrowBook(uint id,address _address) public  onlyEmployee 
 	function returnBook(uint id,address _address) public  onlyEmployee 
-	function getBook(uint _id) public   constant returns (string name,uint state,address currentOwner)
+	function getBook(uint _id) public   constant returns (string name,Bookstate state,address currentOwner)
 
 
 
@@ -192,14 +192,14 @@ name|type|direction|doc
 id|uint|in|The id of the book.
 _address|address|in|The address of the user.
 
-#### Library.getBook(uint _id) public   constant returns (string name,uint state,address currentOwner)
+#### Library.getBook(uint _id) public   constant returns (string name,Bookstate state,address currentOwner)
 
 
 name|type|direction|doc
 ----|----|----|----
 _id|uint|in|
 name|string|return|
-state|uint|return|
+state|Bookstate|return|
 currentOwner|address|return|
 
 #### event BookSate

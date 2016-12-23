@@ -1,18 +1,22 @@
 package de.urszeidler.ethereum.contracts;
 
+import de.urszeidler.ethereum.contracts.Library.*;
+
 /**
  * The return value for the function getBook(Integer _id).
  *
  * see {@link Library#getBook( Integer)}
  */
-public class ReturnGetBook_string_uint{
+public class ReturnGetBook_string_Bookstate_address{
 	private String name;
-	private Integer state;
+	private Bookstate state;
+	private org.adridadou.ethereum.values.EthAddress currentOwner;
 
-	public ReturnGetBook_string_uint(String name,Integer state) {
+	public ReturnGetBook_string_Bookstate_address(String name,Bookstate state,org.adridadou.ethereum.values.EthAddress currentOwner) {
 		super();
 		this.name = name;
 		this.state = state;
+		this.currentOwner = currentOwner;
 	}
 
 	/**
@@ -27,8 +31,16 @@ public class ReturnGetBook_string_uint{
 	 * Getter for state.
 	 * @return
 	 */
-	public Integer getState(){
+	public Bookstate getState(){
 		return state;
+	}
+
+	/**
+	 * Getter for currentOwner.
+	 * @return
+	 */
+	public org.adridadou.ethereum.values.EthAddress getCurrentOwner(){
+		return currentOwner;
 	}
 
 	@Override
@@ -37,6 +49,7 @@ public class ReturnGetBook_string_uint{
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		result = prime * result + ((currentOwner == null) ? 0 : currentOwner.hashCode());
 		return result;
 	}
 
@@ -48,7 +61,7 @@ public class ReturnGetBook_string_uint{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ReturnGetBook_string_uint other = (ReturnGetBook_string_uint) obj;
+		ReturnGetBook_string_Bookstate_address other = (ReturnGetBook_string_Bookstate_address) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -59,11 +72,16 @@ public class ReturnGetBook_string_uint{
 				return false;
 		} else if (!state.equals(other.state))
 			return false;
+		if (currentOwner == null) {
+			if (other.currentOwner != null)
+				return false;
+		} else if (!currentOwner.equals(other.currentOwner))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "ReturnGetBook_string_uint [name=" + name + ",state=" + state + "]";
+		return "ReturnGetBook_string_Bookstate_address [name=" + name + ",state=" + state + ",currentOwner=" + currentOwner + "]";
 	}
 }

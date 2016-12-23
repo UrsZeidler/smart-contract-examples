@@ -3,35 +3,32 @@ package de.urszeidler.ethereum.contracts;
 import static org.junit.Assert.*;
 
 
+import de.urszeidler.ethereum.contracts.Library.*;
+
+
 import java.io.File;
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.stream.*;
+import java.math.*;
 
 import org.adridadou.ethereum.EthereumFacade;
 import org.adridadou.ethereum.keystore.*;
 import org.adridadou.ethereum.provider.MainEthereumFacadeProvider;
-import org.adridadou.ethereum.provider.PrivateEthereumFacadeProvider;
-import org.adridadou.ethereum.provider.PrivateNetworkConfig;
 import org.adridadou.ethereum.provider.RopstenEthereumFacadeProvider;
 import org.adridadou.ethereum.provider.GenericRpcEthereumFacadeProvider;
-import org.adridadou.ethereum.provider.InfuraRopstenEthereumFacadeProvider;
 import org.adridadou.ethereum.provider.StandaloneEthereumFacadeProvider;
 import org.adridadou.ethereum.provider.TestnetEthereumFacadeProvider;
 import org.adridadou.ethereum.values.EthAccount;
 import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.EthValue;
 import org.adridadou.ethereum.values.SoliditySource;
 import org.adridadou.ethereum.values.config.ChainId;
-import org.adridadou.ethereum.values.config.InfuraKey;
 import org.ethereum.crypto.ECKey;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.urszeidler.ethereum.EthereumInstance;
-import de.urszeidler.ethereum.contracts.Library.Bookstate;
 
 /**
  * Test for the Library contract.
@@ -153,15 +150,15 @@ public class LibraryTest{
 		assertEquals(0, fixture.bookCount().intValue());
 		assertEquals(1, fixture.managerCount().intValue());
 		
-		assertTrue(fixture.managers(senderAddressS));
+		assertTrue(fixture.managers(senderAddress));
 //		System.out.println(fixture.owner());
 		//End of user code
 	}
 
 
 	/**
-	 * Test method for  registerManager(  String _address).
-	 * see {@link Library#registerManager(   String)}
+	 * Test method for  registerManager(org.adridadou.ethereum.values.EthAddress _address).
+	 * see {@link Library#registerManager( org.adridadou.ethereum.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
@@ -178,7 +175,7 @@ public class LibraryTest{
 //				
 //			}
 //		});
-		fixture.registerManager(address);
+		fixture.registerManager(userAccount1.getAddress());
 //		registerManager.thenAccept(new Consumer<Void>() {
 //
 //			public void accept(Void t) {
@@ -224,8 +221,8 @@ public class LibraryTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  unregisterManager(  String _address).
-	 * see {@link Library#unregisterManager(   String)}
+	 * Test method for  unregisterManager(org.adridadou.ethereum.values.EthAddress _address).
+	 * see {@link Library#unregisterManager( org.adridadou.ethereum.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
@@ -234,47 +231,46 @@ public class LibraryTest{
 		assertEquals(1, fixture.managerCount().intValue());
 //		EthAddress address = EthAddress.of("0x01");
 		String address = "0x01";
-		fixture.registerManager(address);
+		fixture.registerManager(userAccount1.getAddress());
 		
 		assertEquals(2, fixture.managerCount().intValue());
-		fixture.unregisterManager(address);
+		fixture.unregisterManager(userAccount1.getAddress());
 		assertEquals(1, fixture.managerCount().intValue());
 		
 		//End of user code
 	}
 	/**
-	 * Test method for  registerEmployee(  String _address).
-	 * see {@link Library#registerEmployee(   String)}
+	 * Test method for  registerEmployee(org.adridadou.ethereum.values.EthAddress _address).
+	 * see {@link Library#registerEmployee( org.adridadou.ethereum.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testRegisterEmployee_address() throws Exception {
 		//Start of user code testRegisterEmployee_address
 		assertEquals(0, fixture.employeeCount().intValue());
-		employeeAddress = "0x01";
-		assertFalse(fixture.employees(employeeAddress));
-		fixture.registerEmployee(employeeAddress);
+		assertFalse(fixture.employees(employeeAccount.getAddress()));
+		fixture.registerEmployee(employeeAccount.getAddress());
 		
-		assertTrue(fixture.employees(employeeAddress));
+		assertTrue(fixture.employees(employeeAccount.getAddress()));
 		
 		assertEquals(1, fixture.employeeCount().intValue());
 		
-		assertFalse(fixture.employees(senderAddressS));
-		fixture.registerEmployee(senderAddressS);
+		assertFalse(fixture.employees(senderAddress));
+		fixture.registerEmployee(senderAddress);
 		assertEquals(2, fixture.employeeCount().intValue());
 
 		//End of user code
 	}
 	/**
-	 * Test method for  unregisterEmployee(  String _address).
-	 * see {@link Library#unregisterEmployee(   String)}
+	 * Test method for  unregisterEmployee(org.adridadou.ethereum.values.EthAddress _address).
+	 * see {@link Library#unregisterEmployee( org.adridadou.ethereum.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testUnregisterEmployee_address() throws Exception {
 		//Start of user code testUnregisterEmployee_address
 		assertEquals(0, fixture.employeeCount().intValue());
-		String address = userAddress1;
+		EthAddress address = userAccount1.getAddress();
 		assertFalse(fixture.employees(address));
 		fixture.registerEmployee(address);
 		
@@ -289,36 +285,36 @@ public class LibraryTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  registerUser(  String _address,  String _name).
-	 * see {@link Library#registerUser(   String,   String)}
+	 * Test method for  registerUser(org.adridadou.ethereum.values.EthAddress _address,String _name).
+	 * see {@link Library#registerUser( org.adridadou.ethereum.values.EthAddress, String)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testRegisterUser_address_string() throws Exception {
 		//Start of user code testRegisterUser_address_string
 		System.out.println("register user 1 and 2");
-		Integer usersAdresses = fixture.usersAdresses(userAddress);
+		Integer usersAdresses = fixture.usersAdresses(userAccount.getAddress());
 		System.out.println("id:"+usersAdresses);
 		
 		
-		assertFalse(fixture.employees(senderAddressS));		
-		fixture.registerEmployee(senderAddressS);
-		assertTrue(fixture.employees(senderAddressS));
+		assertFalse(fixture.employees(senderAddress));		
+		fixture.registerEmployee(senderAddress);
+		assertTrue(fixture.employees(senderAddress));
 		assertEquals(1, fixture.employeeCount().intValue());
 		
 		assertEquals(0, fixture.activeUserCount().intValue());		
 		assertEquals(1, fixture.userCount().intValue());
 //		EthAccount ethAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(1001L)));
 //		userAddress = ethAccount.getAddress().withLeading0x();
-		fixture.registerUser(userAddress, "Testuser1");
+		fixture.registerUser(userAccount.getAddress(), "Testuser1");
 			
-		System.out.println(userAddress+" ->"+ fixture.usersAdresses(userAddress));
+		System.out.println(userAddress+" ->"+ fixture.usersAdresses(userAccount.getAddress()));
 		
 		assertEquals(1, fixture.activeUserCount().intValue());	
 //		EthAccount ethAccount1 = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(1002L)));
 //		String address1 = ethAccount1.getAddress().withLeading0x();
-		fixture.registerUser(userAddress1, "Testuser2");
-		System.out.println(userAddress1+" ->"+ fixture.usersAdresses(userAddress1));
+		fixture.registerUser(userAccount1.getAddress(), "Testuser2");
+		System.out.println(userAddress1+" ->"+ fixture.usersAdresses(userAccount.getAddress()));
 		
 		assertEquals(2, fixture.activeUserCount().intValue());		
 		assertEquals(3, fixture.userCount().intValue());
@@ -328,39 +324,39 @@ public class LibraryTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  unregisterUser(  String _address).
-	 * see {@link Library#unregisterUser(   String)}
+	 * Test method for  unregisterUser(org.adridadou.ethereum.values.EthAddress _address).
+	 * see {@link Library#unregisterUser( org.adridadou.ethereum.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testUnregisterUser_address() throws Exception {
 		//Start of user code testUnregisterUser_address
-		fixture.registerEmployee(senderAddressS);
+		fixture.registerEmployee(senderAddress);
 
 		assertEquals(0, fixture.activeUserCount().intValue());		
 		assertEquals(1, fixture.userCount().intValue());
-		fixture.registerUser(userAddress2, "Testuser3");
+		fixture.registerUser(userAccount2.getAddress(), "Testuser3");
 		
 		assertEquals(1, fixture.activeUserCount().intValue());		
 		assertEquals(2, fixture.userCount().intValue());
 		
-		Integer usersAdresses = fixture.usersAdresses(userAddress2);
+		Integer usersAdresses = fixture.usersAdresses(userAccount2.getAddress());
 		assertEquals(1, usersAdresses.intValue());
-		fixture.unregisterUser(userAddress2);
+		fixture.unregisterUser(userAccount2.getAddress());
 		
 		assertEquals(2, fixture.userCount().intValue());
 		assertEquals(0, fixture.activeUserCount().intValue());		
 		//End of user code
 	}
 	/**
-	 * Test method for  addBook(  String _titel).
-	 * see {@link Library#addBook(   String)}
+	 * Test method for  addBook(String _titel).
+	 * see {@link Library#addBook( String)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testAddBook_string() throws Exception {
 		//Start of user code testAddBook_string
-		fixture.registerEmployee(senderAddressS);
+		fixture.registerEmployee(senderAddress);
 
 		String _titel = "a Titel";
 		assertEquals(0, fixture.bookCount().intValue());
@@ -368,21 +364,21 @@ public class LibraryTest{
 		assertEquals(1, fixture.bookCount().intValue());
 		assertEquals(1, fixture.activeBooksCount().intValue());
 		
-		ReturnGetBook_string_uint_address book = fixture.getBook(0);
+		ReturnGetBook_string_Bookstate_address book = fixture.getBook(0);
 		assertEquals(_titel, book.getName());
 		assertEquals(Bookstate.available, book.getState());
 		
 		//End of user code
 	}
 	/**
-	 * Test method for  changeBookState(  Integer id,  Integer _state).
-	 * see {@link Library#changeBookState(   Integer,   Integer)}
+	 * Test method for  changeBookState(Integer id,Integer _state).
+	 * see {@link Library#changeBookState( Integer, Integer)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testChangeBookState_uint_uint() throws Exception {
 		//Start of user code testChangeBookState_uint_uint
-		fixture.registerEmployee(senderAddressS);
+		fixture.registerEmployee(senderAddress);
 
 		assertEquals(0, fixture.bookCount().intValue());
 		fixture.addBook("a Titel");
@@ -390,7 +386,7 @@ public class LibraryTest{
 		assertEquals(1, fixture.activeBooksCount().intValue());
 
 		fixture.changeBookState(0, 3);
-		ReturnGetBook_string_uint_address book = fixture.getBook(0);
+		ReturnGetBook_string_Bookstate_address book = fixture.getBook(0);
 		
 		assertEquals(Bookstate.disabled, book.getState());		
 		assertEquals(0, fixture.activeBooksCount().intValue());
@@ -399,8 +395,8 @@ public class LibraryTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  borrowBook(  Integer id,  String _address).
-	 * see {@link Library#borrowBook(   Integer,   String)}
+	 * Test method for  borrowBook(Integer id,org.adridadou.ethereum.values.EthAddress _address).
+	 * see {@link Library#borrowBook( Integer, org.adridadou.ethereum.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
@@ -411,11 +407,11 @@ public class LibraryTest{
 		fixture.addBook(_titel);
 		fixture.addBook("second book");
 
-		fixture.borrowBook(0, userAddress);
-		ReturnGetBook_string_uint_address book1 = fixture.getBook(1);
-		fixture.borrowBook(1, userAddress);
+		fixture.borrowBook(0, userAccount.getAddress());
+		ReturnGetBook_string_Bookstate_address book1 = fixture.getBook(1);
+		fixture.borrowBook(1, userAccount.getAddress());
 		
-		 ReturnGetBook_string_uint_address book = fixture.getBook(0);
+		ReturnGetBook_string_Bookstate_address book = fixture.getBook(0);
 		//assertEquals(2, book.getState().ordinal());
 			System.out.println("Books sate:"+ book);
 			System.out.println("Books available:"+ fixture.activeBooksCount());
@@ -423,29 +419,29 @@ public class LibraryTest{
 		Integer[] bookForUser = fixture.getBookForUser(1);
 		System.out.println("books: "+Arrays.stream(bookForUser).map(i -> i.toString()).collect(Collectors.joining(",")));
 		
-		System.out.println("user: "+fixture.getUserName(0));
-		System.out.println("books borrowed: "+fixture.getBorrowedBooksCount(0));
+		System.out.println("user: "+fixture.getUserName(1));
+		System.out.println("books borrowed: "+fixture.getBorrowedBooksCount(1));
 		//End of user code
 	}
 	/**
-	 * Test method for  returnBook(  Integer id,  String _address).
-	 * see {@link Library#returnBook(   Integer,   String)}
+	 * Test method for  returnBook(Integer id,org.adridadou.ethereum.values.EthAddress _address).
+	 * see {@link Library#returnBook( Integer, org.adridadou.ethereum.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testReturnBook_uint_address() throws Exception {
 		//Start of user code testReturnBook_uint_address
 		testBorrowBook_uint_address();
-		fixture.returnBook(0, userAddress);
+		fixture.returnBook(0, userAccount.getAddress());
 		
-		ReturnGetBook_string_uint_address book =fixture.getBook(0);
-		assertEquals(1, book.getState().ordinal());
+		ReturnGetBook_string_Bookstate_address book =fixture.getBook(0);
+		assertEquals(Bookstate.available, book.getState());
 		
 		//End of user code
 	}
 	/**
-	 * Test method for  getBook(  Integer _id).
-	 * see {@link Library#getBook(   Integer)}
+	 * Test method for  getBook(Integer _id).
+	 * see {@link Library#getBook( Integer)}
 	 * @throws Exception
 	 */
 	@Test
@@ -453,7 +449,7 @@ public class LibraryTest{
 		//Start of user code testGetBook_uint
 		testAddBook_string();
 		
-		ReturnGetBook_string_uint_address book = fixture.getBook(0);
+		ReturnGetBook_string_Bookstate_address book = fixture.getBook(0);
 		assertEquals("a Titel", book.getName());
 		
 		

@@ -7,14 +7,12 @@ pragma solidity ^0.4.0;
 * (c) Urs Zeidler
 */
 
-
 /*
 * A library can borrow books to registered users.
 */
 contract Library {
     enum UserState { unknown,registered,disabled }
     enum Bookstate { unknown,available,borrowed,disabled }
-    
     
     struct LibraryUsers {
     	UserState userState;
@@ -31,7 +29,7 @@ contract Library {
     	address currentOwner;
     }
 
-	uint public userCount=1;
+	uint public userCount = 1;
 	uint public activeUserCount;
 	uint public bookCount;
 	uint public activeBooksCount;
@@ -268,10 +266,10 @@ contract Library {
 	
 	
 	
-	function getBook(uint _id) public   constant returns (string name,uint state,address currentOwner) {
+	function getBook(uint _id) public   constant returns (string name,Bookstate state,address currentOwner) {
 		//Start of user code Library.function.getBook_uint
 		name = books[_id].bookTitel;
-		state = uint(books[_id].bookState);
+		state = books[_id].bookState;
 		currentOwner = books[_id].currentOwner;
 		//End of user code
 	}

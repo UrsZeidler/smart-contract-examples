@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Contracts="http:///schemas/Contracts/_Ig5nQIIsEeafK64Rq2tVkA/34" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/Contracts/_Ig5nQIIsEeafK64Rq2tVkA/34 pathmap://UML_PROFILE/solidity_profiles.uml#_Ig94sIIsEeafK64Rq2tVkA">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Contracts="http:///schemas/Contracts/_bOjkkL8GEeaXm-1aKivBzQ/35" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/Contracts/_bOjkkL8GEeaXm-1aKivBzQ/35 pathmap://UML_PROFILE/solidity_profiles.uml#_bOqSQL8GEeaXm-1aKivBzQ">
   <uml:Model xmi:id="_2OUWQPGoEeWhntI5ziJCkw" name="Library">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_2OUWQfGoEeWhntI5ziJCkw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/solidity_types.uml#_N0uwUKKsEeWvY9GWZZMftw"/>
@@ -56,6 +56,7 @@
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_oDcX4PHoEeWd5p4iEt0kHA" name="userCount">
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_RP-AcMkKEeaA3ImC0rImxQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_u-rEoPHoEeWd5p4iEt0kHA" name="activeUserCount">
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
@@ -240,9 +241,7 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_TUquwKT9EeaFg9udNCCoNA" name="name" direction="return">
             <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_XtfwMKT9EeaFg9udNCCoNA" name="state" direction="return">
-            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
-          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_XtfwMKT9EeaFg9udNCCoNA" name="state" type="_JlprcPG2EeWhntI5ziJCkw" direction="return"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_czXXgKkTEeasqPJUlcDd_g" name="currentOwner" direction="return">
             <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
           </ownedParameter>
@@ -290,15 +289,15 @@
       </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2OUWQvGoEeWhntI5ziJCkw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8K6RQKR1Eea8nfOoJyRWnA" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RQaR1Eea8nfOoJyRWnA" key="Version" value="0.0.35"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RQqR1Eea8nfOoJyRWnA" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RQ6R1Eea8nfOoJyRWnA" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RRKR1Eea8nfOoJyRWnA" key="Date" value="2016-09-24"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8K6RRaR1Eea8nfOoJyRWnA" key="Author" value="Urs Zeidler"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CxPGAMkKEeaA3ImC0rImxQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CxPGAckKEeaA3ImC0rImxQ" key="Version" value="0.0.36"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CxPGAskKEeaA3ImC0rImxQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CxPGA8kKEeaA3ImC0rImxQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CxPGBMkKEeaA3ImC0rImxQ" key="Date" value="2016-12-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CxPGBckKEeaA3ImC0rImxQ" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2OUWSfGoEeWhntI5ziJCkw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILE/solidity_profiles.uml#_Ig94sIIsEeafK64Rq2tVkA"/>
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILE/solidity_profiles.uml#_bOqSQL8GEeaXm-1aKivBzQ"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILE/solidity_profiles.uml#_uCE5EKHREeWjOZ0I8ilEXA"/>
     </profileApplication>

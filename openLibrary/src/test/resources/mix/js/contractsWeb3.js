@@ -37,7 +37,7 @@ var LibraryContract = web3.eth.contract([
 ,{ "constant": true,
     "inputs": [{"name": "_id","type": "uint256"}],    
     "name": "getBook",
-    "outputs": [{"name": "name","type": "string"},{"name": "state","type": "uint256"},{"name": "currentOwner","type": "address"}],
+    "outputs": [{"name": "name","type": "string"},{"name": "state","type": "Bookstate"},{"name": "currentOwner","type": "address"}],
     "type": "function" }
 ,{ "constant": false,
     "inputs": [{"name": "_address","type": "address"}],    
