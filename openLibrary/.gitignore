@@ -2,3 +2,5 @@
 /logs/
 /target/
 /testnetSampleDb/
+/privateIntegration/
+/database-ropsten/

@@ -4,22 +4,34 @@ import static org.junit.Assert.*;
 
 
 import java.io.File;
+import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
-import org.adridadou.ethereum.EthAccount;
-import org.adridadou.ethereum.EthAddress;
 import org.adridadou.ethereum.EthereumFacade;
-import org.adridadou.ethereum.SoliditySource;
-import org.adridadou.ethereum.provider.EthereumFacadeProvider;
+import org.adridadou.ethereum.keystore.*;
 import org.adridadou.ethereum.provider.MainEthereumFacadeProvider;
-import org.adridadou.ethereum.provider.MordenEthereumFacadeProvider;
-import org.adridadou.ethereum.provider.RpcEthereumFacadeProvider;
+import org.adridadou.ethereum.provider.PrivateEthereumFacadeProvider;
+import org.adridadou.ethereum.provider.PrivateNetworkConfig;
+import org.adridadou.ethereum.provider.RopstenEthereumFacadeProvider;
+import org.adridadou.ethereum.provider.GenericRpcEthereumFacadeProvider;
+import org.adridadou.ethereum.provider.InfuraRopstenEthereumFacadeProvider;
 import org.adridadou.ethereum.provider.StandaloneEthereumFacadeProvider;
 import org.adridadou.ethereum.provider.TestnetEthereumFacadeProvider;
+import org.adridadou.ethereum.values.EthAccount;
+import org.adridadou.ethereum.values.EthAddress;
+import org.adridadou.ethereum.values.EthValue;
+import org.adridadou.ethereum.values.SoliditySource;
+import org.adridadou.ethereum.values.config.ChainId;
+import org.adridadou.ethereum.values.config.InfuraKey;
 import org.ethereum.crypto.ECKey;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.urszeidler.ethereum.EthereumInstance;
+import de.urszeidler.ethereum.contracts.Library.Bookstate;
 
 /**
  * Test for the Library contract.
@@ -33,8 +45,14 @@ public class LibraryTest{
 	private EthAddress fixtureAddress;
 	private SoliditySource contractSource;
 	// Start of user code LibraryTest.attributes
-	private String employeeAddress;
-	private String userAddress;
+	private EthAccount employeeAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100001L)));
+	private String employeeAddress = employeeAccount.getAddress().withLeading0x();
+	private EthAccount userAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100002L)));
+	private String userAddress = userAccount.getAddress().withLeading0x();
+	private EthAccount userAccount1 = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100003L)));
+	private String userAddress1 = userAccount1.getAddress().withLeading0x();
+	private EthAccount userAccount2 = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100004L)));
+	private String userAddress2 = userAccount2.getAddress().withLeading0x();
 	//in the BlockchainProxyTest the sender address is hard coded
 	private String senderAddressS = "5db10750e8caff27f906b41c71b3471057dd2004";
 	private EthAddress senderAddress = EthAddress.of(senderAddressS);
@@ -46,26 +64,8 @@ public class LibraryTest{
 	 */
 	@BeforeClass
 	public static void setup() {
-		ECKey key = new ECKey();
-		sender = new EthAccount(key);
-		String property = System.getProperty("EthereumFacadeProvider");
-		EthereumFacadeProvider efp = new StandaloneEthereumFacadeProvider();
-		if(property!=null){
-			if (property.equalsIgnoreCase("main")) {
-				efp = new MainEthereumFacadeProvider();
-			}else if (property.equalsIgnoreCase("test")) {
-				efp = new TestnetEthereumFacadeProvider();
-			}else if (property.equalsIgnoreCase("morden")) {
-				efp = new MordenEthereumFacadeProvider();
-			}else if (property.equalsIgnoreCase("rcp")) {
-				RpcEthereumFacadeProvider rcp = new RpcEthereumFacadeProvider();
-				String url = System.getProperty("rcp-url");
-				ethereum = rcp.create(url);
-				return;//as this currently breaks the hierarchy
-			}
-		}
-		
-		ethereum = efp.create();//new EthereumFacade(bcProxy);
+		ethereum = EthereumInstance.getInstance().getEthereum();
+
 	}
 
 	/**
@@ -75,7 +75,41 @@ public class LibraryTest{
 	@Before
 	public void prepareTest() throws Exception {
 		//Start of user code prepareTest
+		
+		String property = System.getProperty("EthereumFacadeProvider");
+		if(property!=null){
+			if (property.equalsIgnoreCase("main")) {
 
+			}else if (property.equalsIgnoreCase("test")) {
+
+			}else if (property.equalsIgnoreCase("rpc")|| property.equalsIgnoreCase("ropsten") || property.equalsIgnoreCase("InfuraRopsten")) {
+				SecureKey key2 = new FileSecureKey(new File("/home/urs/.ethereum/testnet/keystore/UTC--2015-12-15T13-55-38.006995319Z--ba7b29b63c00dff8614f8d8a6bf34e94e853b2d3"));
+				EthAccount decode = key2.decode("n");
+				sender = decode;
+				senderAddressS = sender.getAddress().withLeading0x();
+				System.out.println(senderAddressS+"->"+ethereum.getBalance(decode));
+				
+
+			}else if (property.equalsIgnoreCase("private")){
+				EthAccount user = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100001L)));
+				userAddress = user.getAddress().withLeading0x();
+	
+				
+				sender = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+				senderAddressS = sender.getAddress().withLeading0x();
+			}
+		}
+//		SecureKey key2 = new FileSecureKey(new File("/home/urs/.ethereum/testnet/keystore/UTC--2015-12-15T13-55-38.006995319Z--ba7b29b63c00dff8614f8d8a6bf34e94e853b2d3"));
+//		EthAccount decode = key2.decode("n");
+//		sender = decode;
+//		System.out.println("amoun: "+ethereum.getBalance(sender));
+		
+		//sender = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+		
+//		senderAddressS = sender.getAddress().withLeading0x();
+//		senderAddress = sender.getAddress();
+		
+		
         File contractSrc = new File(this.getClass().getResource("/mix/contracts.sol").toURI());
         contractSource = SoliditySource.from(contractSrc);
 		createFixture();
@@ -126,8 +160,8 @@ public class LibraryTest{
 
 
 	/**
-	 * Test method for  registerManager(String _address).
-	 * see {@link Library#registerManager( String)}
+	 * Test method for  registerManager(  String _address).
+	 * see {@link Library#registerManager(   String)}
 	 * @throws Exception
 	 */
 	@Test
@@ -136,15 +170,62 @@ public class LibraryTest{
 		assertEquals(1, fixture.managerCount().intValue());
 		String address = "0x01";
 //		fixture.registerManager(EthAddress.of(address));
+//		ethereum.events().observeBlocks().doOnCompleted(new Action0(
+//				) {
+//			
+//			public void call() {
+//				System.out.println("--->");
+//				
+//			}
+//		});
 		fixture.registerManager(address);
+//		registerManager.thenAccept(new Consumer<Void>() {
+//
+//			public void accept(Void t) {
+//				System.out.println("Manager called");
+//				ethereum.events().observeBlocks().subscribe(new Action1<OnBlockParameters>() {
+//
+//					public void call(OnBlockParameters t) {
+//						System.out.println("block:"+t);//8I1BRqsyU7ZCOyGT4TNi
+//						
+//					}
+//				});
+//				
+//			}
+//		});
+		System.out.println(fixture.managerCount().intValue());
+
+		
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
+//		System.out.println(fixture.managerCount().intValue());
+//		Thread.sleep(2000L);
 		
 		assertEquals(2, fixture.managerCount().intValue());
 		
 		//End of user code
 	}
 	/**
-	 * Test method for  unregisterManager(String _address).
-	 * see {@link Library#unregisterManager( String)}
+	 * Test method for  unregisterManager(  String _address).
+	 * see {@link Library#unregisterManager(   String)}
 	 * @throws Exception
 	 */
 	@Test
@@ -162,8 +243,8 @@ public class LibraryTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  registerEmployee(String _address).
-	 * see {@link Library#registerEmployee( String)}
+	 * Test method for  registerEmployee(  String _address).
+	 * see {@link Library#registerEmployee(   String)}
 	 * @throws Exception
 	 */
 	@Test
@@ -185,53 +266,70 @@ public class LibraryTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  unregisterEmployee(String _address).
-	 * see {@link Library#unregisterEmployee( String)}
+	 * Test method for  unregisterEmployee(  String _address).
+	 * see {@link Library#unregisterEmployee(   String)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testUnregisterEmployee_address() throws Exception {
 		//Start of user code testUnregisterEmployee_address
 		assertEquals(0, fixture.employeeCount().intValue());
-		String address = "0x01";
+		String address = userAddress1;
+		assertFalse(fixture.employees(address));
 		fixture.registerEmployee(address);
 		
 		assertEquals(1, fixture.employeeCount().intValue());
+		assertTrue(fixture.employees(address));
+		
 		fixture.unregisterEmployee(address);
+		fixture.unregisterEmployee(address);
+		assertFalse(fixture.employees(address));
 		assertEquals(0, fixture.employeeCount().intValue());
 
 		//End of user code
 	}
 	/**
-	 * Test method for  registerUser(String _address,String _name).
-	 * see {@link Library#registerUser( String, String)}
+	 * Test method for  registerUser(  String _address,  String _name).
+	 * see {@link Library#registerUser(   String,   String)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testRegisterUser_address_string() throws Exception {
 		//Start of user code testRegisterUser_address_string
+		System.out.println("register user 1 and 2");
+		Integer usersAdresses = fixture.usersAdresses(userAddress);
+		System.out.println("id:"+usersAdresses);
+		
+		
 		assertFalse(fixture.employees(senderAddressS));		
 		fixture.registerEmployee(senderAddressS);
 		assertTrue(fixture.employees(senderAddressS));
 		assertEquals(1, fixture.employeeCount().intValue());
 		
 		assertEquals(0, fixture.activeUserCount().intValue());		
-		assertEquals(0, fixture.userCount().intValue());
-		userAddress = "0x02";
+		assertEquals(1, fixture.userCount().intValue());
+//		EthAccount ethAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(1001L)));
+//		userAddress = ethAccount.getAddress().withLeading0x();
 		fixture.registerUser(userAddress, "Testuser1");
-
-		assertEquals(1, fixture.activeUserCount().intValue());		
-		String address1 = "0x03";
-		fixture.registerUser(address1, "Testuser1");
+			
+		System.out.println(userAddress+" ->"+ fixture.usersAdresses(userAddress));
+		
+		assertEquals(1, fixture.activeUserCount().intValue());	
+//		EthAccount ethAccount1 = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(1002L)));
+//		String address1 = ethAccount1.getAddress().withLeading0x();
+		fixture.registerUser(userAddress1, "Testuser2");
+		System.out.println(userAddress1+" ->"+ fixture.usersAdresses(userAddress1));
 		
 		assertEquals(2, fixture.activeUserCount().intValue());		
-		assertEquals(2, fixture.userCount().intValue());
+		assertEquals(3, fixture.userCount().intValue());
 		
+		System.out.println("user0: "+fixture.getUserName(0));
+		System.out.println("user1: "+fixture.getUserName(1));
 		//End of user code
 	}
 	/**
-	 * Test method for  unregisterUser(String _address).
-	 * see {@link Library#unregisterUser( String)}
+	 * Test method for  unregisterUser(  String _address).
+	 * see {@link Library#unregisterUser(   String)}
 	 * @throws Exception
 	 */
 	@Test
@@ -240,21 +338,23 @@ public class LibraryTest{
 		fixture.registerEmployee(senderAddressS);
 
 		assertEquals(0, fixture.activeUserCount().intValue());		
-		assertEquals(0, fixture.userCount().intValue());
-		String address = "0x02";
-		fixture.registerUser(address, "Testuser1");
+		assertEquals(1, fixture.userCount().intValue());
+		fixture.registerUser(userAddress2, "Testuser3");
 		
 		assertEquals(1, fixture.activeUserCount().intValue());		
-		assertEquals(1, fixture.userCount().intValue());
-		fixture.unregisterUser(address);
+		assertEquals(2, fixture.userCount().intValue());
 		
-		assertEquals(1, fixture.userCount().intValue());
+		Integer usersAdresses = fixture.usersAdresses(userAddress2);
+		assertEquals(1, usersAdresses.intValue());
+		fixture.unregisterUser(userAddress2);
+		
+		assertEquals(2, fixture.userCount().intValue());
 		assertEquals(0, fixture.activeUserCount().intValue());		
 		//End of user code
 	}
 	/**
-	 * Test method for  addBook(String _titel).
-	 * see {@link Library#addBook( String)}
+	 * Test method for  addBook(  String _titel).
+	 * see {@link Library#addBook(   String)}
 	 * @throws Exception
 	 */
 	@Test
@@ -270,13 +370,13 @@ public class LibraryTest{
 		
 		ReturnGetBook_string_uint_address book = fixture.getBook(0);
 		assertEquals(_titel, book.getName());
-		assertEquals(1, book.getState().intValue());
+		assertEquals(Bookstate.available, book.getState());
 		
 		//End of user code
 	}
 	/**
-	 * Test method for  changeBookState(Integer id,Integer _state).
-	 * see {@link Library#changeBookState( Integer, Integer)}
+	 * Test method for  changeBookState(  Integer id,  Integer _state).
+	 * see {@link Library#changeBookState(   Integer,   Integer)}
 	 * @throws Exception
 	 */
 	@Test
@@ -292,15 +392,15 @@ public class LibraryTest{
 		fixture.changeBookState(0, 3);
 		ReturnGetBook_string_uint_address book = fixture.getBook(0);
 		
-		assertEquals(3, book.getState().intValue());		
+		assertEquals(Bookstate.disabled, book.getState());		
 		assertEquals(0, fixture.activeBooksCount().intValue());
 		
 		
 		//End of user code
 	}
 	/**
-	 * Test method for  borrowBook(Integer id,String _address).
-	 * see {@link Library#borrowBook( Integer, String)}
+	 * Test method for  borrowBook(  Integer id,  String _address).
+	 * see {@link Library#borrowBook(   Integer,   String)}
 	 * @throws Exception
 	 */
 	@Test
@@ -309,17 +409,27 @@ public class LibraryTest{
 		testRegisterUser_address_string();
 		String _titel = "a Titel";
 		fixture.addBook(_titel);
+		fixture.addBook("second book");
 
 		fixture.borrowBook(0, userAddress);
+		ReturnGetBook_string_uint_address book1 = fixture.getBook(1);
+		fixture.borrowBook(1, userAddress);
 		
 		 ReturnGetBook_string_uint_address book = fixture.getBook(0);
-		assertEquals(2, book.getState().intValue());
+		//assertEquals(2, book.getState().ordinal());
+			System.out.println("Books sate:"+ book);
+			System.out.println("Books available:"+ fixture.activeBooksCount());
 		
+		Integer[] bookForUser = fixture.getBookForUser(1);
+		System.out.println("books: "+Arrays.stream(bookForUser).map(i -> i.toString()).collect(Collectors.joining(",")));
+		
+		System.out.println("user: "+fixture.getUserName(0));
+		System.out.println("books borrowed: "+fixture.getBorrowedBooksCount(0));
 		//End of user code
 	}
 	/**
-	 * Test method for  returnBook(Integer id,String _address).
-	 * see {@link Library#returnBook( Integer, String)}
+	 * Test method for  returnBook(  Integer id,  String _address).
+	 * see {@link Library#returnBook(   Integer,   String)}
 	 * @throws Exception
 	 */
 	@Test
@@ -329,13 +439,13 @@ public class LibraryTest{
 		fixture.returnBook(0, userAddress);
 		
 		ReturnGetBook_string_uint_address book =fixture.getBook(0);
-		assertEquals(1, book.getState().intValue());
+		assertEquals(1, book.getState().ordinal());
 		
 		//End of user code
 	}
 	/**
-	 * Test method for  getBook(Integer _id).
-	 * see {@link Library#getBook( Integer)}
+	 * Test method for  getBook(  Integer _id).
+	 * see {@link Library#getBook(   Integer)}
 	 * @throws Exception
 	 */
 	@Test

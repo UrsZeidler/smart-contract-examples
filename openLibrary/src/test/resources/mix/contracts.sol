@@ -2,10 +2,11 @@
 *
 *(c) Urs Zeidler 2016
 */
-
+pragma solidity ^0.4.0;
 /*
 * (c) Urs Zeidler
 */
+
 
 /*
 * A library can borrow books to registered users.
@@ -13,6 +14,7 @@
 contract Library {
     enum UserState { unknown,registered,disabled }
     enum Bookstate { unknown,available,borrowed,disabled }
+    
     
     struct LibraryUsers {
     	UserState userState;
@@ -29,7 +31,7 @@ contract Library {
     	address currentOwner;
     }
 
-	uint public userCount;
+	uint public userCount=1;
 	uint public activeUserCount;
 	uint public bookCount;
 	uint public activeBooksCount;
@@ -47,13 +49,13 @@ contract Library {
 	modifier onlyEmployee
 	{
 	    if(!employees[msg.sender]) throw;
-	    _
+	    _;
 	}
 	
 	modifier onlyManager
 	{
 	    if(!managers[msg.sender]) throw;
-	    _
+	    _;
 	}
 	
 	/*
@@ -148,13 +150,13 @@ contract Library {
 	function registerUser(address _address,string _name) public  onlyEmployee  {
 		//Start of user code Library.function.registerUser_address_string
 		if(usersAdresses[_address]!=0) return;
-		userCount++;
-		activeUserCount++;
 		  
 		usersAdresses[_address] = userCount;
 		users[userCount].userState = UserState.registered;
 		users[userCount].userId = userCount;
 		users[userCount].userName = _name;
+		userCount++;
+		activeUserCount++;
 		//End of user code
 	}
 	
@@ -224,14 +226,16 @@ contract Library {
 		//Start of user code Library.function.borrowBook_uint_address
 		  if(id>bookCount) throw;		  
 		  if(books[id].bookState != Bookstate.available) throw;
-		  if(usersAdresses[_address]==0x00) return;
+//		  if(usersAdresses[_address]==0x00) return;
 		  
 		  uint uid = usersAdresses[_address];
-		  if(users[uid].userState!=UserState.registered) throw;
+		  //if(users[uid].userState!=UserState.registered) throw;
 		  
+		  LibraryUsers user = users[uid];
+		  users[uid].borrowedBooksCount++;
+		  users[uid].borrowedBooks.push(id);
 		  books[id].bookState = Bookstate.borrowed;
 		  books[id].currentOwner = _address;
-		  users[uid].borrowedBooksCount++;
 		  BookSate(id,uint(Bookstate.borrowed));
 		  //users[uid].borrowedBooks push id;
 		 
@@ -247,10 +251,10 @@ contract Library {
 	*/
 	function returnBook(uint id,address _address) public  onlyEmployee  {
 		//Start of user code Library.function.returnBook_uint_address
-		  if(id>bookCount) throw;		  
-		  if(books[id].bookState != Bookstate.borrowed) throw;
-		  if(usersAdresses[_address]==0) throw;
-		  if(books[id].currentOwner != _address) throw;
+//		  if(id>bookCount) throw;		  
+//		  if(books[id].bookState != Bookstate.borrowed) throw;
+//		  if(usersAdresses[_address]==0) throw;
+//		  if(books[id].currentOwner != _address) throw;
 		  
 		  uint uid = usersAdresses[_address];
 		  if(users[uid].userState!=UserState.registered) throw;
@@ -273,6 +277,28 @@ contract Library {
 	}
 	
 	// Start of user code Library.operations
+	
+	/**
+	*  getBookForUser
+	*/
+	function getBookForUser(uint id) public constant returns (uint[]){
+		return users[id].borrowedBooks;
+	}
+	
+	/**
+	*  getBorrowedBooksCount
+	*/
+	function getBorrowedBooksCount(uint id) public constant returns (uint){
+		return users[id].borrowedBooksCount;
+	}
+	
+	/**
+	*  getUserName
+	*/
+	function getUserName(uint id) public constant returns (string _name){
+		_name = users[id].userName;
+		return _name;
+	}
 	// End of user code
 }
 

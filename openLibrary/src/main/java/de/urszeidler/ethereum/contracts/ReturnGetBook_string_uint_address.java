@@ -1,16 +1,18 @@
 package de.urszeidler.ethereum.contracts;
 
+import de.urszeidler.ethereum.contracts.Library.Bookstate;
+
 /**
- * The return value for the function getBook(Integer _id).
+ * The return value for the function getBook(  Integer _id).
  *
- * see {@link Library#getBook( Integer)}
+ * see {@link Library#getBook(   Integer)}
  */
 public class ReturnGetBook_string_uint_address{
-	private String name;
-	private Integer state;
-	private String currentOwner;
+	private   String name;
+	private   Bookstate state;
+	private   String currentOwner;
 
-	public ReturnGetBook_string_uint_address(String name,Integer state,String currentOwner) {
+	public ReturnGetBook_string_uint_address(  String name,  Bookstate state,  String currentOwner) {
 		super();
 		this.name = name;
 		this.state = state;
@@ -21,7 +23,7 @@ public class ReturnGetBook_string_uint_address{
 	 * Getter for name.
 	 * @return
 	 */
-	public String getName(){
+	public   String getName(){
 		return name;
 	}
 
@@ -29,7 +31,7 @@ public class ReturnGetBook_string_uint_address{
 	 * Getter for state.
 	 * @return
 	 */
-	public Integer getState(){
+	public   Bookstate getState(){
 		return state;
 	}
 
@@ -37,7 +39,7 @@ public class ReturnGetBook_string_uint_address{
 	 * Getter for currentOwner.
 	 * @return
 	 */
-	public String getCurrentOwner(){
+	public   String getCurrentOwner(){
 		return currentOwner;
 	}
 
