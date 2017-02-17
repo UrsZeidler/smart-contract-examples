@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="de.urszeidler.eclipse.solidity.laucher.core.launch.uml2solidity">
+<stringAttribute key="COMBINED_JSON_OPTIONS" value="abi,bin"/>
+<booleanAttribute key="COMPILER_ASM" value="false"/>
+<booleanAttribute key="COMPILER_ASM_JSON" value="false"/>
+<booleanAttribute key="COMPILER_AST" value="false"/>
+<booleanAttribute key="COMPILER_AST_JSON" value="false"/>
+<booleanAttribute key="COMPILER_BIN" value="false"/>
+<booleanAttribute key="COMPILER_BIN_RUNTIME" value="false"/>
+<booleanAttribute key="COMPILER_DEVDOC" value="false"/>
+<booleanAttribute key="COMPILER_FORMAL" value="false"/>
+<booleanAttribute key="COMPILER_HASHES" value="false"/>
+<booleanAttribute key="COMPILER_INTERFACT" value="false"/>
+<booleanAttribute key="COMPILER_OPCODE" value="false"/>
+<booleanAttribute key="COMPILER_OPTIMIZE" value="false"/>
+<stringAttribute key="COMPILER_PROGRAMM" value="/home/urs/etc/solidity-compiler/0.4.8/solc"/>
+<stringAttribute key="COMPILER_TARGET" value="bin"/>
+<booleanAttribute key="COMPILER_USERDOC" value="false"/>
+<booleanAttribute key="COMPILE_CONTRACTS" value="false"/>
+<stringAttribute key="CONTRACT_FILE_HEADER" value="/*&#10;*&#10;*&#10;*/"/>
+<booleanAttribute key="GENERATE_ABI" value="false"/>
+<stringAttribute key="GENERATE_ABI_TARGET" value="mix/abi"/>
+<booleanAttribute key="GENERATE_CONTRACT_FILES" value="true"/>
+<booleanAttribute key="GENERATE_HTML" value="false"/>
+<booleanAttribute key="GENERATE_JAVA_INTERFACE" value="true"/>
+<booleanAttribute key="GENERATE_JAVA_NONBLOCKING" value="true"/>
+<booleanAttribute key="GENERATE_JAVA_TESTS" value="true"/>
+<booleanAttribute key="GENERATE_JS_CONTROLLER" value="false"/>
+<stringAttribute key="GENERATE_JS_CONTROLLER_TARGET" value="/openLibrary/src/main/resources/mix"/>
+<booleanAttribute key="GENERATE_JS_TEST_CONTROLLER" value="false"/>
+<stringAttribute key="GENERATE_JS_TEST_TARGET" value="/openLibrary/src/main/resources/mix/test"/>
+<booleanAttribute key="GENERATE_MARKDOWN" value="true"/>
+<booleanAttribute key="GENERATE_MIX" value="false"/>
+<booleanAttribute key="GENERATE_WEB3" value="false"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_address" value="org.adridadou.ethereum.values.EthAddress"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_bool" value="Boolean"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_byte" value="Byte"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_bytes32" value="Byte[]"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_int" value="Integer"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_string" value="String"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint" value="Integer"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint256" value="Integer"/>
+<stringAttribute key="GENERATION_JAVA_INTERFACE_PACKAGE_PREFIX" value="de.urszeidler.ethereum"/>
+<stringAttribute key="GENERATION_JAVA_INTERFACE_TARGET" value="/openLibrary/src/main/java"/>
+<stringAttribute key="GENERATION_JAVA_TEST_TARGET" value="/openLibrary/src/test/java"/>
+<stringAttribute key="GENERATION_TARGET" value="/openLibrary/src/main/resources/contract"/>
+<stringAttribute key="GENERATION_TARGET_DOC" value="/openLibrary/doc"/>
+<stringAttribute key="JS_FILE_HEADER" value="// file header"/>
+<booleanAttribute key="enable_version" value="true"/>
+<stringAttribute key="modelUri" value="/openLibrary/model/openLibrary.uml"/>
+<stringAttribute key="version_pragma" value="pragma solidity ^0.4.0;"/>
+</launchConfiguration>

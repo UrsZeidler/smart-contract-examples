@@ -1,6 +1,6 @@
 /*
 *
-*(c) Urs Zeidler 2016
+*
 */
 pragma solidity ^0.4.0;
 /*
@@ -41,7 +41,7 @@ contract Library {
 	mapping (uint=>RegisteredBooks)public books;
 	mapping (address=>uint)public usersAdresses;
 	// Start of user code Library.attributes
-	address public owner;
+	//TODO: implement
 	// End of user code
 	
 	modifier onlyEmployee
@@ -72,9 +72,7 @@ contract Library {
 	*/
 	function Library() public   {
 		//Start of user code Library.constructor.Library
-		managers[msg.sender] = true;
-		owner = msg.sender;
-		managerCount++;
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -86,10 +84,7 @@ contract Library {
 	*/
 	function registerManager(address _address) public  onlyManager  {
 		//Start of user code Library.function.registerManager_address
-		if(!managers[_address])
-			managerCount++;
-			
-		managers[_address] = true;
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -101,10 +96,7 @@ contract Library {
 	*/
 	function unregisterManager(address _address) public  onlyManager  {
 		//Start of user code Library.function.unregisterManager_address
-		if(managers[_address])
-			managerCount--;
-			
-		managers[_address] = false;
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -116,10 +108,7 @@ contract Library {
 	*/
 	function registerEmployee(address _address) public  onlyManager  {
 		//Start of user code Library.function.registerEmployee_address
-		if(!employees[_address])
-			employeeCount++;
-			
-		employees[_address] = true;
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -131,10 +120,7 @@ contract Library {
 	*/
 	function unregisterEmployee(address _address) public  onlyManager  {
 		//Start of user code Library.function.unregisterEmployee_address
-		if(employees[_address])
-			employeeCount--;
-		
-		employees[_address] = false;
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -147,14 +133,7 @@ contract Library {
 	*/
 	function registerUser(address _address,string _name) public  onlyEmployee  {
 		//Start of user code Library.function.registerUser_address_string
-		if(usersAdresses[_address]!=0) return;
-		  
-		usersAdresses[_address] = userCount;
-		users[userCount].userState = UserState.registered;
-		users[userCount].userId = userCount;
-		users[userCount].userName = _name;
-		userCount++;
-		activeUserCount++;
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -166,12 +145,7 @@ contract Library {
 	*/
 	function unregisterUser(address _address) public  onlyEmployee  {
 		//Start of user code Library.function.unregisterUser_address
-		if(usersAdresses[_address]==0) return;
-		uint id = usersAdresses[_address];
-		if(users[id].borrowedBooksCount>0) return;  
-		  
-		users[id].userState = UserState.disabled;  
-    	activeUserCount--;
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -183,12 +157,7 @@ contract Library {
 	*/
 	function addBook(string _titel) public  onlyEmployee  {
 		//Start of user code Library.function.addBook_string
-		  books[bookCount].bookTitel = _titel;
-		  books[bookCount].bookId = bookCount;
-		  books[bookCount].bookState = Bookstate.available;
-		  NewBook(bookCount,_titel);
-		  bookCount++;
-		  activeBooksCount++;
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -201,15 +170,7 @@ contract Library {
 	*/
 	function changeBookState(uint id,uint _state) public  onlyEmployee  {
 		//Start of user code Library.function.changeBookState_uint_uint
-		  if(id>bookCount) throw;
-		  
-		  Bookstate s = Bookstate(_state);
-		  if(s==Bookstate.disabled)
-			  activeBooksCount--;
-		  else if (s==Bookstate.available && books[id].bookState==Bookstate.disabled)
-			  activeBooksCount++;
-		  books[id].bookState = s;
-		  BookSate(id,_state);
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -222,21 +183,7 @@ contract Library {
 	*/
 	function borrowBook(uint id,address _address) public  onlyEmployee  {
 		//Start of user code Library.function.borrowBook_uint_address
-		  if(id>bookCount) throw;		  
-		  if(books[id].bookState != Bookstate.available) throw;
-		  if(usersAdresses[_address]==0x00) return;
-		  
-		  uint uid = usersAdresses[_address];
-		  if(users[uid].userState!=UserState.registered) throw;
-		  
-		  LibraryUsers user = users[uid];
-		  users[uid].borrowedBooksCount++;
-		  users[uid].borrowedBooks.push(id);
-		  books[id].bookState = Bookstate.borrowed;
-		  books[id].currentOwner = _address;
-		  BookSate(id,uint(Bookstate.borrowed));
-		 
-		
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -249,18 +196,7 @@ contract Library {
 	*/
 	function returnBook(uint id,address _address) public  onlyEmployee  {
 		//Start of user code Library.function.returnBook_uint_address
-//		  if(id>bookCount) throw;		  
-//		  if(books[id].bookState != Bookstate.borrowed) throw;
-//		  if(usersAdresses[_address]==0) throw;
-//		  if(books[id].currentOwner != _address) throw;
-		  
-		  uint uid = usersAdresses[_address];
-		  if(users[uid].userState!=UserState.registered) throw;
-		  
-		  books[id].bookState = Bookstate.available;
-		  books[id].currentOwner == address(this);
-		  users[uid].borrowedBooksCount--;
-		  BookSate(id,uint(Bookstate.available));
+		//TODO: implement
 		//End of user code
 	}
 	
@@ -268,35 +204,12 @@ contract Library {
 	
 	function getBook(uint _id) public   constant returns (string name,Bookstate state,address currentOwner) {
 		//Start of user code Library.function.getBook_uint
-		name = books[_id].bookTitel;
-		state = books[_id].bookState;
-		currentOwner = books[_id].currentOwner;
+		//TODO: implement
 		//End of user code
 	}
 	
 	// Start of user code Library.operations
-	
-	/**
-	*  getBookForUser
-	*/
-	function getBookForUser(uint id) public constant returns (uint[]){
-		return users[id].borrowedBooks;
-	}
-	
-	/**
-	*  getBorrowedBooksCount
-	*/
-	function getBorrowedBooksCount(uint id) public constant returns (uint){
-		return users[id].borrowedBooksCount;
-	}
-	
-	/**
-	*  getUserName
-	*/
-	function getUserName(uint id) public constant returns (string _name){
-		_name = users[id].userName;
-		return _name;
-	}
+	//TODO: implement
 	// End of user code
 }
 
