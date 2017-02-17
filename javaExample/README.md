@@ -1,6 +1,6 @@
 ## java generation example
 
-This is a simple example how to model and use the generated java code of [uml2solidity](https://github.com/UrsZeidler/uml2solidity) the java code uses the [eth-contract-api](https://github.com/adridadou/eth-contract-api) to access the contract code. A detailed description for the generated code is [here](https://github.com/UrsZeidler/uml2solidity/wiki/JavaCode).
+This is a simple example how to model and use the generated java code of [uml2solidity](https://github.com/UrsZeidler/uml2solidity). The java code uses the [eth-contract-api](https://github.com/adridadou/eth-contract-api) to access the contract code. A detailed description for the generated code is [here](https://github.com/UrsZeidler/uml2solidity/wiki/JavaCode).
 
 The _de.urszeidler.ethereum.javaExamples.contracts_ package contains the generated interfaces and the tests describes how to use them.
 
