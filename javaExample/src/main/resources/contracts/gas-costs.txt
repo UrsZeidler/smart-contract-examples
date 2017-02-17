@@ -1,0 +1,71 @@
+
+======= ContractExample =======
+Gas estimation:
+construction:
+   [???] + 409600 = [???]
+external:
+   creator():	287
+   text():	[???]
+   changeState(uint8):	20351
+   isInState():	[???]
+   contractData():	[???]
+   setNumber(uint256):	20282
+   number():	361
+   contractState():	457
+   changeLocked(bool):	20457
+   locked():	475
+   throwIfLocked():	[???]
+   getNumber():	480
+internal:
+
+======= ExampleToken =======
+Gas estimation:
+construction:
+   40449 + 230000 = 270449
+external:
+   totalSupply():	238
+   transferFrom(address,address,uint256):	40877
+   accountsBalance(address):	389
+   balanceOf(address):	439
+   totalTokens():	317
+   transfer(address,uint256,bool):	40677
+internal:
+
+======= JavaEventExample =======
+Gas estimation:
+construction:
+   127 + 89400 = 89527
+external:
+   raiseEvent(string):	[???]
+   eventCount():	233
+internal:
+
+======= JavaEventExample1 =======
+Gas estimation:
+construction:
+   163 + 127200 = 127363
+external:
+   raiseEvent2():	2791
+   raiseEvent(string):	[???]
+   eventCount():	255
+internal:
+
+======= JavaPayableExample =======
+Gas estimation:
+construction:
+   145 + 105200 = 105345
+external:
+   amounts(address):	327
+   recieve():	20282
+   sendBack():	[???]
+internal:
+
+======= JavaStructExample =======
+Gas estimation:
+construction:
+   182 + 144200 = 144382
+external:
+   structCount():	211
+   testStructs(uint256):	[???]
+   addStruct(uint256,string):	[???]
+internal:
