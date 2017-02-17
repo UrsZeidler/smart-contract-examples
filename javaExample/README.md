@@ -294,6 +294,8 @@ public class ContractExampleTest extends AbstractContractTest{
 
 ### JavaStructExample
 
+The java struct example shows how to use structs in the java code.
+
 ```javascript
 contract JavaStructExample {
     
@@ -413,7 +415,9 @@ public class JavaStructExampleTest extends AbstractContractTest{
 }
 ``` 
 
-### JavaStructExample
+### JavaEventExample
+
+The event examples show how to subscribe to events and how to receive them. Note that not all of the blockchain implementations supports events.
 
 ```javascript
 contract JavaEventExample {
@@ -464,6 +468,7 @@ contract JavaEventExample1 is JavaEventExample {
 	// End of user code
 }
 ``` 
+The corresponding java interface:
 
 ```java 
 public interface JavaEventExample{
@@ -491,6 +496,9 @@ public interface JavaEventExample1 extends JavaEventExample{
 	//End of user code
 }
 ```
+
+And the test code :
+Note to subscribe with a smart contract event we use the generated `ContractsDeployer´.
 
 ```java 
 /**
@@ -526,24 +534,7 @@ public class JavaEventExampleTest extends AbstractContractTest{
 		//End of user code
 	}
 
-
-	/**
-	 * Create a new fixture by deploying the contract source.
-	 * @throws Exception
-	 */
-	protected void createFixture() throws Exception {
-		//Start of user code createFixture
-		CompiledContract compiledContract = getCompiledContract();
-		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
-        fixtureAddress = address.get();
-		setFixture(ethereum.createContractProxy(compiledContract, fixtureAddress, sender, JavaEventExample.class));
-		//End of user code
-	}
-
-	protected void setFixture(JavaEventExample f) {
-		this.fixture = f;
-	}
-
+....
 
 	/**
 	 * Test method for  raiseEvent(String _text).
@@ -574,6 +565,7 @@ public class JavaEventExampleTest extends AbstractContractTest{
 	//End of user code
 }
 ```
+Note that the JavaEventExample1Test extends the JavaEventExampleTest.
 
 ```java
 /**
@@ -582,50 +574,7 @@ public class JavaEventExampleTest extends AbstractContractTest{
  */
 public class JavaEventExample1Test extends JavaEventExampleTest{
 
-	private JavaEventExample1 fixture;
-	// Start of user code JavaEventExample1Test.attributes
-	//TODO: add custom attributes
-
-	// End of user code
-
-	@Override
-	protected String getContractName() {
-		return "JavaEventExample1";
-	}
-
-	/**
-	 * Read the contract from the file and deploys the contract code.
-	 * @throws Exception
-	 */
-	@Before
-	public void prepareTest() throws Exception {
-		//Start of user code prepareTest
-        File contractSrc = new File(this.getClass().getResource("/contracts/contracts.sol").toURI());
-        contractSource = SoliditySource.from(contractSrc);
-		createFixture();
-		//End of user code
-	}
-
-
-	/**
-	 * Create a new fixture by deploying the contract source.
-	 * @throws Exception
-	 */
-	protected void createFixture() throws Exception {
-		//Start of user code createFixture
-		deployer = new ContractsDeployer(ethereum);
-		CompiledContract compiledContract = getCompiledContract();
-		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
-        fixtureAddress = address.get();
-		setFixture(ethereum.createContractProxy(compiledContract, fixtureAddress, sender, JavaEventExample1.class));
-		//End of user code
-	}
-
-	protected void setFixture(JavaEventExample1 f) {
-		this.fixture = f;
-		super.setFixture(f);
-	}
-
+....
 
 	/**
 	 * Test method for  raiseEvent2().
@@ -672,3 +621,111 @@ public class JavaEventExample1Test extends JavaEventExampleTest{
 	//End of user code
 }
 ```
+
+### JavaPayableExample
+
+The payable examples shows how to send ether to a contract. Note that the payable modifier comes from the imported solidity type model and is not modeled in our model. 
+
+```javascript
+contract JavaPayableExample {
+
+	mapping (address=>uint256)public amounts;
+	// Start of user code JavaPayableExample.attributes
+	// End of user code
+	
+	
+	
+	function sendBack() public   {
+		//Start of user code JavaPayableExample.function.sendBack
+		uint a = amounts[msg.sender];
+		amounts[msg.sender] = 0;
+		msg.sender.send(a);
+		//End of user code
+	}
+	
+	
+	
+	function recieve() public  payable  {
+		//Start of user code JavaPayableExample.function.recieve
+		amounts[msg.sender] += msg.value;
+		
+		//End of user code
+	}
+	
+	// Start of user code JavaPayableExample.operations
+	//TODO: implement
+	// End of user code
+}
+```
+
+The corresponding interface need to return a Payable.
+
+```java
+public interface JavaPayableExample{
+	
+	java.math.BigInteger amounts(org.adridadou.ethereum.values.EthAddress key);
+
+	
+	java.util.concurrent.CompletableFuture<Void> sendBack();
+	
+	Payable<Void> recieve();
+
+	//Start of user code additional_methods
+
+	//End of user code
+}
+```
+And the test shows how to use the Payable:
+
+```java
+/**
+ * Test for the JavaPayableExample contract.
+ *
+ */
+public class JavaPayableExampleTest extends AbstractContractTest{
+
+....
+
+	/**
+	 * Test method for  sendBack().
+	 * see {@link JavaPayableExample#sendBack()}
+	 * @throws Exception
+	 */
+	@Test
+	public void testSendBack() throws Exception {
+		//Start of user code testSendBack
+		assertEquals(BigInteger.ZERO, ethereum.getBalance(fixtureAddress).inWei());
+		EthValue value = EthValue.wei(10000L);
+		fixture.recieve().with(value).get();
+		EthValue balance = ethereum.getBalance(fixtureAddress);
+		assertEquals(value,balance);
+		assertEquals(10000L, fixture.amounts(sender.getAddress()).longValue());
+		
+		//after we send the ether we want it back
+		EthValue balance2 = ethereum.getBalance(sender);
+		fixture.sendBack().get();
+		int intValue = fixture.amounts(senderAddress).intValue();
+		assertEquals(0, intValue);
+		
+		assertEquals(balance2.plus(value), ethereum.getBalance(sender));
+		//End of user code
+	}
+	/**
+	 * Test method for  recieve().
+	 * see {@link JavaPayableExample#recieve()}
+	 * @throws Exception
+	 */
+	@Test
+	public void testRecieve() throws Exception {
+		//Start of user code testRecieve
+		EthValue value = EthValue.wei(10000L);
+		fixture.recieve().with(value).get();
+		EthValue balance = ethereum.getBalance(fixtureAddress);
+		assertEquals(value,balance);
+		//End of user code
+	}
+	//Start of user code customTests    
+	//End of user code
+}
+```
+
