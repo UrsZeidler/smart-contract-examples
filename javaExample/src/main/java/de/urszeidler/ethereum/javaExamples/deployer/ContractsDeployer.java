@@ -495,4 +495,64 @@ public class ContractsDeployer {
 	}
 
 
+	/**
+	 * Deploys a 'JavaOwnerExample' on the blockchain.
+	 * 
+	 * @param sender
+	 *            the sender address
+	 * @return the address of the deployed contract
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
+	public CompletableFuture<EthAddress> deployJavaOwnerExample(EthAccount sender) throws InterruptedException, ExecutionException {
+		CompiledContract compiledContract = compiledContractJavaOwnerExample();
+		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
+		return address;
+	}
+
+	/**
+	 * Deploys a 'JavaOwnerExample' on the blockchain and wrapps the contcat proxy.
+	 *  
+	 * @param sender the sender address
+	 * @return the contract interface
+	 */
+	public DeployDuo<JavaOwnerExample> createJavaOwnerExample(EthAccount sender) throws IOException, InterruptedException, ExecutionException {
+		CompletableFuture<EthAddress> address = deployJavaOwnerExample(sender);
+		return new EthereumInstance.DeployDuo<JavaOwnerExample>(address.get(), createJavaOwnerExampleProxy(sender, address.get()));
+	}
+
+	/**
+	 * Create a proxy for a deployed 'JavaOwnerExample' contract.
+	 *  
+	 * @param sender the sender address
+	 * @param address the address of the contract
+	 * @return the contract interface
+	 */
+	public JavaOwnerExample createJavaOwnerExampleProxy(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
+		CompiledContract compiledContract = compiledContractJavaOwnerExample();
+		JavaOwnerExample javaownerexample = ethereum.createContractProxy(compiledContract, address, sender, JavaOwnerExample.class);
+		return javaownerexample;
+	}
+
+	/**
+	 * Return the compiled contract for the contract 'JavaOwnerExample', when in source the contract code is compiled.
+	 * @return the compiled contract for 'JavaOwnerExample'.
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
+	public CompiledContract compiledContractJavaOwnerExample() throws InterruptedException, ExecutionException {
+		CompiledContract compiledContract = null;
+		if (compiledContracts == null){
+			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
+			compiledContract = contracts.get("JavaOwnerExample");
+		} else {
+			ContractMetadata contractMetadata = compiledContracts.contracts.get("JavaOwnerExample");
+			if (contractMetadata == null)
+				throw new IllegalArgumentException("Contract code for 'JavaOwnerExample' not found");
+			compiledContract = CompiledContract.from(null, "JavaOwnerExample", contractMetadata);
+		}
+		return compiledContract;
+	}
+
+
 }

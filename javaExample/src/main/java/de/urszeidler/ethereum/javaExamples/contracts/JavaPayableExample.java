@@ -26,6 +26,14 @@ public interface JavaPayableExample{
 	* This method accept ether as it has the payable modifier.
 	**/
 	org.adridadou.ethereum.values.Payable<Void> recieve();
+	/**
+	* Relay the amount to the _to parameter.
+	* 
+	* @param _to -
+	* @return
+	*  -
+	**/
+	org.adridadou.ethereum.values.Payable<Boolean> relay(org.adridadou.ethereum.values.EthAddress _to);
 
 	//Start of user code additional_methods
 

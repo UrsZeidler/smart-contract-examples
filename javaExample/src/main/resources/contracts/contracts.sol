@@ -357,7 +357,7 @@ contract JavaPayableExample {
 	
 	
 	/*
-	* This method acept ether as it has the payable modifier.
+	* This method accept ether as it has the payable modifier.
 	*/
 	function recieve() public  payable  {
 		//Start of user code JavaPayableExample.function.recieve
@@ -366,7 +366,51 @@ contract JavaPayableExample {
 		//End of user code
 	}
 	
+	
+	/*
+	* Relay the amount to the _to parameter.
+	* 
+	* _to -
+	* returns
+	*  -
+	*/
+	function relay(address _to) public  payable returns (bool ) {
+		//Start of user code JavaPayableExample.function.relay_address
+		return _to.send(msg.value);
+		
+		//End of user code
+	}
+	
 	// Start of user code JavaPayableExample.operations
+	// End of user code
+}
+
+
+contract JavaOwnerExample {
+
+	address public owner;
+	// Start of user code JavaOwnerExample.attributes
+	// End of user code
+	
+	modifier onlyOwner
+	{
+	    if(msg.sender!=owner) throw;
+	    _;
+	}
+	
+	
+	function JavaOwnerExample() public   {
+		//Start of user code JavaOwnerExample.constructor.JavaOwnerExample
+		owner = msg.sender;
+		//End of user code
+	}
+	
+	// setOwner setter for the field owner
+	function setOwner (address aOwner) onlyOwner() {
+		owner = aOwner;
+	}
+	
+	// Start of user code JavaOwnerExample.operations
 	// End of user code
 }
 

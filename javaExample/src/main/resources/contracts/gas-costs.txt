@@ -52,13 +52,23 @@ external:
    eventCount():	255
 internal:
 
+======= JavaOwnerExample =======
+Gas estimation:
+construction:
+   20245 + 89400 = 109645
+external:
+   setOwner(address):	20390
+   owner():	281
+internal:
+
 ======= JavaPayableExample =======
 Gas estimation:
 construction:
-   145 + 105200 = 105345
+   175 + 134600 = 134775
 external:
    amounts(address):	327
-   recieve():	20282
+   relay(address):	[???]
+   recieve():	20304
    sendBack():	[???]
 internal:
 

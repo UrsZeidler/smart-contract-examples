@@ -238,6 +238,26 @@ The contract stores the value in the amount mapping.</body>
           <body>This method accept ether as it has the payable modifier.</body>
         </ownedComment>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_pAjfAPbkEeaD-OJcsgEaYw" name="relay">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_DX7bYPblEeaD-OJcsgEaYw">
+          <body>Relay the amount to the _to parameter.</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wq57kPbkEeaD-OJcsgEaYw" name="_to">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_K5qHcPblEeaD-OJcsgEaYw" direction="return">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_LedxoKKuEeWvY9GWZZMftw"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_RUayIPbqEeaD-OJcsgEaYw" name="JavaOwnerExample">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_T7x18PbqEeaD-OJcsgEaYw" name="onlyOwner">
+        <specification xmi:type="uml:LiteralString" xmi:id="_T7_4YPbqEeaD-OJcsgEaYw" name="constraintSpec" value="if(msg.sender!=owner) throw;"/>
+      </ownedRule>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_p8abkPbqEeaD-OJcsgEaYw" name="owner">
+        <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Q_yUAPbsEeaD-OJcsgEaYw" name="JavaOwnerExample"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Q29hguxfEeaG14CB8JwmSw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Syk5oOxfEeaG14CB8JwmSw" source="PapyrusVersion">
@@ -296,4 +316,14 @@ The contract stores the value in the amount mapping.</body>
   <Contracts:Function xmi:id="_7RCqUPYUEeaciq09HTvT3w" base_Operation="_4JGB8PYUEeaciq09HTvT3w"/>
   <Contracts:Function xmi:id="_K-PCUPYdEeaciq09HTvT3w" base_Operation="_IX__4PYdEeaciq09HTvT3w"/>
   <Contracts:Function xmi:id="_6p6p0PYdEeaciq09HTvT3w" base_Operation="_vwzyQPYdEeaciq09HTvT3w" returnType="constant"/>
+  <Contracts:Function xmi:id="_yry1QPbkEeaD-OJcsgEaYw" base_Operation="_pAjfAPbkEeaD-OJcsgEaYw">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_0cVl0PbkEeaD-OJcsgEaYw" parameter="">
+      <modifier xmi:type="uml:Constraint" href="pathmap://UML_LIBRARIES/solidity_types.uml#_YgZ80JODEeamY7dTCoYboQ"/>
+    </modifiers>
+  </Contracts:Function>
+  <Contracts:Contract xmi:id="_fUKDcPbqEeaD-OJcsgEaYw" base_Class="_RUayIPbqEeaD-OJcsgEaYw"/>
+  <Contracts:GetterSetter xmi:id="_uqxoIPbqEeaD-OJcsgEaYw" getter="false" base_Property="_p8abkPbqEeaD-OJcsgEaYw">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_w67F0PbqEeaD-OJcsgEaYw" parameter="" modifier="_T7x18PbqEeaD-OJcsgEaYw"/>
+  </Contracts:GetterSetter>
+  <Contracts:Constructor xmi:id="_TP2SIPbsEeaD-OJcsgEaYw" base_Operation="_Q_yUAPbsEeaD-OJcsgEaYw"/>
 </xmi:XMI>

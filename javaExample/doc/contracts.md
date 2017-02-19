@@ -13,6 +13,8 @@
 
 * [JavaPayableExample](#contract-javapayableexample)
 
+* [JavaOwnerExample](#contract-javaownerexample)
+
 
 ## contract: JavaEventExample
 
@@ -285,6 +287,7 @@ _totalTokens|uint256|
     overview:
 	function sendBack() public  
 	function recieve() public  payable 
+	function relay(address _to) public  payable returns (bool )
 
 
 
@@ -309,7 +312,39 @@ This send the ether back.
 
 #### JavaPayableExample.recieve() public  payable 
 
-This method acept ether as it has the payable modifier.
+This method accept ether as it has the payable modifier.
+
+
+
+#### JavaPayableExample.relay(address _to) public  payable returns (bool )
+
+Relay the amount to the _to parameter.
+
+
+name|type|direction|doc
+----|----|----|----
+_to|address|in|
+|bool|return|
+
+
+## contract: JavaOwnerExample
+
+    overview:
+	constructor JavaOwnerExample()
+
+
+
+
+
+
+#### JavaOwnerExample properties
+
+name|type|visiblity|delegate|doc
+----|----|----|----|----
+owner|address|public||
+-
+
+#### JavaOwnerExample.JavaOwnerExample() public  
 
 
 

@@ -11,6 +11,7 @@ JavaEventExampleTest.class
 ,ContractExampleTest.class
 ,ExampleTokenTest.class
 ,JavaPayableExampleTest.class
+,JavaOwnerExampleTest.class
 //Start of user code customTests    
 //End of user code
 })
