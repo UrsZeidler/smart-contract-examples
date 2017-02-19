@@ -5,26 +5,51 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/solidity_types.uml#_N0uwUKKsEeWvY9GWZZMftw"/>
     </packageImport>
     <packagedElement xmi:type="uml:Class" xmi:id="_8VkJsPHzEeabeoyNZ_89NA" name="JavaEventExample">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_2FbccPaVEeaJLqXaYr5KiA">
+        <body>Test the event system.</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_lU-ZkPIMEeabeoyNZ_89NA" name="eventCount">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6-XhUPaVEeaJLqXaYr5KiA">
+          <body>Count the events raised by 'raiseEvent'.</body>
+        </ownedComment>
         <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_DNaV0PH1EeabeoyNZ_89NA" name="Event1">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_-u3XcPaVEeaJLqXaYr5KiA">
+          <body>A test event with parameters.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_dsLcMPIMEeabeoyNZ_89NA" name="text">
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_jIBZ0PIMEeabeoyNZ_89NA" name="index">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_V523YPaWEeaJLqXaYr5KiA">
+            <body>The index.</body>
+          </ownedComment>
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_GIauYPH1EeabeoyNZ_89NA" name="raiseEvent">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_FqvkcPaWEeaJLqXaYr5KiA">
+          <body>The method that raises the events.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_a_CggPIMEeabeoyNZ_89NA" name="_text">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RdDU4PaWEeaJLqXaYr5KiA">
+            <body>A text for the event.</body>
+          </ownedComment>
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_DJG6EPH0EeabeoyNZ_89NA" name="JavaStructExample">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_nXgl8PH0EeabeoyNZ_89NA" name="testStructs" type="_Q8bgAPH0EeabeoyNZ_89NA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_v4pgkPH0EeabeoyNZ_89NA" name="structCount">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_v4pgkPH0EeabeoyNZ_89NA" name="lastStruct" type="_Q8bgAPH0EeabeoyNZ_89NA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OFW6YPYUEeaciq09HTvT3w" name="structCount">
+        <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_rujz4PYUEeaciq09HTvT3w" name="testStructs1">
+        <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Ty5tMPYuEeaDUJTuD0AYzg" name="structCount1">
         <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_1D5dcPH0EeabeoyNZ_89NA" name="addStruct">
@@ -32,6 +57,11 @@
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_8r2GQPH0EeabeoyNZ_89NA" name="_a2">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_4JGB8PYUEeaciq09HTvT3w" name="addStruct1">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_6bs2YPYXEeaciq09HTvT3w" name="_text">
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
         </ownedParameter>
       </ownedOperation>
@@ -43,23 +73,57 @@
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
         </ownedAttribute>
       </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_a9-LkPYUEeaciq09HTvT3w" name="TestStruct1">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xQ5TsPYXEeaciq09HTvT3w" name="text">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0ABzcPYXEeaciq09HTvT3w" name="time">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7eB2EPYXEeaciq09HTvT3w" name="sender">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+      </nestedClassifier>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_ukFNcPIMEeabeoyNZ_89NA" name="JavaEventExample1">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iMXK0PaWEeaJLqXaYr5KiA">
+        <body>The inheried the event.</body>
+      </ownedComment>
       <generalization xmi:type="uml:Generalization" xmi:id="_1i8dAPIMEeabeoyNZ_89NA" general="_8VkJsPHzEeabeoyNZ_89NA"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_N4Pz8PINEeabeoyNZ_89NA" name="Event2"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_Wvjy4PINEeabeoyNZ_89NA" name="raiseEvent2"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_N4Pz8PINEeabeoyNZ_89NA" name="Event2">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_kNt-kPaWEeaJLqXaYr5KiA">
+          <body>A second event type.</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Wvjy4PINEeabeoyNZ_89NA" name="raiseEvent2">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ol6G0PaWEeaJLqXaYr5KiA">
+          <body>Raises the Event1 and the Event2.</body>
+        </ownedComment>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_AsOlEPL-EeabeoyNZ_89NA" name="ContractExample">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_GthXcPaTEeaJLqXaYr5KiA">
+        <body>Shows the basic features.</body>
+      </ownedComment>
       <ownedRule xmi:type="uml:Constraint" xmi:id="_zGlZUPL-EeabeoyNZ_89NA" name="testmodifier" constrainedElement="_XTvUEPQoEeaGru0f5mHd2g">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_igPbAPaUEeaJLqXaYr5KiA">
+          <body>Throws when locked.</body>
+        </ownedComment>
         <specification xmi:type="uml:LiteralString" xmi:id="_Hwqe4PMDEeabeoyNZ_89NA" name="LiteralString1" value="if(locked) throw;"/>
       </ownedRule>
       <ownedRule xmi:type="uml:Constraint" xmi:id="_5AO2IPQjEeaGru0f5mHd2g" name="stateModifier">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_gwZ1EPaUEeaJLqXaYr5KiA">
+          <body>Throws when the modifier state is not the contract state.</body>
+        </ownedComment>
         <specification xmi:type="uml:LiteralString" xmi:id="_5AVj0PQjEeaGru0f5mHd2g" name="constraintSpec" value="if(_state!=contractState) throw;"/>
       </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_OsmIgPL-EeabeoyNZ_89NA" name="text">
         <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_euHrYPL-EeabeoyNZ_89NA" name="number">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_6TEMcPaTEeaJLqXaYr5KiA">
+          <body>An attribute which uses getter/setter.</body>
+        </ownedComment>
         <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_C53E0PL_EeabeoyNZ_89NA" name="locked">
@@ -75,6 +139,9 @@
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_NdsP8PL_EeabeoyNZ_89NA" name="contractData">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_LLEg0PaTEeaJLqXaYr5KiA">
+          <body>Example for multiple return values.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZwA9MPL_EeabeoyNZ_89NA" name="_text" direction="return">
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
         </ownedParameter>
@@ -89,15 +156,46 @@
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_zwQWgPMAEeabeoyNZ_89NA" name="changeLocked">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_QuOnYPaTEeaJLqXaYr5KiA">
+          <body>Change the intern sate of the contract.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_41GJYPMAEeabeoyNZ_89NA" name="_locked">
           <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_LedxoKKuEeWvY9GWZZMftw"/>
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_O7lvoPQjEeaGru0f5mHd2g" name="changeState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Yl2D4PaTEeaJLqXaYr5KiA">
+          <body>Change the state, also an example for emum as parameter.</body>
+        </ownedComment>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_VI60kPQjEeaGru0f5mHd2g" name="_state" type="_eFh_sPQiEeaGru0f5mHd2g"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_gpTcoPQlEeaGru0f5mHd2g" name="isInState"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_XTvUEPQoEeaGru0f5mHd2g" name="throwIfLocked"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_gpTcoPQlEeaGru0f5mHd2g" name="isInState">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_oPddEPaTEeaJLqXaYr5KiA">
+          <body>Test method for the 'stateModifier' throws if contractState!=ContractState.state1.
+</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_XTvUEPQoEeaGru0f5mHd2g" name="throwIfLocked">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_shU64PaTEeaJLqXaYr5KiA">
+          <body>Test method for the testmodifer. Throws if locked.</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_IX__4PYdEeaciq09HTvT3w" name="returnStateChange">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_SvzhMPYdEeaciq09HTvT3w" name="_creator" direction="return">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g_HfkPYdEeaciq09HTvT3w" name="_time" direction="return">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vwzyQPYdEeaciq09HTvT3w" name="returnLast">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_zmV1wPaTEeaJLqXaYr5KiA">
+          <body>A const function return a single value.</body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_4F7DEPYdEeaciq09HTvT3w" name="_text" direction="return">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_W0LXkKKsEeWvY9GWZZMftw"/>
+        </ownedParameter>
+      </ownedOperation>
       <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_eFh_sPQiEeaGru0f5mHd2g" name="ContractState">
         <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_paP1MPQiEeaGru0f5mHd2g" name="state1"/>
         <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_r6ztcPQiEeaGru0f5mHd2g" name="state2"/>
@@ -122,11 +220,24 @@
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_H9Aw8PREEeaGru0f5mHd2g" name="JavaPayableExample">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_4bdqQPaWEeaJLqXaYr5KiA">
+        <body>An example for the payable modifier. 
+How to send ether to and from the contract.
+The contract stores the value in the amount mapping.</body>
+      </ownedComment>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_8TjqcPRXEeaGru0f5mHd2g" name="amounts">
         <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_C1X20PRGEeaGru0f5mHd2g" name="sendBack"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_IAyy0PRGEeaGru0f5mHd2g" name="recieve"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_C1X20PRGEeaGru0f5mHd2g" name="sendBack">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_OJ5FkPaXEeaJLqXaYr5KiA">
+          <body>This send the ether back.</body>
+        </ownedComment>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_IAyy0PRGEeaGru0f5mHd2g" name="recieve">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_Lr3j8PaXEeaJLqXaYr5KiA">
+          <body>This method accept ether as it has the payable modifier.</body>
+        </ownedComment>
+      </ownedOperation>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Q29hguxfEeaG14CB8JwmSw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Syk5oOxfEeaG14CB8JwmSw" source="PapyrusVersion">
@@ -173,11 +284,16 @@
   <Contracts:Contract xmi:id="_zweUQPRFEeaGru0f5mHd2g" base_Class="_H9Aw8PREEeaGru0f5mHd2g"/>
   <Contracts:Function xmi:id="_KupgMPRGEeaGru0f5mHd2g" base_Operation="_C1X20PRGEeaGru0f5mHd2g"/>
   <Contracts:Function xmi:id="_LtAl4PRGEeaGru0f5mHd2g" base_Operation="_IAyy0PRGEeaGru0f5mHd2g">
-    <modifiers xmi:type="Contracts:Modifier" xmi:id="_Q7tfYPRGEeaGru0f5mHd2g" parameter="">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_Q7tfYPRGEeaGru0f5mHd2g" parameter=" ">
       <modifier xmi:type="uml:Constraint" href="pathmap://UML_LIBRARIES/solidity_types.uml#_YgZ80JODEeamY7dTCoYboQ"/>
     </modifiers>
   </Contracts:Function>
   <Contracts:Mapping xmi:id="_sXmHkPRYEeaGru0f5mHd2g" base_Property="_8TjqcPRXEeaGru0f5mHd2g">
     <value xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_IzVUYKyvEeWQpqJCIBcpzQ"/>
   </Contracts:Mapping>
+  <Contracts:Struct xmi:id="_fMCugPYUEeaciq09HTvT3w" base_Class="_a9-LkPYUEeaciq09HTvT3w"/>
+  <Contracts:Mapping xmi:id="_y8NtYPYUEeaciq09HTvT3w" base_Property="_rujz4PYUEeaciq09HTvT3w" value="_a9-LkPYUEeaciq09HTvT3w"/>
+  <Contracts:Function xmi:id="_7RCqUPYUEeaciq09HTvT3w" base_Operation="_4JGB8PYUEeaciq09HTvT3w"/>
+  <Contracts:Function xmi:id="_K-PCUPYdEeaciq09HTvT3w" base_Operation="_IX__4PYdEeaciq09HTvT3w"/>
+  <Contracts:Function xmi:id="_6p6p0PYdEeaciq09HTvT3w" base_Operation="_vwzyQPYdEeaciq09HTvT3w" returnType="constant"/>
 </xmi:XMI>

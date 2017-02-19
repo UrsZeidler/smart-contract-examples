@@ -40,7 +40,6 @@ public class JavaStructExampleTest extends AbstractContractTest{
 
 	private JavaStructExample fixture;
 	// Start of user code JavaStructExampleTest.attributes
-	//TODO: add custom attributes
 
 	// End of user code
 
@@ -89,14 +88,39 @@ public class JavaStructExampleTest extends AbstractContractTest{
 	@Test
 	public void testAddStruct_uint_string() throws Exception {
 		//Start of user code testAddStruct_uint_string
+		assertEquals(0, fixture.structCount().intValue());
 		fixture.addStruct(1, "Test").get();
 		
 		assertEquals(1, fixture.structCount().intValue());
 		
 		
-		StructTest testStructs = fixture.testStructs(0);
-		assertEquals(1, testStructs._a1.intValue());
-		assertEquals("Test", testStructs._a2);
+		JavaStructExampleTestStruct testStructs = fixture.testStructs(0);
+		assertEquals(1, testStructs.getAttribute1().intValue());
+		assertEquals("Test", testStructs.getAttribute2());
+		
+		JavaStructExampleTestStruct lastStruct = fixture.lastStruct();
+		assertEquals(testStructs, lastStruct);
+		//End of user code
+	}
+	/**
+	 * Test method for  addStruct1(String _text).
+	 * see {@link JavaStructExample#addStruct1( String)}
+	 * @throws Exception
+	 */
+	@Test
+	public void testAddStruct1_string() throws Exception {
+		//Start of user code testAddStruct1_string
+		assertEquals(0, fixture.structCount1().intValue());
+		String text= "test2";
+		fixture.addStruct1(text).get();
+		assertEquals(1, fixture.structCount1().intValue());
+		JavaStructExampleTestStruct1 testStructs1 = fixture.testStructs1(0);
+		assertEquals(text, testStructs1.getText());
+		assertEquals(senderAddress, testStructs1.getSender());
+		
+		System.out.println(testStructs1);
+		
+		//assertEquals(1, fixture.s);
 		//End of user code
 	}
 	//Start of user code customTests    

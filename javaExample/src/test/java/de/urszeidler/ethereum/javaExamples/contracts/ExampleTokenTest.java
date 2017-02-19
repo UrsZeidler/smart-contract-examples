@@ -105,22 +105,28 @@ public class ExampleTokenTest extends AbstractContractTest{
 		assertEquals(1000, fixture.balanceOf(senderAddress).intValue());
 		
 		EthAccount testAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
-		fixture.transfer(testAccount.getAddress(), BigInteger.valueOf(10L), true).get();
-		
+		assertTrue(fixture.transfer(testAccount.getAddress(), BigInteger.valueOf(10L)).get());
 		assertEquals(1000-10, fixture.balanceOf(senderAddress).intValue());
 		assertEquals(10, fixture.balanceOf(testAccount.getAddress()).intValue());
 
 		//End of user code
 	}
 	/**
-	 * Test method for  transfer(org.adridadou.ethereum.values.EthAddress _to,java.math.BigInteger _value,Boolean success).
-	 * see {@link ExampleToken#transfer( org.adridadou.ethereum.values.EthAddress, java.math.BigInteger, Boolean)}
+	 * Test method for  transfer(org.adridadou.ethereum.values.EthAddress _to,java.math.BigInteger _value).
+	 * see {@link ExampleToken#transfer( org.adridadou.ethereum.values.EthAddress, java.math.BigInteger)}
 	 * @throws Exception
 	 */
 	@Test
-	public void testTransfer_address_uint256_bool() throws Exception {
-		//Start of user code testTransfer_address_uint256_bool
-		fail("not implemented");//TODO: implement this
+	public void testTransfer_address_uint256() throws Exception {
+		//Start of user code testTransfer_address_uint256
+		EthAccount testAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+		assertEquals(1000, fixture.balanceOf(senderAddress).intValue());
+		
+		BigInteger value = BigInteger.valueOf(10L);
+		assertTrue("The transfer function should return true.", fixture.transfer(testAccount.getAddress(), value).get());
+		assertEquals("We have send 10.",10, fixture.balanceOf(testAccount.getAddress()).intValue());
+		assertEquals(1000-10, fixture.balanceOf(senderAddress).intValue());
+
 		//End of user code
 	}
 	/**

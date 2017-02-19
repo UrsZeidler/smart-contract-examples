@@ -6,6 +6,12 @@ The _de.urszeidler.ethereum.javaExamples.contracts_ package contains the generat
 
 Lookup the [interfaces](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample/src/main/java/de/urszeidler/ethereum/javaExamples/contracts) and the [test code](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample/src/test/java/de/urszeidler/ethereum/javaExamples/contracts) in the repository.
 
+#### toc
+
+* [ContractExample](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample#contractexample)
+* [JavaStructExample](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample#javastructexample)
+* [JavaEventExample](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample#javaeventexample)
+* [JavaPayableExample](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample#javapayableexample)
  
 The model to generate the code looks like this:
 
@@ -20,6 +26,9 @@ Contains the basic features of a smart contract like fields enums and modifiers.
 The contract code:
 
 ```javascript
+/*
+* Shows the basic features.
+*/
 contract ContractExample {
     enum ContractState { state1,state2,state3 }
 
@@ -29,18 +38,17 @@ contract ContractExample {
 	address public creator;
 	ContractState public contractState;
 	// Start of user code ContractExample.attributes
-	//TODO: implement
 	// End of user code
-	
-	modifier testmodifier
-	{
-	    if(locked) throw;
-	    _;
-	}
 	
 	modifier stateModifier(ContractState _state)
 	{
 	    if(_state!=contractState) throw;
+	    _;
+	}
+	
+	modifier testmodifier
+	{
+	    if(locked) throw;
 	    _;
 	}
 	
@@ -55,7 +63,14 @@ contract ContractExample {
 	}
 	
 	
-	
+	/*
+	* Example for multiple return values.
+	* returns
+	* _text -
+	* _owner -
+	* _number -
+	* _locked -
+	*/
 	function contractData() public   constant returns (string _text,address _owner,uint _number,bool _locked) {
 		//Start of user code ContractExample.function.contractData
 		return (text,creator,number,locked);
@@ -63,7 +78,11 @@ contract ContractExample {
 	}
 	
 	
-	
+	/*
+	* Change the intern sate of the contract.
+	* 
+	* _locked -
+	*/
 	function changeLocked(bool _locked) public   {
 		//Start of user code ContractExample.function.changeLocked_bool
 		locked = _locked;
@@ -71,7 +90,11 @@ contract ContractExample {
 	}
 	
 	
-	
+	/*
+	* Change the state, also an example for emum as parameter.
+	* 
+	* _state -
+	*/
 	function changeState(ContractState _state) public   {
 		//Start of user code ContractExample.function.changeState_ContractState
 		contractState = _state;
@@ -79,7 +102,9 @@ contract ContractExample {
 	}
 	
 	
-	
+	/*
+	* Test method for the 'stateModifier' throws if contractState!=ContractState.state1.
+	*/
 	function isInState() public  stateModifier(ContractState.state1)  {
 		//Start of user code ContractExample.function.isInState
 		text = "inState1";
@@ -87,10 +112,34 @@ contract ContractExample {
 	}
 	
 	
-	
+	/*
+	* Test method for the testmodifer. Throws if locked.
+	*/
 	function throwIfLocked() public  testmodifier  {
 		//Start of user code ContractExample.function.throwIfLocked
 		text = "not Locked";
+		//End of user code
+	}
+	
+	
+	
+	function returnStateChange() public  returns (address _creator,uint _time) {
+		//Start of user code ContractExample.function.returnStateChange
+		locked = !locked;
+		_creator = creator;
+		_time = block.number;
+		//End of user code
+	}
+	
+	
+	/*
+	* A const function return a single value.
+	* returns
+	* _text -
+	*/
+	function returnLast() public   constant returns (string _text) {
+		//Start of user code ContractExample.function.returnLast
+		return text;
 		//End of user code
 	}
 	
@@ -104,7 +153,6 @@ contract ContractExample {
 	}
 	
 	// Start of user code ContractExample.operations
-	//TODO: implement
 	// End of user code
 }
 ```
@@ -112,11 +160,16 @@ contract ContractExample {
 Leads to the following java interface:
 
 ```java         
+/**
+* Shows the basic features.
+**/
 public interface ContractExample{
     enum ContractState { state1,state2,state3 }
 	
 	String text();
-	
+	/**
+	* An attribute which uses getter/setter.
+	**/
 	Integer number();
 	
 	Boolean locked();
@@ -125,16 +178,43 @@ public interface ContractExample{
 	
 	ContractState contractState();
 
-	
+	/**
+	* Example for multiple return values.
+	* @return
+	* _text -
+	* _owner -
+	* _number -
+	* _locked -
+	**/
 	ReturnContractData_string_address_uint_bool contractData();
-	
+	/**
+	* Change the intern sate of the contract.
+	* 
+	* @param _locked -
+	**/
 	java.util.concurrent.CompletableFuture<Void> changeLocked(Boolean _locked);
-	
+	/**
+	* Change the state, also an example for emum as parameter.
+	* 
+	* @param _state -
+	**/
 	java.util.concurrent.CompletableFuture<Void> changeState(ContractState _state);
-	
+	/**
+	* Test method for the 'stateModifier' throws if contractState!=ContractState.state1.
+	**/
 	java.util.concurrent.CompletableFuture<Void> isInState();
-	
+	/**
+	* Test method for the testmodifer. Throws if locked.
+	**/
 	java.util.concurrent.CompletableFuture<Void> throwIfLocked();
+	
+	java.util.concurrent.CompletableFuture<ReturnReturnStateChange_address_uint> returnStateChange();
+	/**
+	* A const function return a single value.
+	* @return
+	* _text -
+	**/
+	String returnLast();
 
 	Integer getNumber();
 
@@ -157,7 +237,6 @@ public class ContractExampleTest extends AbstractContractTest{
 
 	private ContractExample fixture;
 	// Start of user code ContractExampleTest.attributes
-	// TODO: add custom attributes
 
 	// End of user code
 
@@ -186,8 +265,8 @@ public class ContractExampleTest extends AbstractContractTest{
 	 */
 	protected void createFixture() throws Exception {
 		//Start of user code createFixture
-		CompiledContract compiledContract = getCompiledContract();
-		// TODO: set the constructor args
+		//you could also use the precompiled json
+		CompiledContract compiledContract = getCompiledContract("/contracts/combined.json");
 		String _text = "_text";
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender, _text);
 		fixtureAddress = address.get();
@@ -252,15 +331,17 @@ public class ContractExampleTest extends AbstractContractTest{
 	@Test
 	public void testIsInState() throws Exception {
 		//Start of user code testIsInState
+		// can be called when in state1
 		fixture.isInState().get();
 		assertEquals(ContractState.state1, fixture.contractState());
+		// now we change the state to state2 and expect an exception when calling isInState
 		fixture.changeState(ContractState.state2).get();
 		try {
 			fixture.isInState().get();
-			fail("exception need be be thrown");
+			fail("The stateModifier need to throw when not in state1.");
 		} catch (Exception e) {
 		}
-		
+		// after changing back to state1 we can call isInState
 		fixture.changeState(ContractState.state1).get();
 		fixture.isInState().get();
 		assertEquals("inState1", fixture.text());
@@ -284,6 +365,36 @@ public class ContractExampleTest extends AbstractContractTest{
 			fail("exception need be be thrown");
 		} catch (Exception e) {
 		}
+		//End of user code
+	}
+	/**
+	 * Test method for  returnStateChange().
+	 * see {@link ContractExample#returnStateChange()}
+	 * @throws Exception
+	 */
+	@Test
+	public void testReturnStateChange() throws Exception {
+		//Start of user code testReturnStateChange
+		Boolean locked = fixture.locked();
+		//TODO: need to investigate
+		
+//		ReturnReturnStateChange_address_uint stateChange = fixture.returnStateChange().get();
+//		assertTrue(locked!=fixture.locked());
+//		assertEquals(senderAddress, stateChange.get_creator());
+//		System.out.println(stateChange);
+		//End of user code
+	}
+	/**
+	 * Test method for  returnLast().
+	 * see {@link ContractExample#returnLast()}
+	 * @throws Exception
+	 */
+	@Test
+	public void testReturnLast() throws Exception {
+		//Start of user code testReturnLast
+		//simple example for a const return function
+		fixture.isInState().get();
+		assertEquals("inState1", fixture.returnLast());
 		//End of user code
 	}
 	//Start of user code customTests

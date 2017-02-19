@@ -42,7 +42,6 @@ public class JavaEventExample1Test extends JavaEventExampleTest{
 
 	private JavaEventExample1 fixture;
 	// Start of user code JavaEventExample1Test.attributes
-	//TODO: add custom attributes
 
 	// End of user code
 
@@ -94,33 +93,13 @@ public class JavaEventExample1Test extends JavaEventExampleTest{
 	public void testRaiseEvent2() throws Exception {
 		//Start of user code testRaiseEvent2
 		if(supportEvents()){
-			deployer.observeEventEvent1_string_uint(fixtureAddress).subscribe(it-> assertEquals("testEvent2", it.getText()));
-			
-//			System.out.println("Event1 raised"+it.getText()+it.getIndex()));
-			deployer.observeEventEvent2(fixtureAddress).subscribe(new Subscriber<EventEvent2>() {
-
-				@Override
-				public void onCompleted() {
-					// TODO Auto-generated method stub
-					
-				}
-
-				@Override
-				public void onError(Throwable arg0) {
-					// TODO Auto-generated method stub
-					
-				}
-
-				@Override
-				public void onNext(EventEvent2 arg0) {
-					System.out.println("Event2:"+arg0);
-				}
-			});
+//			deployer.observeEventEvent1_string_uint(fixtureAddress)//
+//			  .subscribe(it-> assertEquals("testEvent2", it.getText()));
+			deployer.observeEventEvent2(fixtureAddress)//
+			  .subscribe(it-> assertEquals("EventEvent2 []", it.toString()));
 		}
-
-		System.out.println("Raise Event");
 		
-		fixture.raiseEvent("testEvent1").get();
+		fixture.raiseEvent("testEvent2").get();
 		assertEquals(1, fixture.eventCount().intValue());
 		
 		fixture.raiseEvent2().get();

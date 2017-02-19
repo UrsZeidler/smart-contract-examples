@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URISyntaxException;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import org.adridadou.ethereum.EthereumFacade;
 import org.adridadou.ethereum.values.CompiledContract;
@@ -38,7 +40,7 @@ public abstract class AbstractContractTest {
 	protected SoliditySource contractSource;
 
 	// Start of user code AbstractContractTest.customFields
-	//TODO: add custom attributes
+	// TODO: add custom attributes
 	// End of user code
 
 
@@ -66,7 +68,7 @@ public abstract class AbstractContractTest {
 				sender = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
 			}
 
-		if (sender == null){// the account for the standalone blockchain
+		if (sender == null) {// the account for the standalone blockchain
 			sender = new EthAccount(
 					ECKey.fromPrivate(Hex.decode("3ec771c31cac8c0dba77a69e503765701d3c2bb62435888d4ffa38fed60c445c")));
 			senderAddress = sender.getAddress();
@@ -93,10 +95,24 @@ public abstract class AbstractContractTest {
 		ContractMetadata contractMetadata = result.contracts.get(getContractName());
 		return CompiledContract.from(contractSource, getContractName(), contractMetadata);
 	}
-	// Start of user code AbstractContractTest.customMethods
+
+	/**
+	 * Returns the compiled contract from the 'contractSource'. The name is
+	 * defined in the concrete test case.
+	 * 
+	 * @return the compiled contract
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
 	public CompiledContract getCompiledContract() throws InterruptedException, ExecutionException {
 		Map<String, CompiledContract> map = ethereum.compile(contractSource).get();
-		return map.get(getContractName());
+		CompiledContract contract = map.get(getContractName());
+		if (contract == null)
+			throw new IllegalArgumentException(
+					"The contract '" + getContractName() + "' is not present is the map of contracts:" + map);
+		return contract;
 	}
+
+	// Start of user code AbstractContractTest.customMethods
 	// End of user code
 }

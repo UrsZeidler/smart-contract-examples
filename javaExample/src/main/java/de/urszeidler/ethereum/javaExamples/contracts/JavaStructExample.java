@@ -11,12 +11,21 @@ import org.adridadou.ethereum.values.EthAddress;
 
 public interface JavaStructExample{
 	
+	JavaStructExampleTestStruct lastStruct();
+	
 	Integer structCount();
+	
+	Integer structCount1();
+	
+	JavaStructExampleTestStruct1 testStructs1(Integer key);
+	
+	JavaStructExampleTestStruct testStructs(Integer key);	
 
 	
 	java.util.concurrent.CompletableFuture<Void> addStruct(Integer _a1,String _a2);
+	
+	java.util.concurrent.CompletableFuture<Void> addStruct1(String _text);
 
 	//Start of user code additional_methods
-	StructTest testStructs(Integer id);
 	//End of user code
 }

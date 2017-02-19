@@ -2,33 +2,35 @@
 ======= ContractExample =======
 Gas estimation:
 construction:
-   [???] + 409600 = [???]
+   [???] + 515000 = [???]
 external:
-   creator():	287
+   returnStateChange():	20535
+   creator():	309
+   returnLast():	[???]
    text():	[???]
-   changeState(uint8):	20351
+   changeState(uint8):	20395
    isInState():	[???]
    contractData():	[???]
-   setNumber(uint256):	20282
-   number():	361
-   contractState():	457
-   changeLocked(bool):	20457
-   locked():	475
+   setNumber(uint256):	20326
+   number():	405
+   contractState():	501
+   changeLocked(bool):	20501
+   locked():	519
    throwIfLocked():	[???]
-   getNumber():	480
+   getNumber():	524
 internal:
 
 ======= ExampleToken =======
 Gas estimation:
 construction:
-   40449 + 230000 = 270449
+   40431 + 205000 = 245431
 external:
    totalSupply():	238
    transferFrom(address,address,uint256):	40877
    accountsBalance(address):	389
    balanceOf(address):	439
    totalTokens():	317
-   transfer(address,uint256,bool):	40677
+   transfer(address,uint256):	40986
 internal:
 
 ======= JavaEventExample =======
@@ -63,9 +65,13 @@ internal:
 ======= JavaStructExample =======
 Gas estimation:
 construction:
-   182 + 144200 = 144382
+   416 + 388000 = 388416
 external:
-   structCount():	211
+   lastStruct():	[???]
+   structCount():	251
    testStructs(uint256):	[???]
+   structCount1():	295
    addStruct(uint256,string):	[???]
+   addStruct1(string):	[???]
+   testStructs1(uint256):	[???]
 internal:

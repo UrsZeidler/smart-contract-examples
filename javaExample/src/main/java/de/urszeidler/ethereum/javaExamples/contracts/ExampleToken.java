@@ -36,9 +36,10 @@ public interface ExampleToken{
 	* 
 	* @param _to -
 	* @param _value -
-	* @param success -
+	* @return
+	* success -
 	**/
-	java.util.concurrent.CompletableFuture<Void> transfer(org.adridadou.ethereum.values.EthAddress _to,java.math.BigInteger _value,Boolean success);
+	java.util.concurrent.CompletableFuture<Boolean> transfer(org.adridadou.ethereum.values.EthAddress _to,java.math.BigInteger _value);
 
 	/**
 	* Send _value amount of tokens from address _from to address _to.

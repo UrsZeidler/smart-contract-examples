@@ -40,7 +40,6 @@ public class ContractExampleTest extends AbstractContractTest{
 
 	private ContractExample fixture;
 	// Start of user code ContractExampleTest.attributes
-	// TODO: add custom attributes
 
 	// End of user code
 
@@ -69,8 +68,8 @@ public class ContractExampleTest extends AbstractContractTest{
 	 */
 	protected void createFixture() throws Exception {
 		//Start of user code createFixture
-		CompiledContract compiledContract = getCompiledContract();
-		// TODO: set the constructor args
+		//you could also use the precompiled json
+		CompiledContract compiledContract = getCompiledContract("/contracts/combined.json");
 		String _text = "_text";
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender, _text);
 		fixtureAddress = address.get();
@@ -135,15 +134,17 @@ public class ContractExampleTest extends AbstractContractTest{
 	@Test
 	public void testIsInState() throws Exception {
 		//Start of user code testIsInState
+		// can be called when in state1
 		fixture.isInState().get();
 		assertEquals(ContractState.state1, fixture.contractState());
+		// now we change the state to state2 and expect an exception when calling isInState
 		fixture.changeState(ContractState.state2).get();
 		try {
 			fixture.isInState().get();
-			fail("exception need be be thrown");
+			fail("The stateModifier need to throw when not in state1.");
 		} catch (Exception e) {
 		}
-		
+		// after changing back to state1 we can call isInState
 		fixture.changeState(ContractState.state1).get();
 		fixture.isInState().get();
 		assertEquals("inState1", fixture.text());
@@ -167,6 +168,36 @@ public class ContractExampleTest extends AbstractContractTest{
 			fail("exception need be be thrown");
 		} catch (Exception e) {
 		}
+		//End of user code
+	}
+	/**
+	 * Test method for  returnStateChange().
+	 * see {@link ContractExample#returnStateChange()}
+	 * @throws Exception
+	 */
+	@Test
+	public void testReturnStateChange() throws Exception {
+		//Start of user code testReturnStateChange
+		Boolean locked = fixture.locked();
+		//TODO: need to investigate
+		
+//		ReturnReturnStateChange_address_uint stateChange = fixture.returnStateChange().get();
+//		assertTrue(locked!=fixture.locked());
+//		assertEquals(senderAddress, stateChange.get_creator());
+//		System.out.println(stateChange);
+		//End of user code
+	}
+	/**
+	 * Test method for  returnLast().
+	 * see {@link ContractExample#returnLast()}
+	 * @throws Exception
+	 */
+	@Test
+	public void testReturnLast() throws Exception {
+		//Start of user code testReturnLast
+		//simple example for a const return function
+		fixture.isInState().get();
+		assertEquals("inState1", fixture.returnLast());
 		//End of user code
 	}
 	//Start of user code customTests

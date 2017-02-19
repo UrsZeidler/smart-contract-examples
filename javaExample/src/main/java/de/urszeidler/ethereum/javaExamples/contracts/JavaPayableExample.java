@@ -9,15 +9,23 @@ import org.adridadou.ethereum.values.Payable;
 //End of user code
 
 
-
+/**
+* An example for the payable modifier. 
+* How to send ether to and from the contract.
+* The contract stores the value in the amount mapping.
+**/
 public interface JavaPayableExample{
 	
 	java.math.BigInteger amounts(org.adridadou.ethereum.values.EthAddress key);
 
-	
+	/**
+	* This send the ether back.
+	**/
 	java.util.concurrent.CompletableFuture<Void> sendBack();
-	
-	Payable<Void> recieve();
+	/**
+	* This method accept ether as it has the payable modifier.
+	**/
+	org.adridadou.ethereum.values.Payable<Void> recieve();
 
 	//Start of user code additional_methods
 

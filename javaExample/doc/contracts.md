@@ -21,6 +21,8 @@
 
 
 
+Test the event system.
+
 
 
 
@@ -28,29 +30,34 @@
 
 name|type|visiblity|delegate|doc
 ----|----|----|----|----
-eventCount|uint|public||
+eventCount|uint|public||Count the events raised by 'raiseEvent'.
 -
 
 #### JavaEventExample.raiseEvent(string _text) public  
 
+The method that raises the events.
+
 
 name|type|direction|doc
 ----|----|----|----
-_text|string|in|
+_text|string|in|A text for the event.
 
 #### event Event1
+
+A test event with parameters.
 
 
 name|type|indexed|doc
 ----|----|----|----
 text|string||
-index|uint||
+index|uint||The index.
 
 
 ## contract: JavaStructExample
 
     overview:
 	function addStruct(uint _a1,string _a2) public  
+	function addStruct1(string _text) public  
 
 
 
@@ -69,13 +76,32 @@ attribute1|uint|public||
 attribute2|string|public||
 
 
+TestStruct1
+
+
+#### TestStruct1 properties
+
+name|type|visiblity|delegate|doc
+----|----|----|----|----
+text|string|public||
+time|uint|public||
+sender|address|public||
+
+
 
 #### JavaStructExample properties
 
 name|type|visiblity|delegate|doc
 ----|----|----|----|----
+lastStruct|TestStruct|public||
 structCount|uint|public||
--
+structCount1|uint|public||
+
+#### JavaStructExample mappings
+
+name|type|mapsTo|visiblity|doc
+----|----|----|----|----
+testStructs1|uint|TestStruct1|public|-
 
 #### JavaStructExample.addStruct(uint _a1,string _a2) public  
 
@@ -84,6 +110,13 @@ name|type|direction|doc
 ----|----|----|----
 _a1|uint|in|
 _a2|string|in|
+
+#### JavaStructExample.addStruct1(string _text) public  
+
+
+name|type|direction|doc
+----|----|----|----
+_text|string|in|
 
 
 ## contract: JavaEventExample1
@@ -94,15 +127,21 @@ _a2|string|in|
 inherites: [JavaEventExample](#contract-javaeventexample)
 
 
+The inheried the event.
+
 
 
 -
 
 #### JavaEventExample1.raiseEvent2() public  
 
+Raises the Event1 and the Event2.
+
 
 
 #### event Event2
+
+A second event type.
 
 
 
@@ -116,8 +155,12 @@ inherites: [JavaEventExample](#contract-javaeventexample)
 	function changeState(ContractState _state) public  
 	function isInState() public  stateModifier(ContractState.state1) 
 	function throwIfLocked() public  testmodifier 
+	function returnStateChange() public  returns (address _creator,uint _time)
+	function returnLast() public   constant returns (string _text)
 
 
+
+Shows the basic features.
 
 
 ### ContractExample enums: ContractState
@@ -135,7 +178,7 @@ state3|
 name|type|visiblity|delegate|doc
 ----|----|----|----|----
 text|string|public||
-number|uint|public||
+number|uint|public||An attribute which uses getter/setter.
 locked|bool|public||
 creator|address|public||
 contractState|ContractState|public||
@@ -150,6 +193,8 @@ _text|string|
 
 #### ContractExample.contractData() public   constant returns (string _text,address _owner,uint _number,bool _locked)
 
+Example for multiple return values.
+
 
 name|type|direction|doc
 ----|----|----|----
@@ -160,12 +205,16 @@ _locked|bool|return|
 
 #### ContractExample.changeLocked(bool _locked) public  
 
+Change the intern sate of the contract.
+
 
 name|type|direction|doc
 ----|----|----|----
 _locked|bool|in|
 
 #### ContractExample.changeState(ContractState _state) public  
+
+Change the state, also an example for emum as parameter.
 
 
 name|type|direction|doc
@@ -174,11 +223,32 @@ _state|ContractState|in|
 
 #### ContractExample.isInState() public  stateModifier(ContractState.state1) 
 
+Test method for the 'stateModifier' throws if contractState!=ContractState.state1.
+
 
 
 #### ContractExample.throwIfLocked() public  testmodifier 
 
+Test method for the testmodifer. Throws if locked.
 
+
+
+#### ContractExample.returnStateChange() public  returns (address _creator,uint _time)
+
+
+name|type|direction|doc
+----|----|----|----
+_creator|address|return|
+_time|uint|return|
+
+#### ContractExample.returnLast() public   constant returns (string _text)
+
+A const function return a single value.
+
+
+name|type|direction|doc
+----|----|----|----
+_text|string|return|
 
 
 ## contract: ExampleToken
@@ -187,7 +257,7 @@ _state|ContractState|in|
 	constructor ExampleToken(uint256 _totalTokens)
 	abstract function totalSupply() public   constant returns (uint256 supply)
 	abstract function balanceOf(address _owner) public   constant returns (uint256 balance)
-	abstract function transfer(address _to,uint256 _value,bool success) public  
+	abstract function transfer(address _to,uint256 _value) public  returns (bool success)
 	abstract function transferFrom(address _from,address _to,uint256 _value) public  returns (bool success)
 
 
@@ -214,9 +284,13 @@ _totalTokens|uint256|
 
     overview:
 	function sendBack() public  
-	function recieve() public  payable() 
+	function recieve() public  payable 
 
 
+
+An example for the payable modifier. 
+How to send ether to and from the contract.
+The contract stores the value in the amount mapping.
 
 
 
@@ -229,9 +303,13 @@ amounts|address|uint256|public|-
 
 #### JavaPayableExample.sendBack() public  
 
+This send the ether back.
 
 
-#### JavaPayableExample.recieve() public  payable() 
+
+#### JavaPayableExample.recieve() public  payable 
+
+This method acept ether as it has the payable modifier.
 
 
 

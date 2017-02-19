@@ -42,8 +42,8 @@ public class JavaEventExampleTest extends AbstractContractTest{
 
 	private JavaEventExample fixture;
 	// Start of user code JavaEventExampleTest.attributes
+	// to register with contracts events we use the deployer
 	protected ContractsDeployer deployer;
-	//TODO: add custom attributes
 
 	// End of user code
 
@@ -94,10 +94,10 @@ public class JavaEventExampleTest extends AbstractContractTest{
 	@Test
 	public void testRaiseEvent_string() throws Exception {
 		//Start of user code testRaiseEvent_string
+		// we use the deployer to subscribe with the event 
 		if(supportEvents()){
-			deployer.observeEventEvent1_string_uint(fixtureAddress).subscribe(it->assertEquals("testEvent", it.getText()));
-			
-			//System.out.println("Event1 raised"+it.getText()+it.getIndex()));
+			deployer.observeEventEvent1_string_uint(fixtureAddress)//
+			  .subscribe(it->assertEquals("testEvent", it.getText()));
 		}
 		
 		fixture.raiseEvent("testEvent").get();
@@ -108,6 +108,10 @@ public class JavaEventExampleTest extends AbstractContractTest{
 		//End of user code
 	}
 	//Start of user code customTests    
+	/**
+	 * Not all connections to the ethereum network supports events.
+	 * @return
+	 */
 	protected boolean supportEvents() {
 		String property = System.getProperty("EthereumFacadeProvider");
 		return "private".equals(property);
