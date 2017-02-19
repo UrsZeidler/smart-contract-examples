@@ -8,10 +8,10 @@ Lookup the [interfaces](https://github.com/UrsZeidler/smart-contract-examples/tr
 
 #### toc
 
-* [ContractExample](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample#contractexample)
-* [JavaStructExample](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample#javastructexample)
-* [JavaEventExample](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample#javaeventexample)
-* [JavaPayableExample](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample#javapayableexample)
+* [ContractExample](#contractexample)
+* [JavaStructExample](#javastructexample)
+* [JavaEventExample](#javaeventexample)
+* [JavaPayableExample](#javapayableexample)
  
 The model to generate the code looks like this:
 
