@@ -1,10 +1,10 @@
 ## java generation example
 
-This is a simple example how to model and use the generated java code of [uml2solidity](https://github.com/UrsZeidler/uml2solidity). The java code uses the [eth-contract-api](https://github.com/adridadou/eth-contract-api) to access the contract code. A detailed description for the generated code is [here](https://github.com/UrsZeidler/uml2solidity/wiki/JavaCode).
+This is a simple example how to model and use the generated java code of [uml2solidity](https://github.com/UrsZeidler/uml2solidity). The java code uses the [eth-contract-api](https://github.com/adridadou/eth-contract-api) to access the smart contract on the blockchain. A detailed description for the generated code is [here](https://github.com/UrsZeidler/uml2solidity/wiki/JavaCode).
 
 The _de.urszeidler.ethereum.javaExamples.contracts_ package contains the generated interfaces and the tests describes how to use them.
 
-Lookup the [interfaces](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample/src/main/java/de/urszeidler/ethereum/javaExamples/contracts) and the [test code](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample/src/test/java/de/urszeidler/ethereum/javaExamples/contracts) in the repository.
+Lookup the [interfaces](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample/src/main/java/de/urszeidler/ethereum/javaExamples/contracts) the [tests](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample/src/test/java/de/urszeidler/ethereum/javaExamples/contracts) and the [solidity code](https://github.com/UrsZeidler/smart-contract-examples/blob/master/javaExample/src/main/resources/contracts/contracts.sol) in the repository.
 
 #### toc
 
