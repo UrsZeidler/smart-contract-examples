@@ -6,6 +6,8 @@ The _de.urszeidler.ethereum.javaExamples.contracts_ package contains the generat
 
 Lookup the [interfaces](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample/src/main/java/de/urszeidler/ethereum/javaExamples/contracts) the [tests](https://github.com/UrsZeidler/smart-contract-examples/tree/master/javaExample/src/test/java/de/urszeidler/ethereum/javaExamples/contracts) and the [solidity code](https://github.com/UrsZeidler/smart-contract-examples/blob/master/javaExample/src/main/resources/contracts/contracts.sol) in the repository.
 
+As the used ethereum instance is selected by provided system properties it is quite simple to create a job which check the different implementations. In Jenkins for example you could define a matrix job with the ethereum instances as axis.
+
 #### toc
 
 * [ContractExample](#contractexample)
