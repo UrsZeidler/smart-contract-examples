@@ -1,0 +1,25 @@
+[
+{"constant":true,"inputs":[],"name":"lastStruct","outputs":[{"name":"","type":"TestStruct"}],"type":"function"},
+{"constant":true,"inputs":[],"name":"structCount","outputs":[{"name":"","type":"uint256"}],"type":"function"},
+{"constant":true,"inputs":[],"name":"structCount1","outputs":[{"name":"","type":"uint256"}],"type":"function"},
+{"constant": true,"inputs": [{"name": "","type": "uint256"}],"name": "testStructs1","outputs": [
+{ "name": "text", "type": "string"}
+,{ "name": "time", "type": "uint256"}
+,{ "name": "sender", "type": "address"}
+],"type": "function"	},
+{"constant": true,"inputs": [{"name": "","type": "uint256"}],"name": "testStructs","outputs": [
+{ "name": "attribute1", "type": "uint256"}
+,{ "name": "attribute2", "type": "string"}
+],"type": "function"	},
+{ "constant": false,
+    "inputs": [{"name": "_a1","type": "uint256"},{"name": "_a2","type": "string"}],    
+    "name": "addStruct",
+    "outputs": [],
+    "type": "function" }
+,{ "constant": false,
+    "inputs": [{"name": "_text","type": "string"}],    
+    "name": "addStruct1",
+    "outputs": [],
+    "type": "function" }
+
+]

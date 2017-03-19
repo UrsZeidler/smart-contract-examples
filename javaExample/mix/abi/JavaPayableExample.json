@@ -1,0 +1,21 @@
+[
+{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "amounts","outputs": [
+{ "name": "", "type": "uint256"}
+],"type": "function"	},
+{ "constant": false,
+    "inputs": [],    
+    "name": "sendBack",
+    "outputs": [],
+    "type": "function" }
+,{ "constant": false,
+    "inputs": [],    
+    "name": "recieve",
+    "outputs": [],
+    "type": "function" }
+,{ "constant": false,
+    "inputs": [{"name": "_to","type": "address"}],    
+    "name": "relay",
+    "outputs": [{"name": "","type": "bool"}],
+    "type": "function" }
+
+]

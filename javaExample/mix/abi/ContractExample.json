@@ -1,0 +1,58 @@
+[
+{"constant":true,"inputs":[],"name":"text","outputs":[{"name":"","type":"string"}],"type":"function"},
+{"constant":true,"inputs":[],"name":"number","outputs":[{"name":"","type":"uint256"}],"type":"function"},
+{"constant":true,"inputs":[],"name":"locked","outputs":[{"name":"","type":"bool"}],"type":"function"},
+{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"type":"function"},
+{"constant":true,"inputs":[],"name":"contractState","outputs":[{"name":"","type":"ContractState"}],"type":"function"},
+{ "constant": true,
+    "inputs": [],    
+    "name": "contractData",
+    "outputs": [{"name": "_text","type": "string"},{"name": "_owner","type": "address"},{"name": "_number","type": "uint256"},{"name": "_locked","type": "bool"}],
+    "type": "function" }
+,{ "constant": false,
+    "inputs": [{"name": "_locked","type": "bool"}],    
+    "name": "changeLocked",
+    "outputs": [],
+    "type": "function" }
+,{ "constant": false,
+    "inputs": [{"name": "_state","type": "ContractState"}],    
+    "name": "changeState",
+    "outputs": [],
+    "type": "function" }
+,{ "constant": false,
+    "inputs": [],    
+    "name": "isInState",
+    "outputs": [],
+    "type": "function" }
+,{ "constant": false,
+    "inputs": [],    
+    "name": "throwIfLocked",
+    "outputs": [],
+    "type": "function" }
+,{ "constant": false,
+    "inputs": [],    
+    "name": "returnStateChange",
+    "outputs": [{"name": "_creator","type": "address"},{"name": "_time","type": "uint256"}],
+    "type": "function" }
+,{ "constant": true,
+    "inputs": [],    
+    "name": "returnLast",
+    "outputs": [{"name": "_text","type": "string"}],
+    "type": "function" }
+
+  ,{
+    "constant": true,
+    "inputs": [],    
+    "name": "getNumber",
+    "outputs": [{"name": "number","type": "uint256"}],
+    "type": "function"
+  }
+  ,{
+    "constant": false,
+    "inputs": [{"name": "aNumber","type": "uint256"}],    
+    "name": "setNumber",
+    "outputs": [],
+    "type": "function"
+  }
+
+]

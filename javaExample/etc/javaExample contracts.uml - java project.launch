@@ -18,20 +18,22 @@
 <booleanAttribute key="COMPILER_USERDOC" value="true"/>
 <booleanAttribute key="COMPILE_CONTRACTS" value="true"/>
 <stringAttribute key="CONTRACT_FILE_HEADER" value="/*&#10;*&#10;*&#10;*/"/>
-<booleanAttribute key="GENERATE_ABI" value="false"/>
+<booleanAttribute key="GENERATE_ABI" value="true"/>
 <stringAttribute key="GENERATE_ABI_TARGET" value="/javaExample/mix/abi"/>
 <booleanAttribute key="GENERATE_CONTRACT_FILES" value="true"/>
 <booleanAttribute key="GENERATE_HTML" value="false"/>
 <booleanAttribute key="GENERATE_JAVA_INTERFACE" value="true"/>
 <booleanAttribute key="GENERATE_JAVA_NONBLOCKING" value="true"/>
 <booleanAttribute key="GENERATE_JAVA_TESTS" value="true"/>
-<booleanAttribute key="GENERATE_JS_CONTROLLER" value="false"/>
+<booleanAttribute key="GENERATE_JS_CONTROLLER" value="true"/>
 <stringAttribute key="GENERATE_JS_CONTROLLER_TARGET" value="/javaExample/mix/js"/>
+<booleanAttribute key="GENERATE_JS_TEST" value="true"/>
 <booleanAttribute key="GENERATE_JS_TEST_CONTROLLER" value="false"/>
 <stringAttribute key="GENERATE_JS_TEST_TARGET" value="/javaExample/mix/test"/>
 <booleanAttribute key="GENERATE_MARKDOWN" value="true"/>
 <booleanAttribute key="GENERATE_MIX" value="false"/>
-<booleanAttribute key="GENERATE_WEB3" value="false"/>
+<stringAttribute key="GENERATE_UML_DOC_IMAGE_URL" value=""/>
+<booleanAttribute key="GENERATE_WEB3" value="true"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_address" value="org.adridadou.ethereum.values.EthAddress"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_bool" value="Boolean"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_byte" value="Byte"/>
@@ -46,6 +48,8 @@
 <stringAttribute key="GENERATION_TARGET" value="/javaExample/src/main/resources/contracts"/>
 <stringAttribute key="GENERATION_TARGET_DOC" value="/javaExample/doc"/>
 <stringAttribute key="JS_FILE_HEADER" value="// file header"/>
+<booleanAttribute key="de.urszeidler.eclipse.solidity.generation.example.useCaseDoc" value="true"/>
+<stringAttribute key="de.urszeidler.eclipse.solidity.generation.example.usecaseDocTarget" value="/javaExample/doc"/>
 <booleanAttribute key="enable_version" value="true"/>
 <stringAttribute key="modelUri" value="/javaExample/model/contracts.uml"/>
 <stringAttribute key="version_pragma" value="pragma solidity ^0.4.0;"/>

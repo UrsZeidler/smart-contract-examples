@@ -1,0 +1,21 @@
+[
+{"constant":true,"inputs":[],"name":"eventCount","outputs":[{"name":"","type":"uint256"}],"type":"function"},
+{ "constant": false,
+    "inputs": [{"name": "_text","type": "string"}],    
+    "name": "raiseEvent",
+    "outputs": [],
+    "type": "function" }
+,
+  { "anonymous": false,
+    "inputs": 
+	[
+		{"indexed": false,
+		 "name": "text",
+         "type": "string"}
+,		{"indexed": false,
+		 "name": "index",
+         "type": "uint256"}
+	],    
+    "name": "Event1",
+    "type": "event"  }
+]

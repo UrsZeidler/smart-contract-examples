@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 
 import de.urszeidler.ethereum.javaExamples.contracts.JavaOwnerExample.*;
-import de.urszeidler.ethereum.javaExamples.deployer.ContractsDeployer;
+
 
 import java.io.File;
 import java.util.*;
@@ -28,6 +28,7 @@ import de.urszeidler.ethereum.javaExamples.AbstractContractTest;
 import de.urszeidler.ethereum.javaExamples.EthereumInstance;
 
 // Start of user code JavaOwnerExampleTest.customImports
+import de.urszeidler.ethereum.javaExamples.deployer.ContractsDeployer;
 
 // End of user code
 

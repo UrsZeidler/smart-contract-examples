@@ -2,8 +2,9 @@ package de.urszeidler.ethereum.javaExamples.contracts;
 
 import static org.junit.Assert.*;
 
+
 import de.urszeidler.ethereum.javaExamples.contracts.JavaPayableExample.*;
-import de.urszeidler.ethereum.javaExamples.deployer.ContractsDeployer;
+
 
 import java.io.File;
 import java.util.*;
@@ -28,14 +29,16 @@ import de.urszeidler.ethereum.javaExamples.EthereumInstance;
 
 // Start of user code JavaPayableExampleTest.customImports
 import org.adridadou.ethereum.values.EthValue;
+import de.urszeidler.ethereum.javaExamples.deployer.ContractsDeployer;
 
 // End of user code
+
 
 /**
  * Test for the JavaPayableExample contract.
  *
  */
-public class JavaPayableExampleTest extends AbstractContractTest {
+public class JavaPayableExampleTest extends AbstractContractTest{
 
 	private JavaPayableExample fixture;
 	// Start of user code JavaPayableExampleTest.attributes
@@ -53,12 +56,11 @@ public class JavaPayableExampleTest extends AbstractContractTest {
 
 	/**
 	 * Read the contract from the file and deploys the contract code.
-	 * 
 	 * @throws Exception
 	 */
 	@Before
 	public void prepareTest() throws Exception {
-		// Start of user code prepareTest
+		//Start of user code prepareTest
 		File contractSrc = new File(this.getClass().getResource("/contracts/contracts.sol").toURI());
 		contractSource = SoliditySource.from(contractSrc);
 		deployer = new ContractsDeployer(ethereum, contractSrc, false);
@@ -66,13 +68,13 @@ public class JavaPayableExampleTest extends AbstractContractTest {
 		// End of user code
 	}
 
+
 	/**
 	 * Create a new fixture by deploying the contract source.
-	 * 
 	 * @throws Exception
 	 */
 	protected void createFixture() throws Exception {
-		// Start of user code createFixture
+		//Start of user code createFixture
 		CompiledContract compiledContract = getCompiledContract();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
 		fixtureAddress = address.get();
@@ -84,14 +86,15 @@ public class JavaPayableExampleTest extends AbstractContractTest {
 		this.fixture = f;
 	}
 
+
 	/**
-	 * Test method for sendBack(). see {@link JavaPayableExample#sendBack()}
-	 * 
+	 * Test method for  sendBack().
+	 * see {@link JavaPayableExample#sendBack()}
 	 * @throws Exception
 	 */
 	@Test
 	public void testSendBack() throws Exception {
-		// Start of user code testSendBack
+		//Start of user code testSendBack
 		assertEquals(BigInteger.ZERO, ethereum.getBalance(fixtureAddress).inWei());
 		EthValue value = EthValue.wei(10000L);
 		fixture.recieve().with(value).get();
@@ -111,15 +114,14 @@ public class JavaPayableExampleTest extends AbstractContractTest {
 		assertEquals(balance2.plus(value), ethereum.getBalance(sender));
 		// End of user code
 	}
-
 	/**
-	 * Test method for recieve(). see {@link JavaPayableExample#recieve()}
-	 * 
+	 * Test method for  recieve().
+	 * see {@link JavaPayableExample#recieve()}
 	 * @throws Exception
 	 */
 	@Test
 	public void testRecieve() throws Exception {
-		// Start of user code testRecieve
+		//Start of user code testRecieve
 		EthValue value = EthValue.wei(10000L);
 		// ethereum.sendEther(sender, fixtureAddress, value);
 		fixture.recieve().with(value).get();
@@ -132,16 +134,14 @@ public class JavaPayableExampleTest extends AbstractContractTest {
 
 		// End of user code
 	}
-
 	/**
-	 * Test method for relay(org.adridadou.ethereum.values.EthAddress _to). see
-	 * {@link JavaPayableExample#relay( org.adridadou.ethereum.values.EthAddress)}
-	 * 
+	 * Test method for  relay(org.adridadou.ethereum.values.EthAddress _to).
+	 * see {@link JavaPayableExample#relay( org.adridadou.ethereum.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testRelay_address() throws Exception {
-		// Start of user code testRelay_address
+		//Start of user code testRelay_address
 		EthValue balance_test_account = ethereum.getBalance(testAccount);
 		assertEquals(0L, balance_test_account.inWei().longValue());
 		EthValue value = EthValue.wei(BigInteger.valueOf(1000L));
@@ -151,7 +151,7 @@ public class JavaPayableExampleTest extends AbstractContractTest {
 		
 		// End of user code
 	}
-	// Start of user code customTests
+	//Start of user code customTests
 	@Test
 	public void testRecieveFromMultiple() throws Exception {
 		EthValue value = EthValue.wei(10000L);

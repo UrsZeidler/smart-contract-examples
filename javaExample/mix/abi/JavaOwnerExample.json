@@ -1,0 +1,12 @@
+[
+{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"type":"function"},
+
+  ,{
+    "constant": false,
+    "inputs": [{"name": "aOwner","type": "address"}],    
+    "name": "setOwner",
+    "outputs": [],
+    "type": "function"
+  }
+
+]
