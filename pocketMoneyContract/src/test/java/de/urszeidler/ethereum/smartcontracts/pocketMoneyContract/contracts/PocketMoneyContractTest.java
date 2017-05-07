@@ -1,4 +1,4 @@
-package de.urszeidler.ethereum.smartcontracts.pockeMoneyContract.contracts;
+package de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts;
 
 // Start of user code PocketMoneyContractTest.customImports
 import static org.junit.Assert.*;
@@ -16,7 +16,7 @@ import org.ethereum.crypto.ECKey;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.urszeidler.ethereum.smartcontracts.pockeMoneyContract.AbstractContractTest;
+import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.AbstractContractTest;
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.EthereumInstance;
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts.EventPocketMoneyClaimed_address_uint_uint_uint_bool;
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts.EventPocketMoneyDonated_address_uint_uint;

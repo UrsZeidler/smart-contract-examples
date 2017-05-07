@@ -39,7 +39,7 @@ public interface PocketMoneyContract{
 	* Receives the money for the past intervals.
 	**/
 	java.util.concurrent.CompletableFuture<Void> claimPocketMoney();
-
+	
 	java.util.concurrent.CompletableFuture<Void> setOwner (org.adridadou.ethereum.values.EthAddress aOwner);
 
 	java.util.concurrent.CompletableFuture<Void> setDonator (org.adridadou.ethereum.values.EthAddress aDonator);

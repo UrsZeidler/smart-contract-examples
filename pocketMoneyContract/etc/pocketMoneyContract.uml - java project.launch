@@ -19,17 +19,17 @@
 <booleanAttribute key="COMPILE_CONTRACTS" value="false"/>
 <stringAttribute key="CONTRACT_FILE_HEADER" value="/*&#10;* (c) Urs Zeidler 2017&#10;*&#10;*/"/>
 <booleanAttribute key="GENERATE_ABI" value="false"/>
-<stringAttribute key="GENERATE_ABI_TARGET" value="/pockeMoneyContract/mix/abi"/>
+<stringAttribute key="GENERATE_ABI_TARGET" value="/pocketMoneyContract/mix/abi"/>
 <booleanAttribute key="GENERATE_CONTRACT_FILES" value="true"/>
 <booleanAttribute key="GENERATE_HTML" value="false"/>
 <booleanAttribute key="GENERATE_JAVA_INTERFACE" value="true"/>
 <booleanAttribute key="GENERATE_JAVA_NONBLOCKING" value="true"/>
 <booleanAttribute key="GENERATE_JAVA_TESTS" value="true"/>
 <booleanAttribute key="GENERATE_JS_CONTROLLER" value="false"/>
-<stringAttribute key="GENERATE_JS_CONTROLLER_TARGET" value="/pockeMoneyContract/mix/js"/>
+<stringAttribute key="GENERATE_JS_CONTROLLER_TARGET" value="/pocketMoneyContract/mix/js"/>
 <booleanAttribute key="GENERATE_JS_TEST" value="false"/>
 <booleanAttribute key="GENERATE_JS_TEST_CONTROLLER" value="false"/>
-<stringAttribute key="GENERATE_JS_TEST_TARGET" value="/pockeMoneyContract/mix/test"/>
+<stringAttribute key="GENERATE_JS_TEST_TARGET" value="/pocketMoneyContract/mix/test"/>
 <booleanAttribute key="GENERATE_MARKDOWN" value="true"/>
 <booleanAttribute key="GENERATE_MIX" value="false"/>
 <stringAttribute key="GENERATE_UML_DOC_IMAGE_URL" value="UseCaseDiagram.PNG"/>
@@ -42,15 +42,15 @@
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_string" value="String"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint" value="java.math.BigInteger"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint256" value="Integer"/>
-<stringAttribute key="GENERATION_JAVA_INTERFACE_PACKAGE_PREFIX" value="de.urszeidler.ethereum.smartcontracts.pockeMoneyContract"/>
-<stringAttribute key="GENERATION_JAVA_INTERFACE_TARGET" value="/pockeMoneyContract/src/main/java"/>
-<stringAttribute key="GENERATION_JAVA_TEST_TARGET" value="/pockeMoneyContract/src/test/java"/>
-<stringAttribute key="GENERATION_TARGET" value="/pockeMoneyContract/src/main/resources/contracts"/>
-<stringAttribute key="GENERATION_TARGET_DOC" value="/pockeMoneyContract/doc"/>
+<stringAttribute key="GENERATION_JAVA_INTERFACE_PACKAGE_PREFIX" value="de.urszeidler.ethereum.smartcontracts.pocketMoneyContract"/>
+<stringAttribute key="GENERATION_JAVA_INTERFACE_TARGET" value="/pocketMoneyContract/src/main/java"/>
+<stringAttribute key="GENERATION_JAVA_TEST_TARGET" value="/pocketMoneyContract/src/test/java"/>
+<stringAttribute key="GENERATION_TARGET" value="/pocketMoneyContract/src/main/resources/contracts"/>
+<stringAttribute key="GENERATION_TARGET_DOC" value="/pocketMoneyContract/doc"/>
 <stringAttribute key="JS_FILE_HEADER" value="// file header"/>
 <booleanAttribute key="de.urszeidler.eclipse.solidity.generation.example.useCaseDoc" value="true"/>
-<stringAttribute key="de.urszeidler.eclipse.solidity.generation.example.usecaseDocTarget" value="/pockeMoneyContract/doc"/>
+<stringAttribute key="de.urszeidler.eclipse.solidity.generation.example.usecaseDocTarget" value="/pocketMoneyContract/doc"/>
 <booleanAttribute key="enable_version" value="true"/>
-<stringAttribute key="modelUri" value="/pockeMoneyContract/model/pockeMoneyContract.uml"/>
+<stringAttribute key="modelUri" value="/pocketMoneyContract/model/pockeMoneyContract.uml"/>
 <stringAttribute key="version_pragma" value="pragma solidity ^0.4.0;"/>
 </launchConfiguration>

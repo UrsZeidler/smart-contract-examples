@@ -1,4 +1,4 @@
-package de.urszeidler.ethereum.smartcontracts.pockeMoneyContract;
+package de.urszeidler.ethereum.smartcontracts.pocketMoneyContract;
 
 // Start of user code AbstractContractTest.customImports
 
@@ -23,8 +23,6 @@ import org.ethereum.solidity.compiler.CompilationResult;
 import org.ethereum.solidity.compiler.CompilationResult.ContractMetadata;
 import org.junit.BeforeClass;
 import org.spongycastle.util.encoders.Hex;
-
-import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.EthereumInstance;
 
 // End of user code
 

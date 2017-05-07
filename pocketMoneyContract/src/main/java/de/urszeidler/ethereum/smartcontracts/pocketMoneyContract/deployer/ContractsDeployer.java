@@ -19,8 +19,10 @@ import org.apache.commons.io.IOUtils;
 import org.ethereum.solidity.compiler.CompilationResult;
 import org.ethereum.solidity.compiler.CompilationResult.ContractMetadata;
 
+
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.EthereumInstance;
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.EthereumInstance.DeployDuo;
+
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts.*;
 
 

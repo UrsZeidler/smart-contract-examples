@@ -1,9 +1,8 @@
-package de.urszeidler.ethereum.smartcontracts.pockeMoneyContract;
+package de.urszeidler.ethereum.smartcontracts.pocketMoneyContract;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
 
@@ -12,10 +11,9 @@ import org.adridadou.ethereum.values.EthValue;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.PockeMoneyContractManager;
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts.PocketMoneyContract;
 
-public class PockeMoneyContractManagerTest extends AbstractContractTest {
+public class PocketMoneyContractManagerTest extends AbstractContractTest {
 
 	private PockeMoneyContractManager manager;
 
