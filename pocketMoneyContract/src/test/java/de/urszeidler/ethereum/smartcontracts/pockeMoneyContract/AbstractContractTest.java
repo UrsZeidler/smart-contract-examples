@@ -1,4 +1,4 @@
-package de.urszeidler.ethereum.javaExamples;
+package de.urszeidler.ethereum.smartcontracts.pockeMoneyContract;
 
 // Start of user code AbstractContractTest.customImports
 
@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URISyntaxException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
@@ -25,6 +24,8 @@ import org.ethereum.solidity.compiler.CompilationResult.ContractMetadata;
 import org.junit.BeforeClass;
 import org.spongycastle.util.encoders.Hex;
 
+import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.EthereumInstance;
+
 // End of user code
 
 /**
@@ -32,8 +33,6 @@ import org.spongycastle.util.encoders.Hex;
  *
  */
 public abstract class AbstractContractTest {
-
-	private static Map<String,CompiledContract> contracts = new HashMap<String, CompiledContract>();
 
 	protected static EthereumFacade ethereum;
 	protected static EthAccount sender;
@@ -43,7 +42,7 @@ public abstract class AbstractContractTest {
 	protected SoliditySource contractSource;
 
 	// Start of user code AbstractContractTest.customFields
-	// TODO: add custom attributes
+	//TODO: add custom attributes
 	// End of user code
 
 	/**
@@ -70,14 +69,13 @@ public abstract class AbstractContractTest {
 	protected static void initTest() throws Exception {
 		// Start of user code AbstractContractTest.initTest
 
-		String property = System.getProperty("EthereumFacadeProvider");
-		if (property != null)
-			if (property.equalsIgnoreCase("ropsten") || property.equalsIgnoreCase("InfuraRopsten")) {
+		String property = System.getProperty(EthereumInstance.PROP_ETHEREUM_FACADE_PROVIDER);
+		if (EthereumInstance.ALL_TESTNET.contains(property)) {
 
-			} else if (property.equalsIgnoreCase("private")) {
-				sender = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
-				senderAddress = sender.getAddress();
-			}
+		} else if (EthereumInstance.EI_PRIVATE.equalsIgnoreCase(property)) {
+			sender = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+			senderAddress = sender.getAddress();
+		}
 
 		if (sender == null) {// the account for the standalone blockchain
 			sender = new EthAccount(
@@ -97,10 +95,6 @@ public abstract class AbstractContractTest {
 	 * @throws IOException
 	 */
 	protected CompiledContract getCompiledContract(String filePath) throws URISyntaxException, FileNotFoundException, IOException {
-		CompiledContract compiledContract = contracts.get(getQuallifiedContractName());
-		if(compiledContract!=null)
-			return compiledContract;
-
 		File file = new File(this.getClass().getResource(filePath).toURI());
 		String rawJson = IOUtils.toString(new FileInputStream(file), EthereumFacade.CHARSET);
 		CompilationResult result = CompilationResult.parse(rawJson);
@@ -112,9 +106,7 @@ public abstract class AbstractContractTest {
 			if (optional.isPresent())
 				contractMetadata = result.contracts.get(optional.get());
 		}
-		compiledContract = CompiledContract.from(contractSource, getContractName(), contractMetadata);
-		contracts.put(getQuallifiedContractName(), compiledContract);
-		return compiledContract;
+		return CompiledContract.from(contractSource, getContractName(), contractMetadata);
 	}
 
 	/**
@@ -135,5 +127,6 @@ public abstract class AbstractContractTest {
 	}
 
 	// Start of user code AbstractContractTest.customMethods
+	//TODO: add custom methods
 	// End of user code
 }

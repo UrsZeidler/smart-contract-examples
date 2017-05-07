@@ -1,33 +1,24 @@
 package de.urszeidler.ethereum.javaExamples.contracts;
 
-import static org.junit.Assert.*;
-
-
-import de.urszeidler.ethereum.javaExamples.contracts.ExampleToken.*;
-
+// Start of user code ExampleTokenTest.customImports
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.stream.*;
-import java.math.*;
+import java.math.BigInteger;
+import java.util.concurrent.CompletableFuture;
 
-import org.adridadou.ethereum.EthereumFacade;
-import org.adridadou.ethereum.keystore.*;
 import org.adridadou.ethereum.values.CompiledContract;
 import org.adridadou.ethereum.values.EthAccount;
 import org.adridadou.ethereum.values.EthAddress;
 import org.adridadou.ethereum.values.SoliditySource;
-import org.adridadou.ethereum.values.config.ChainId;
 import org.ethereum.crypto.ECKey;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.urszeidler.ethereum.javaExamples.AbstractContractTest;
-import de.urszeidler.ethereum.javaExamples.EthereumInstance;
 
-// Start of user code ExampleTokenTest.customImports
 
 // End of user code
 
@@ -38,6 +29,7 @@ import de.urszeidler.ethereum.javaExamples.EthereumInstance;
  */
 public class ExampleTokenTest extends AbstractContractTest{
 
+ 
 	private ExampleToken fixture;
 	// Start of user code ExampleTokenTest.attributes
 	//TODO: add custom attributes
@@ -47,6 +39,11 @@ public class ExampleTokenTest extends AbstractContractTest{
 	@Override
 	protected String getContractName() {
 		return "ExampleToken";
+	}
+
+	@Override
+	protected String getQuallifiedContractName() {
+		return "contracts.sol:ExampleToken";
 	}
 
 	/**
@@ -69,7 +66,7 @@ public class ExampleTokenTest extends AbstractContractTest{
 	 */
 	protected void createFixture() throws Exception {
 		//Start of user code createFixture
-		CompiledContract compiledContract = getCompiledContract();
+		CompiledContract compiledContract = getCompiledContract("/contracts/combined.json");
 		Integer totalSupply = 1000;
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender,totalSupply);
         fixtureAddress = address.get();

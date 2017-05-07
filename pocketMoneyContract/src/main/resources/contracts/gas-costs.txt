@@ -1,0 +1,23 @@
+
+======= PocketMoneyContract =======
+Gas estimation:
+construction:
+   20640 + 499200 = 519840
+external:
+   donator():	41979
+   claimInterval():	41979
+   setOwner(address):	41979
+   setRecipient(address):	41979
+   setDonator(address):	41979
+   amount2Claim():	41979
+   setAmount2Claim(uint256):	41979
+   recipient():	41979
+   owner():	41979
+   lastClaimed():	41979
+   claimPocketMoney():	[???]
+   setClaimInterval(uint256):	41979
+   currentAmount():	41979
+   fallback:	42288
+internal:
+   isInitalized():	419
+   ():	[???]

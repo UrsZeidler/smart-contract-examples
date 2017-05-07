@@ -1,4 +1,4 @@
-package de.urszeidler.ethereum.javaExamples;
+package de.urszeidler.ethereum.smartcontracts.pocketMoneyContract;
 
 //Start of user code customizedImports
 
@@ -25,7 +25,6 @@ import org.adridadou.ethereum.values.config.InfuraKey;
 import org.ethereum.crypto.ECKey;
 
 import com.google.common.collect.Sets;
-
 //End of user code
 
 
@@ -109,17 +108,17 @@ public class EthereumInstance{
 		if (EI_MAIN.equalsIgnoreCase(property)) {
 			BlockchainConfig.Builder mainNet = EthereumJConfigs.mainNet();
 			// Start of user code for setup the main chain
-			// End of user code
+//End of user code
 			ethereum = EthereumFacadeProvider.forNetwork(mainNet).create();
 		} else if (EI_TEST.equalsIgnoreCase(property)) {
 			BlockchainConfig.Builder testnet = EthereumJConfigs.etherCampTestnet();
 			//Start of user code for setup the test chain
-			// End of user code
+//End of user code
 			ethereum = EthereumFacadeProvider.forNetwork(testnet).create();
 		} else if (EI_ROPSTEN.equalsIgnoreCase(property)) {
 			BlockchainConfig.Builder ropsten = EthereumJConfigs.ropsten();
 			// Start of user code for setup the ropsten chain
-			// End of user code
+//End of user code
 			ethereum = EthereumFacadeProvider.forNetwork(ropsten).create();
 		} else if (EI_INFURA_ROPSTEN.equalsIgnoreCase(property)) {
 			String apiKey = System.getProperty(PROP_API_KEY);
@@ -138,19 +137,18 @@ public class EthereumInstance{
 			config.reset(true)
 			.initialBalance(new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L))),
 					EthValue.ether(10L));
-
-			// End of user code
+//End of user code
 			ethereum = new PrivateEthereumFacadeProvider().create(config);
 		} else if (EI_CUSTOM.equalsIgnoreCase(property)) {
 			BlockchainConfig.Builder config = BlockchainConfig.builder();
 			// Start of user code for setup the custom chain
-			// End of user code
+//End of user code
 			ethereum = EthereumFacadeProvider.forNetwork(config).create();
 		}
 		if (ethereum == null) {
 			TestConfig.Builder builder = TestConfig.builder();
 			// Start of user code for setup the standalone chain
-			// End of user code
+//End of user code
 			ethereum = EthereumFacadeProvider.forTest(builder.build());
 		}
 	}

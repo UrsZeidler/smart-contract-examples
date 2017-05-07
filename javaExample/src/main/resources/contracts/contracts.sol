@@ -129,15 +129,15 @@ contract ContractExample {
 	// Start of user code ContractExample.attributes
 	// End of user code
 	
-	modifier stateModifier(ContractState _state)
-	{
-	    if(_state!=contractState) throw;
-	    _;
-	}
-	
 	modifier testmodifier
 	{
 	    if(locked) throw;
+	    _;
+	}
+	
+	modifier stateModifier(ContractState _state)
+	{
+	    if(_state!=contractState) throw;
 	    _;
 	}
 	

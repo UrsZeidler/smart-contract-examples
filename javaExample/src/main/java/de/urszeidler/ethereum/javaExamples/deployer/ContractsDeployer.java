@@ -5,8 +5,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Map;
+import java.util.HashMap;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -37,6 +38,7 @@ public class ContractsDeployer {
 	private EthereumFacade ethereum;
 	private SoliditySource contractSource;
 	private CompilationResult compiledContracts;
+	private Map<String,CompiledContract> contracts = new HashMap<String, CompiledContract>();
 	private static String filename = "/contracts/contracts.sol";
 
 	/**
@@ -120,7 +122,7 @@ public class ContractsDeployer {
 
 
 	/**
-	 * Deploys a 'JavaEventExample' on the blockchain and wrapps the contcat proxy.
+	 * Deploys a 'JavaEventExample' on the blockchain and wrapps the contract proxy.
 	 *  
 	 * @param sender the sender address
 	 * @return the contract interface and the deployed address
@@ -144,23 +146,16 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Return the compiled contract for the contract 'JavaEventExample', when in source the contract code is compiled.
+	 * Return the compiled contract for the contract 'JavaEventExample', when in source the contract code gets compiled.
 	 * @return the compiled contract for 'JavaEventExample'.
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
 	public CompiledContract compiledContractJavaEventExample() throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = null;
-		if (compiledContracts == null){
-			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
-			compiledContract = contracts.get("JavaEventExample");
-		} else {
-			ContractMetadata contractMetadata = compiledContracts.contracts.get("JavaEventExample");
-			if (contractMetadata == null)
-				throw new IllegalArgumentException("Contract code for 'JavaEventExample' not found");
-			compiledContract = CompiledContract.from(null, "JavaEventExample", contractMetadata);
-		}
-		return compiledContract;
+		String contractName = "JavaEventExample";
+		String quallifiedName = "contracts.sol:JavaEventExample";
+		return getCompiledContract(contractName, quallifiedName);
+
 	}
 	/**
 	 * 
@@ -193,7 +188,7 @@ public class ContractsDeployer {
 
 
 	/**
-	 * Deploys a 'JavaStructExample' on the blockchain and wrapps the contcat proxy.
+	 * Deploys a 'JavaStructExample' on the blockchain and wrapps the contract proxy.
 	 *  
 	 * @param sender the sender address
 	 * @return the contract interface and the deployed address
@@ -217,23 +212,16 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Return the compiled contract for the contract 'JavaStructExample', when in source the contract code is compiled.
+	 * Return the compiled contract for the contract 'JavaStructExample', when in source the contract code gets compiled.
 	 * @return the compiled contract for 'JavaStructExample'.
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
 	public CompiledContract compiledContractJavaStructExample() throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = null;
-		if (compiledContracts == null){
-			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
-			compiledContract = contracts.get("JavaStructExample");
-		} else {
-			ContractMetadata contractMetadata = compiledContracts.contracts.get("JavaStructExample");
-			if (contractMetadata == null)
-				throw new IllegalArgumentException("Contract code for 'JavaStructExample' not found");
-			compiledContract = CompiledContract.from(null, "JavaStructExample", contractMetadata);
-		}
-		return compiledContract;
+		String contractName = "JavaStructExample";
+		String quallifiedName = "contracts.sol:JavaStructExample";
+		return getCompiledContract(contractName, quallifiedName);
+
 	}
 
 
@@ -254,7 +242,7 @@ public class ContractsDeployer {
 
 
 	/**
-	 * Deploys a 'JavaEventExample1' on the blockchain and wrapps the contcat proxy.
+	 * Deploys a 'JavaEventExample1' on the blockchain and wrapps the contract proxy.
 	 *  
 	 * @param sender the sender address
 	 * @return the contract interface and the deployed address
@@ -278,23 +266,16 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Return the compiled contract for the contract 'JavaEventExample1', when in source the contract code is compiled.
+	 * Return the compiled contract for the contract 'JavaEventExample1', when in source the contract code gets compiled.
 	 * @return the compiled contract for 'JavaEventExample1'.
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
 	public CompiledContract compiledContractJavaEventExample1() throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = null;
-		if (compiledContracts == null){
-			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
-			compiledContract = contracts.get("JavaEventExample1");
-		} else {
-			ContractMetadata contractMetadata = compiledContracts.contracts.get("JavaEventExample1");
-			if (contractMetadata == null)
-				throw new IllegalArgumentException("Contract code for 'JavaEventExample1' not found");
-			compiledContract = CompiledContract.from(null, "JavaEventExample1", contractMetadata);
-		}
-		return compiledContract;
+		String contractName = "JavaEventExample1";
+		String quallifiedName = "contracts.sol:JavaEventExample1";
+		return getCompiledContract(contractName, quallifiedName);
+
 	}
 	/**
 	 * 
@@ -327,7 +308,7 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Deploys a 'ContractExample' on the blockchain and wrapps the contcat proxy.
+	 * Deploys a 'ContractExample' on the blockchain and wrapps the contract proxy.
 	 *  
 	 * @param sender the sender address
 	 * @param _text 
@@ -352,23 +333,16 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Return the compiled contract for the contract 'ContractExample', when in source the contract code is compiled.
+	 * Return the compiled contract for the contract 'ContractExample', when in source the contract code gets compiled.
 	 * @return the compiled contract for 'ContractExample'.
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
 	public CompiledContract compiledContractContractExample() throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = null;
-		if (compiledContracts == null){
-			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
-			compiledContract = contracts.get("ContractExample");
-		} else {
-			ContractMetadata contractMetadata = compiledContracts.contracts.get("ContractExample");
-			if (contractMetadata == null)
-				throw new IllegalArgumentException("Contract code for 'ContractExample' not found");
-			compiledContract = CompiledContract.from(null, "ContractExample", contractMetadata);
-		}
-		return compiledContract;
+		String contractName = "ContractExample";
+		String quallifiedName = "contracts.sol:ContractExample";
+		return getCompiledContract(contractName, quallifiedName);
+
 	}
 
 
@@ -389,7 +363,7 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Deploys a 'ExampleToken' on the blockchain and wrapps the contcat proxy.
+	 * Deploys a 'ExampleToken' on the blockchain and wrapps the contract proxy.
 	 *  
 	 * @param sender the sender address
 	 * @param _totalTokens 
@@ -414,23 +388,16 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Return the compiled contract for the contract 'ExampleToken', when in source the contract code is compiled.
+	 * Return the compiled contract for the contract 'ExampleToken', when in source the contract code gets compiled.
 	 * @return the compiled contract for 'ExampleToken'.
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
 	public CompiledContract compiledContractExampleToken() throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = null;
-		if (compiledContracts == null){
-			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
-			compiledContract = contracts.get("ExampleToken");
-		} else {
-			ContractMetadata contractMetadata = compiledContracts.contracts.get("ExampleToken");
-			if (contractMetadata == null)
-				throw new IllegalArgumentException("Contract code for 'ExampleToken' not found");
-			compiledContract = CompiledContract.from(null, "ExampleToken", contractMetadata);
-		}
-		return compiledContract;
+		String contractName = "ExampleToken";
+		String quallifiedName = "contracts.sol:ExampleToken";
+		return getCompiledContract(contractName, quallifiedName);
+
 	}
 
 
@@ -451,7 +418,7 @@ public class ContractsDeployer {
 
 
 	/**
-	 * Deploys a 'JavaPayableExample' on the blockchain and wrapps the contcat proxy.
+	 * Deploys a 'JavaPayableExample' on the blockchain and wrapps the contract proxy.
 	 *  
 	 * @param sender the sender address
 	 * @return the contract interface and the deployed address
@@ -475,23 +442,16 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Return the compiled contract for the contract 'JavaPayableExample', when in source the contract code is compiled.
+	 * Return the compiled contract for the contract 'JavaPayableExample', when in source the contract code gets compiled.
 	 * @return the compiled contract for 'JavaPayableExample'.
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
 	public CompiledContract compiledContractJavaPayableExample() throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = null;
-		if (compiledContracts == null){
-			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
-			compiledContract = contracts.get("JavaPayableExample");
-		} else {
-			ContractMetadata contractMetadata = compiledContracts.contracts.get("JavaPayableExample");
-			if (contractMetadata == null)
-				throw new IllegalArgumentException("Contract code for 'JavaPayableExample' not found");
-			compiledContract = CompiledContract.from(null, "JavaPayableExample", contractMetadata);
-		}
-		return compiledContract;
+		String contractName = "JavaPayableExample";
+		String quallifiedName = "contracts.sol:JavaPayableExample";
+		return getCompiledContract(contractName, quallifiedName);
+
 	}
 
 
@@ -511,7 +471,7 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Deploys a 'JavaOwnerExample' on the blockchain and wrapps the contcat proxy.
+	 * Deploys a 'JavaOwnerExample' on the blockchain and wrapps the contract proxy.
 	 *  
 	 * @param sender the sender address
 	 * @return the contract interface
@@ -535,24 +495,66 @@ public class ContractsDeployer {
 	}
 
 	/**
-	 * Return the compiled contract for the contract 'JavaOwnerExample', when in source the contract code is compiled.
+	 * Return the compiled contract for the contract 'JavaOwnerExample', when in source the contract code gets compiled.
 	 * @return the compiled contract for 'JavaOwnerExample'.
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
 	public CompiledContract compiledContractJavaOwnerExample() throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = null;
-		if (compiledContracts == null){
-			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
-			compiledContract = contracts.get("JavaOwnerExample");
-		} else {
-			ContractMetadata contractMetadata = compiledContracts.contracts.get("JavaOwnerExample");
-			if (contractMetadata == null)
-				throw new IllegalArgumentException("Contract code for 'JavaOwnerExample' not found");
-			compiledContract = CompiledContract.from(null, "JavaOwnerExample", contractMetadata);
-		}
-		return compiledContract;
+		String contractName = "JavaOwnerExample";
+		String quallifiedName = "contracts.sol:JavaOwnerExample";
+		return getCompiledContract(contractName, quallifiedName);
+
 	}
 
 
+	/**
+	 * Get the compiled contract by name or qualified name.
+	 * @param contractName
+	 * @param qualifiedName
+	 * @return
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
+	public CompiledContract getCompiledContract(String contractName, String qualifiedName)
+			throws InterruptedException, ExecutionException {
+		CompiledContract compiledContract = contracts.get(qualifiedName==null ? contractName : qualifiedName);
+		if(compiledContract!=null)
+			return compiledContract;
+		
+		if (compiledContracts == null) {
+			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
+			compiledContract = contracts.get(contractName);
+			if (compiledContract == null) {
+				if (qualifiedName == null || qualifiedName.isEmpty())
+					throw new IllegalArgumentException("Qualified name must not be null or empty.");
+
+				Optional<String> optional = contracts.keySet().stream().filter(s -> {
+					return s.endsWith(qualifiedName);
+				}).findFirst();
+				if (optional.isPresent())
+					compiledContract = contracts.get(optional.get());
+			}
+		} else {
+			ContractMetadata contractMetadata = compiledContracts.contracts.get(contractName);
+			if (contractMetadata == null) {
+				if (qualifiedName == null || qualifiedName.isEmpty())
+					throw new IllegalArgumentException("Qualified name must not be null or empty.");
+
+				Optional<String> optional = compiledContracts.contracts.keySet().stream()
+						.filter(s -> s.endsWith(qualifiedName)).findFirst();
+				if (optional.isPresent()) {
+					contractMetadata = compiledContracts.contracts.get(optional.get());
+					compiledContract = CompiledContract.from(null, contractName, contractMetadata);
+				}
+			} else
+				compiledContract = CompiledContract.from(null, contractName, contractMetadata);
+		}
+		if (compiledContract == null)
+			throw new IllegalArgumentException(
+					"Contract code for '" + contractName + "/" + qualifiedName + "' not found");
+
+		contracts.put(qualifiedName==null ? contractName : qualifiedName, compiledContract);
+		return compiledContract;
+	}
 }

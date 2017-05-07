@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:configuration="http://www.eclipse.org/papyrus/infra/viewpoints/configuration" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <notation:Diagram xmi:id="_GQV9MDLhEeeoXItBHeyjgQ" type="PapyrusUMLClassDiagram" name="packaging" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_HsAp8DLhEeeoXItBHeyjgQ" type="Package_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Hso8EDLhEeeoXItBHeyjgQ" type="Package_NameLabel"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_Hsr_YDLhEeeoXItBHeyjgQ" type="Package_PackagedElementCompartment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_Hsr_YTLhEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hsr_YjLhEeeoXItBHeyjgQ"/>
+      </children>
+      <element xmi:type="uml:Package" href="pockeMoneyContract.uml#_HrP08DLhEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HsAp8TLhEeeoXItBHeyjgQ" x="157" y="121"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_KVHaMDLhEeeoXItBHeyjgQ" type="Package_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_KVIBQDLhEeeoXItBHeyjgQ" type="Package_NameLabel"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_KVIoUDLhEeeoXItBHeyjgQ" type="Package_PackagedElementCompartment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_KVIoUTLhEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KVIoUjLhEeeoXItBHeyjgQ"/>
+      </children>
+      <element xmi:type="uml:Package" href="pockeMoneyContract.uml#_KVB6oDLhEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KVHaMTLhEeeoXItBHeyjgQ" x="162" y="261"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_GQWkQDLhEeeoXItBHeyjgQ" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_GQWkQTLhEeeoXItBHeyjgQ"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_GQWkQjLhEeeoXItBHeyjgQ">
+      <owner xmi:type="uml:Model" href="pockeMoneyContract.uml#_Q29hgOxfEeaG14CB8JwmSw"/>
+      <configuration xmi:type="configuration:PapyrusDiagram" href="platform:/plugin/org.eclipse.papyrus.uml.diagram.clazz/model/clazzdiagram.configuration#_zzf4cXDtEeWh-MssWmCB_A"/>
+    </styles>
+    <element xmi:type="uml:Model" href="pockeMoneyContract.uml#_Q29hgOxfEeaG14CB8JwmSw"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_XcSr0DLhEeeoXItBHeyjgQ" type="UseCase" name="UseCaseDiagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_cSlFUDLhEeeoXItBHeyjgQ" type="Actor_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_cSmTcDLhEeeoXItBHeyjgQ" type="Actor_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cSmTcTLhEeeoXItBHeyjgQ" x="20" y="60"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_cSm6gDLhEeeoXItBHeyjgQ" type="Actor_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cSm6gTLhEeeoXItBHeyjgQ" x="20" y="100"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_cSm6gjLhEeeoXItBHeyjgQ" type="Actor_QualifiedNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cSm6gzLhEeeoXItBHeyjgQ" x="20" y="80"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_cSnhkDLhEeeoXItBHeyjgQ" type="Actor_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cSnhkTLhEeeoXItBHeyjgQ" y="5"/>
+      </children>
+      <element xmi:type="uml:Actor" href="pockeMoneyContract.uml#_cSK1oDLhEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cSlFUTLhEeeoXItBHeyjgQ" x="109" y="140"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_o0hi8DLhEeeoXItBHeyjgQ" type="UseCase_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_o0iKADLhEeeoXItBHeyjgQ" type="UseCase_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_o0iKATLhEeeoXItBHeyjgQ" type="UseCase_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_o0iKAjLhEeeoXItBHeyjgQ" y="5"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_o0l0YDLhEeeoXItBHeyjgQ" type="UseCase_ExtensionPointCompartment">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_o0l0YTLhEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_o0l0YjLhEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_o0l0YzLhEeeoXItBHeyjgQ"/>
+      </children>
+      <element xmi:type="uml:UseCase" href="pockeMoneyContract.uml#_o0ZnIDLhEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_o0hi8TLhEeeoXItBHeyjgQ" x="293" y="95"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_C_kTgDLiEeeoXItBHeyjgQ" type="Actor_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_C_k6kDLiEeeoXItBHeyjgQ" type="Actor_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_C_k6kTLiEeeoXItBHeyjgQ" x="20" y="60"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_C_k6kjLiEeeoXItBHeyjgQ" type="Actor_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_C_k6kzLiEeeoXItBHeyjgQ" x="20" y="100"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_C_lhoDLiEeeoXItBHeyjgQ" type="Actor_QualifiedNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_C_lhoTLiEeeoXItBHeyjgQ" x="20" y="80"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_C_lhojLiEeeoXItBHeyjgQ" type="Actor_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_C_lhozLiEeeoXItBHeyjgQ" y="5"/>
+      </children>
+      <element xmi:type="uml:Actor" href="pockeMoneyContract.uml#_C_aigDLiEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C_kTgTLiEeeoXItBHeyjgQ" x="876" y="163"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_ICdloDLiEeeoXItBHeyjgQ" type="UseCase_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ICeMsDLiEeeoXItBHeyjgQ" type="UseCase_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_ICeMsTLiEeeoXItBHeyjgQ" type="UseCase_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ICeMsjLiEeeoXItBHeyjgQ" y="5"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_ICeMszLiEeeoXItBHeyjgQ" type="UseCase_ExtensionPointCompartment">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_ICeMtDLiEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_ICeMtTLiEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ICeMtjLiEeeoXItBHeyjgQ"/>
+      </children>
+      <element xmi:type="uml:UseCase" href="pockeMoneyContract.uml#_ICVp0DLiEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ICdloTLiEeeoXItBHeyjgQ" x="574" y="95"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_rLLb0DLiEeeoXItBHeyjgQ" type="Actor_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_rLMC4DLiEeeoXItBHeyjgQ" type="Actor_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_rLMC4TLiEeeoXItBHeyjgQ" x="20" y="60"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_rLMp8DLiEeeoXItBHeyjgQ" type="Actor_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_rLMp8TLiEeeoXItBHeyjgQ" x="20" y="100"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_rLMp8jLiEeeoXItBHeyjgQ" type="Actor_QualifiedNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_rLMp8zLiEeeoXItBHeyjgQ" x="20" y="80"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_rLMp9DLiEeeoXItBHeyjgQ" type="Actor_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_rLNRADLiEeeoXItBHeyjgQ" y="5"/>
+      </children>
+      <element xmi:type="uml:Actor" href="pockeMoneyContract.uml#_rLBq0DLiEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rLLb0TLiEeeoXItBHeyjgQ" x="122" y="283"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_EcLmADLjEeeoXItBHeyjgQ" type="UseCase_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_EcMNEDLjEeeoXItBHeyjgQ" type="UseCase_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_EcMNETLjEeeoXItBHeyjgQ" type="UseCase_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_EcMNEjLjEeeoXItBHeyjgQ" y="5"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_EcMNEzLjEeeoXItBHeyjgQ" type="UseCase_ExtensionPointCompartment">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_EcMNFDLjEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_EcMNFTLjEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EcMNFjLjEeeoXItBHeyjgQ"/>
+      </children>
+      <element xmi:type="uml:UseCase" href="pockeMoneyContract.uml#_EcGGcDLjEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EcLmATLjEeeoXItBHeyjgQ" x="316" y="255"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_7gz7kDLkEeeoXItBHeyjgQ" type="UseCase_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7g1JsDLkEeeoXItBHeyjgQ" type="UseCase_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7g1wwDLkEeeoXItBHeyjgQ" type="UseCase_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7g1wwTLkEeeoXItBHeyjgQ" y="5"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_7g1wwjLkEeeoXItBHeyjgQ" type="UseCase_ExtensionPointCompartment">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_7g1wwzLkEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_7g1wxDLkEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7g1wxTLkEeeoXItBHeyjgQ"/>
+      </children>
+      <element xmi:type="uml:UseCase" href="pockeMoneyContract.uml#_7gsm0DLkEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7gz7kTLkEeeoXItBHeyjgQ" x="336" y="340"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_XcSr0TLhEeeoXItBHeyjgQ" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XcSr0jLhEeeoXItBHeyjgQ"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_XcSr0zLhEeeoXItBHeyjgQ">
+      <owner xmi:type="uml:Package" href="pockeMoneyContract.uml#_HrP08DLhEeeoXItBHeyjgQ"/>
+    </styles>
+    <element xmi:type="uml:Package" href="pockeMoneyContract.uml#_HrP08DLhEeeoXItBHeyjgQ"/>
+    <edges xmi:type="notation:Connector" xmi:id="_4ulL4DLhEeeoXItBHeyjgQ" type="Usage_Edge" source="_cSlFUDLhEeeoXItBHeyjgQ" target="_o0hi8DLhEeeoXItBHeyjgQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_4umaADLhEeeoXItBHeyjgQ" type="Usage_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_4umaATLhEeeoXItBHeyjgQ" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_4umaAjLhEeeoXItBHeyjgQ" type="Usage_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_4umaAzLhEeeoXItBHeyjgQ" x="-7" y="14"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_4ulL4TLhEeeoXItBHeyjgQ"/>
+      <element xmi:type="uml:Usage" href="pockeMoneyContract.uml#_4uV7UDLhEeeoXItBHeyjgQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4ulL4jLhEeeoXItBHeyjgQ" points="[139, 170, -643984, -643984]$[298, 136, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4vVZ0DLhEeeoXItBHeyjgQ" id="(1.0,0.6)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4vVZ0TLhEeeoXItBHeyjgQ" id="(0.030864197530864196,0.6833333333333333)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_LpevoDLiEeeoXItBHeyjgQ" type="Usage_Edge" source="_C_kTgDLiEeeoXItBHeyjgQ" target="_ICdloDLiEeeoXItBHeyjgQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_LpfWsDLiEeeoXItBHeyjgQ" type="Usage_NameLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_MxlAIDLiEeeoXItBHeyjgQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_LpfWsTLiEeeoXItBHeyjgQ" x="-1" y="38"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_LpfWsjLiEeeoXItBHeyjgQ" type="Usage_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_MxybgDLiEeeoXItBHeyjgQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_LpfWszLiEeeoXItBHeyjgQ" x="-4" y="10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_LpevoTLiEeeoXItBHeyjgQ"/>
+      <element xmi:type="uml:Usage" href="pockeMoneyContract.uml#_LpXa4DLiEeeoXItBHeyjgQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LpevojLiEeeoXItBHeyjgQ" points="[876, 198, -643984, -643984]$[775, 201, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Lp-e4DLiEeeoXItBHeyjgQ" id="(0.0,0.7)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Lp_F8DLiEeeoXItBHeyjgQ" id="(1.0,0.36666666666666664)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_N4b6gDLiEeeoXItBHeyjgQ" type="Dependency_Edge" source="_ICdloDLiEeeoXItBHeyjgQ" target="_o0hi8DLhEeeoXItBHeyjgQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_N4chkDLiEeeoXItBHeyjgQ" type="Dependency_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_N4chkTLiEeeoXItBHeyjgQ" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_N4chkjLiEeeoXItBHeyjgQ" type="Dependency_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_N4chkzLiEeeoXItBHeyjgQ" y="60"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_N4b6gTLiEeeoXItBHeyjgQ"/>
+      <element xmi:type="uml:Dependency" href="pockeMoneyContract.uml#_N4VM0DLiEeeoXItBHeyjgQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_N4b6gjLiEeeoXItBHeyjgQ" points="[574, 125, -643984, -643984]$[454, 127, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_N5QZ4DLiEeeoXItBHeyjgQ" id="(0.0,0.5)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_N5QZ4TLiEeeoXItBHeyjgQ" id="(0.9938271604938271,0.5333333333333333)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_vwB1IDLkEeeoXItBHeyjgQ" type="Usage_Edge" source="_rLLb0DLiEeeoXItBHeyjgQ" target="_EcLmADLjEeeoXItBHeyjgQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_vwDDQDLkEeeoXItBHeyjgQ" type="Usage_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vwDDQTLkEeeoXItBHeyjgQ" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_vwDDQjLkEeeoXItBHeyjgQ" type="Usage_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vwDDQzLkEeeoXItBHeyjgQ" x="-5" y="16"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_vwB1ITLkEeeoXItBHeyjgQ"/>
+      <element xmi:type="uml:Usage" href="pockeMoneyContract.uml#_vvzLoDLkEeeoXItBHeyjgQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vwB1IjLkEeeoXItBHeyjgQ" points="[152, 283, -643984, -643984]$[316, 281, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vw_ecDLkEeeoXItBHeyjgQ" id="(1.0000000000000304,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vxAFgDLkEeeoXItBHeyjgQ" id="(0.0,0.43333333333333335)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_31VS4DLlEeeoXItBHeyjgQ" type="Usage_Edge" source="_rLLb0DLiEeeoXItBHeyjgQ" target="_7gz7kDLkEeeoXItBHeyjgQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_31V58DLlEeeoXItBHeyjgQ" type="Usage_NameLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_4xupsDLlEeeoXItBHeyjgQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_31V58TLlEeeoXItBHeyjgQ" x="1" y="39"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_31V58jLlEeeoXItBHeyjgQ" type="Usage_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_4yJgcDLlEeeoXItBHeyjgQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_31V58zLlEeeoXItBHeyjgQ" x="46" y="3"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_31VS4TLlEeeoXItBHeyjgQ"/>
+      <element xmi:type="uml:Usage" href="pockeMoneyContract.uml#_31N-IDLlEeeoXItBHeyjgQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_31VS4jLlEeeoXItBHeyjgQ" points="[152, 314, -643984, -643984]$[263, 366, -643984, -643984]$[336, 366, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_32E5wDLlEeeoXItBHeyjgQ" id="(1.0,0.62)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_32E5wTLlEeeoXItBHeyjgQ" id="(0.0,0.43333333333333335)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_vQcrQDLmEeeoXItBHeyjgQ" type="Dependency_Edge" source="_ICdloDLiEeeoXItBHeyjgQ" target="_EcLmADLjEeeoXItBHeyjgQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_vQdSUDLmEeeoXItBHeyjgQ" type="Dependency_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vQdSUTLmEeeoXItBHeyjgQ" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_vQdSUjLmEeeoXItBHeyjgQ" type="Dependency_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vQdSUzLmEeeoXItBHeyjgQ" y="60"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_vQcrQTLmEeeoXItBHeyjgQ"/>
+      <element xmi:type="uml:Dependency" href="pockeMoneyContract.uml#_vQUIYDLmEeeoXItBHeyjgQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vQcrQjLmEeeoXItBHeyjgQ" points="[592, 145, -643984, -643984]$[484, 261, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vRRKoDLmEeeoXItBHeyjgQ" id="(0.1258741258741259,0.8333333333333334)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vRRKoTLmEeeoXItBHeyjgQ" id="(0.8,0.1)"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_Ky_58DLqEeeoXItBHeyjgQ" type="PapyrusUMLClassDiagram" name="ClassDiagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_NV1qIDLqEeeoXItBHeyjgQ" type="Class_Shape">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lLTsoDL5EeeoXItBHeyjgQ" source="PapyrusCSSForceValue">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lLUTsDL5EeeoXItBHeyjgQ" key="canonical" value="true"/>
+      </eAnnotations>
+      <children xmi:type="notation:DecorationNode" xmi:id="_NV2RMDLqEeeoXItBHeyjgQ" type="Class_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_NV24QDLqEeeoXItBHeyjgQ" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_NV24QTLqEeeoXItBHeyjgQ" y="5"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_NV24QjLqEeeoXItBHeyjgQ" type="Class_AttributeCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_rC2FkDLqEeeoXItBHeyjgQ" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="pockeMoneyContract.uml#_rCmN8DLqEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_rC2FkTLqEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_wbtnsDLqEeeoXItBHeyjgQ" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="pockeMoneyContract.uml#_wbb64DLqEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_wbtnsTLqEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_zhnBoDLqEeeoXItBHeyjgQ" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="pockeMoneyContract.uml#_zhWi8DLqEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_zhnBoTLqEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_4CmgkDLqEeeoXItBHeyjgQ" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="pockeMoneyContract.uml#_4CWo8DLqEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_4CmgkTLqEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_HN3w4DLrEeeoXItBHeyjgQ" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="pockeMoneyContract.uml#_HNjn0DLrEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_HN3w4TLrEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_MGFdADLrEeeoXItBHeyjgQ" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="pockeMoneyContract.uml#_MF1lYDLrEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_MGFdATLrEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="__zHaEDLrEeeoXItBHeyjgQ" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="pockeMoneyContract.uml#__yw0wDLrEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="__zHaETLrEeeoXItBHeyjgQ"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_NV24QzLqEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_NV24RDLqEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_NV24RTLqEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NV24RjLqEeeoXItBHeyjgQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_NV24RzLqEeeoXItBHeyjgQ" type="Class_OperationCompartment">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3c08MDL5EeeoXItBHeyjgQ" source="PapyrusCSSForceValue">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3c08MTL5EeeoXItBHeyjgQ" key="mutable" value="true"/>
+        </eAnnotations>
+        <children xmi:type="notation:Shape" xmi:id="_6Pa2EDLtEeeoXItBHeyjgQ" type="Operation_ClassOperationLabel">
+          <element xmi:type="uml:Operation" href="pockeMoneyContract.uml#_6PEQwDLtEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_6Pa2ETLtEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_3bL9cDL5EeeoXItBHeyjgQ" type="Operation_ClassOperationLabel">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3c08MjL5EeeoXItBHeyjgQ" source="PapyrusCSSForceValue">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3c08MzL5EeeoXItBHeyjgQ" key="mutable" value="true"/>
+          </eAnnotations>
+          <element xmi:type="uml:Operation" href="pockeMoneyContract.uml#_uYt3YDL5EeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_3bL9cTL5EeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_mUv8wDMAEeeoXItBHeyjgQ" type="Operation_ClassOperationLabel">
+          <element xmi:type="uml:Operation" href="pockeMoneyContract.uml#_mUmy0DMAEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_mUv8wTMAEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5mppEDLxEeeoXItBHeyjgQ" type="Operation_ClassOperationLabel">
+          <element xmi:type="uml:Operation" href="pockeMoneyContract.uml#_5mZKYDLxEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_5mppETLxEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_SmfpcDMAEeeoXItBHeyjgQ" type="Operation_ClassOperationLabel">
+          <element xmi:type="uml:Operation" href="pockeMoneyContract.uml#_SmPx0DMAEeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_SmfpcTMAEeeoXItBHeyjgQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_Lgjj4DM0EeeoXItBHeyjgQ" type="Operation_ClassOperationLabel">
+          <element xmi:type="uml:Operation" href="pockeMoneyContract.uml#_LgLJYDM0EeeoXItBHeyjgQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Lgjj4TM0EeeoXItBHeyjgQ"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_NV24SDLqEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_NV24STLqEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_NV24SjLqEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NV24SzLqEeeoXItBHeyjgQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_NV3fUDLqEeeoXItBHeyjgQ" type="Class_NestedClassifierCompartment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_NV3fUTLqEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_NV3fUjLqEeeoXItBHeyjgQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_NV3fUzLqEeeoXItBHeyjgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NV3fVDLqEeeoXItBHeyjgQ"/>
+      </children>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_lLTFkDL5EeeoXItBHeyjgQ" canonical="false"/>
+      <element xmi:type="uml:Class" href="pockeMoneyContract.uml#_NVrSEDLqEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NV1qITLqEeeoXItBHeyjgQ" x="9" y="125" width="566"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_TwfZYDLqEeeoXItBHeyjgQ" type="Constraint_PackagedElementShape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_TwgAcDLqEeeoXItBHeyjgQ" type="Constraint_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_TwgAcTLqEeeoXItBHeyjgQ" type="Constraint_BodyLabel"/>
+      <element xmi:type="uml:Constraint" href="pockeMoneyContract.uml#_TwVoYDLqEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TwfZYTLqEeeoXItBHeyjgQ" x="6" y="35"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_jnl08DLqEeeoXItBHeyjgQ" type="Constraint_PackagedElementShape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_jnmcADLqEeeoXItBHeyjgQ" type="Constraint_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_jnmcATLqEeeoXItBHeyjgQ" type="Constraint_BodyLabel"/>
+      <element xmi:type="uml:Constraint" href="pockeMoneyContract.uml#_jncD8DLqEeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jnl08TLqEeeoXItBHeyjgQ" x="247" y="36"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_R9hxgDLrEeeoXItBHeyjgQ" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_R9hxgTLrEeeoXItBHeyjgQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_R9ul0DLrEeeoXItBHeyjgQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="pockeMoneyContract.uml#_NVrSEDLqEeeoXItBHeyjgQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R9hxgjLrEeeoXItBHeyjgQ" x="353" y="121"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_9irB0DM1EeeoXItBHeyjgQ" type="Comment_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_9isP8DM1EeeoXItBHeyjgQ" type="Comment_BodyLabel"/>
+      <element xmi:type="uml:Comment" href="pockeMoneyContract.uml#_JsiqYDL5EeeoXItBHeyjgQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9irB0TM1EeeoXItBHeyjgQ" x="14" y="447"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_Ky_58TLqEeeoXItBHeyjgQ" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Ky_58jLqEeeoXItBHeyjgQ"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_Ky_58zLqEeeoXItBHeyjgQ">
+      <owner xmi:type="uml:Package" href="pockeMoneyContract.uml#_KVB6oDLhEeeoXItBHeyjgQ"/>
+    </styles>
+    <element xmi:type="uml:Package" href="pockeMoneyContract.uml#_KVB6oDLhEeeoXItBHeyjgQ"/>
+    <edges xmi:type="notation:Connector" xmi:id="_UCZowDLqEeeoXItBHeyjgQ" type="Constraint_ContextEdge" source="_TwfZYDLqEeeoXItBHeyjgQ" target="_NV1qIDLqEeeoXItBHeyjgQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_UCaP0DLqEeeoXItBHeyjgQ" type="Constraint_KeywordLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_fREgoDLqEeeoXItBHeyjgQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UCaP0TLqEeeoXItBHeyjgQ" x="-1" y="13"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_UCZowTLqEeeoXItBHeyjgQ"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UCZowjLqEeeoXItBHeyjgQ" points="[161, 93, -643984, -643984]$[178, 121, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UDMS8DLqEeeoXItBHeyjgQ" id="(0.3269230769230769,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UDMS8TLqEeeoXItBHeyjgQ" id="(0.1628440366972477,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_j2vEMDLqEeeoXItBHeyjgQ" type="Constraint_ContextEdge" source="_jnl08DLqEeeoXItBHeyjgQ" target="_NV1qIDLqEeeoXItBHeyjgQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_j2vEMzLqEeeoXItBHeyjgQ" type="Constraint_KeywordLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_nKtWYDLqEeeoXItBHeyjgQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_j2vENDLqEeeoXItBHeyjgQ" x="2" y="12"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_j2vEMTLqEeeoXItBHeyjgQ"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_j2vEMjLqEeeoXItBHeyjgQ" points="[334, 42, -643984, -643984]$[266, 121, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_j26qYDLqEeeoXItBHeyjgQ" id="(0.1783625730994152,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_j26qYTLqEeeoXItBHeyjgQ" id="(0.7420494699646644,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_R9vz8DLrEeeoXItBHeyjgQ" type="StereotypeCommentLink" source="_NV1qIDLqEeeoXItBHeyjgQ" target="_R9hxgDLrEeeoXItBHeyjgQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_R9vz8TLrEeeoXItBHeyjgQ"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_R9xCEDLrEeeoXItBHeyjgQ" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="pockeMoneyContract.uml#_NVrSEDLqEeeoXItBHeyjgQ"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_R9vz8jLrEeeoXItBHeyjgQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_R9wbADLrEeeoXItBHeyjgQ"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_R9wbATLrEeeoXItBHeyjgQ"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Contracts="http:///schemas/Contracts/_rT2FgNC_Eea9y7gMoC2t4Q/36" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/Contracts/_rT2FgNC_Eea9y7gMoC2t4Q/36 pathmap://UML_PROFILE/solidity_profiles.uml#_rT6-ANC_Eea9y7gMoC2t4Q">
+  <uml:Model xmi:id="_Q29hgOxfEeaG14CB8JwmSw" name="pocketMoney">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_Q29hgexfEeaG14CB8JwmSw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/solidity_types.uml#_N0uwUKKsEeWvY9GWZZMftw"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_HrP08DLhEeeoXItBHeyjgQ" name="documentation">
+      <packagedElement xmi:type="uml:Actor" xmi:id="_cSK1oDLhEeeoXItBHeyjgQ" name="Donor">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_SiyFkDLpEeeoXItBHeyjgQ">
+          <body>The donor is the ine providing the money.</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_o0ZnIDLhEeeoXItBHeyjgQ" name="deposite pocket money"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_4uV7UDLhEeeoXItBHeyjgQ" client="_cSK1oDLhEeeoXItBHeyjgQ" supplier="_o0ZnIDLhEeeoXItBHeyjgQ"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_C_aigDLiEeeoXItBHeyjgQ" name="Recipient">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_dWHFQDLpEeeoXItBHeyjgQ">
+          <body>The recipent is the one able to claim and withdraw the money.</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_ICVp0DLiEeeoXItBHeyjgQ" name="claim pocket money">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_lu0coDLpEeeoXItBHeyjgQ">
+          <body>When claiming the available amount is send to the recipent.</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_LpXa4DLiEeeoXItBHeyjgQ" client="_C_aigDLiEeeoXItBHeyjgQ" supplier="_ICVp0DLiEeeoXItBHeyjgQ"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_N4VM0DLiEeeoXItBHeyjgQ" client="_ICVp0DLiEeeoXItBHeyjgQ" supplier="_o0ZnIDLhEeeoXItBHeyjgQ"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_rLBq0DLiEeeoXItBHeyjgQ" name="Owner">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_PLjrEDLpEeeoXItBHeyjgQ">
+          <body>The owner is per default the creator of the contract and responisible for managing it.</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_EcGGcDLjEeeoXItBHeyjgQ" name="manage distribution parameter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rmStsDLmEeeoXItBHeyjgQ">
+          <body>The distribution parameters are:
+-amount to claim
+-timeframe for distribution
+-recipent address
+-donor address
+
+</body>
+        </ownedComment>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_vvzLoDLkEeeoXItBHeyjgQ" client="_rLBq0DLiEeeoXItBHeyjgQ" supplier="_EcGGcDLjEeeoXItBHeyjgQ"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_7gsm0DLkEeeoXItBHeyjgQ" name="change owner"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_31N-IDLlEeeoXItBHeyjgQ" client="_rLBq0DLiEeeoXItBHeyjgQ" supplier="_7gsm0DLkEeeoXItBHeyjgQ"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_vQUIYDLmEeeoXItBHeyjgQ" client="_ICVp0DLiEeeoXItBHeyjgQ" supplier="_EcGGcDLjEeeoXItBHeyjgQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_KVB6oDLhEeeoXItBHeyjgQ" name="contracts">
+      <packagedElement xmi:type="uml:Class" xmi:id="_NVrSEDLqEeeoXItBHeyjgQ" name="PocketMoneyContract">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_JsiqYDL5EeeoXItBHeyjgQ">
+          <body>A contract to manage pocket money for one recipient.</body>
+        </ownedComment>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_TwVoYDLqEeeoXItBHeyjgQ" name="onlyOwner">
+          <specification xmi:type="uml:LiteralString" xmi:id="_TwYrsDLqEeeoXItBHeyjgQ" name="constraintSpec" value="if (msg.sender != owner) throw;"/>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_jncD8DLqEeeoXItBHeyjgQ" name="onlyRecipient">
+          <specification xmi:type="uml:LiteralString" xmi:id="_jnegMDLqEeeoXItBHeyjgQ" name="constraintSpec" value="if (!isInitalized() || msg.sender != recipient) throw;"/>
+        </ownedRule>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rCmN8DLqEeeoXItBHeyjgQ" name="owner">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wbb64DLqEeeoXItBHeyjgQ" name="donator">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zhWi8DLqEeeoXItBHeyjgQ" name="recipient">
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4CWo8DLqEeeoXItBHeyjgQ" name="claimInterval">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Q_tWADL5EeeoXItBHeyjgQ">
+            <body>The interval for claiming the amount.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HNjn0DLrEeeoXItBHeyjgQ" name="lastClaimed">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_VyxcYDL5EeeoXItBHeyjgQ">
+            <body>The timestamp of last claimed money.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_MF1lYDLrEeeoXItBHeyjgQ" name="amount2Claim">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_NwF7MDMAEeeoXItBHeyjgQ">
+            <body>The amount per intervall.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__yw0wDLrEeeoXItBHeyjgQ" name="currentAmount">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_Z7PtoDL5EeeoXItBHeyjgQ">
+            <body>The current amount of the contract.</body>
+          </ownedComment>
+          <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_6PEQwDLtEeeoXItBHeyjgQ" name="PocketMoneyClaimed">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_-imFADL5EeeoXItBHeyjgQ">
+            <body>Signaled when the pocket money is claimed.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NyZGcDLuEeeoXItBHeyjgQ" name="_recipient">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_X27GcDLuEeeoXItBHeyjgQ" name="time">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Zj3JYDLuEeeoXItBHeyjgQ" name="amount">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8FaukDMSEeeoXItBHeyjgQ" name="intervals">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EmbnADMLEeeoXItBHeyjgQ" name="succsess">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_LedxoKKuEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_uYt3YDL5EeeoXItBHeyjgQ" name="PocketMoneyDonated">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CRHlMDL6EeeoXItBHeyjgQ">
+            <body>Signaled when pocked money is received.</body>
+          </ownedComment>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uYt3YTL5EeeoXItBHeyjgQ" name="_donator">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_bcZf4KKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uYt3YjL5EeeoXItBHeyjgQ" name="time">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uYt3YzL5EeeoXItBHeyjgQ" name="amount">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_Z66fAKKsEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_mUmy0DMAEeeoXItBHeyjgQ" name="PocketMoneyContract"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_5mZKYDLxEeeoXItBHeyjgQ" name="claimPocketMoney">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_K2Lu0DMAEeeoXItBHeyjgQ">
+            <body>Receives the money for the past intervals.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_SmPx0DMAEeeoXItBHeyjgQ" name="isInitalized" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_d4_RYDMAEeeoXItBHeyjgQ" direction="return">
+            <type xmi:type="uml:DataType" href="pathmap://UML_LIBRARIES/solidity_types.uml#_LedxoKKuEeWvY9GWZZMftw"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_LgLJYDM0EeeoXItBHeyjgQ" name=""/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Q29hguxfEeaG14CB8JwmSw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Syk5oOxfEeaG14CB8JwmSw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5oexfEeaG14CB8JwmSw" key="Version" value="0.0.37"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5ouxfEeaG14CB8JwmSw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5o-xfEeaG14CB8JwmSw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5pOxfEeaG14CB8JwmSw" key="Date" value="2017-01-02"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Syk5pexfEeaG14CB8JwmSw" key="Author" value="Urs Zeidler"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Q29hiexfEeaG14CB8JwmSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILE/solidity_profiles.uml#_rT6-ANC_Eea9y7gMoC2t4Q"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILE/solidity_profiles.uml#_uCE5EKHREeWjOZ0I8ilEXA"/>
+    </profileApplication>
+  </uml:Model>
+  <Contracts:Contract xmi:id="_R8lWUDLrEeeoXItBHeyjgQ" base_Class="_NVrSEDLqEeeoXItBHeyjgQ"/>
+  <Contracts:GetterSetter xmi:id="_MdFyUDLsEeeoXItBHeyjgQ" getter="false" base_Property="_rCmN8DLqEeeoXItBHeyjgQ">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_TvmWoDLsEeeoXItBHeyjgQ" parameter="" modifier="_TwVoYDLqEeeoXItBHeyjgQ"/>
+  </Contracts:GetterSetter>
+  <Contracts:GetterSetter xmi:id="_NoEXsDLsEeeoXItBHeyjgQ" getter="false" base_Property="_wbb64DLqEeeoXItBHeyjgQ">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_XZLscDLsEeeoXItBHeyjgQ" parameter="" modifier="_TwVoYDLqEeeoXItBHeyjgQ"/>
+  </Contracts:GetterSetter>
+  <Contracts:GetterSetter xmi:id="_PDGLQDLsEeeoXItBHeyjgQ" getter="false" base_Property="_zhWi8DLqEeeoXItBHeyjgQ">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_ZHF_wDLsEeeoXItBHeyjgQ" parameter="" modifier="_TwVoYDLqEeeoXItBHeyjgQ"/>
+  </Contracts:GetterSetter>
+  <Contracts:GetterSetter xmi:id="_QQaS8DLsEeeoXItBHeyjgQ" getter="false" base_Property="_4CWo8DLqEeeoXItBHeyjgQ">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_bUKUQDLsEeeoXItBHeyjgQ" parameter="" modifier="_TwVoYDLqEeeoXItBHeyjgQ"/>
+  </Contracts:GetterSetter>
+  <Contracts:GetterSetter xmi:id="_R5ES0DLsEeeoXItBHeyjgQ" getter="false" base_Property="_MF1lYDLrEeeoXItBHeyjgQ">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_dS4DsDLsEeeoXItBHeyjgQ" parameter="" modifier="_TwVoYDLqEeeoXItBHeyjgQ"/>
+  </Contracts:GetterSetter>
+  <Contracts:Event xmi:id="_7ddWgDLtEeeoXItBHeyjgQ" base_Operation="_6PEQwDLtEeeoXItBHeyjgQ"/>
+  <Contracts:Function xmi:id="_-gEPEDLxEeeoXItBHeyjgQ" base_Operation="_5mZKYDLxEeeoXItBHeyjgQ">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_AKGH8DLyEeeoXItBHeyjgQ" parameter="" modifier="_jncD8DLqEeeoXItBHeyjgQ"/>
+  </Contracts:Function>
+  <Contracts:Event xmi:id="_uYw6sDL5EeeoXItBHeyjgQ" base_Operation="_uYt3YDL5EeeoXItBHeyjgQ"/>
+  <Contracts:Function xmi:id="_ZbE7oDMAEeeoXItBHeyjgQ" base_Operation="_SmPx0DMAEeeoXItBHeyjgQ"/>
+  <Contracts:Constructor xmi:id="_pPEY0DMAEeeoXItBHeyjgQ" base_Operation="_mUmy0DMAEeeoXItBHeyjgQ"/>
+  <Contracts:Function xmi:id="_NzrdEDM0EeeoXItBHeyjgQ" base_Operation="_LgLJYDM0EeeoXItBHeyjgQ">
+    <modifiers xmi:type="Contracts:Modifier" xmi:id="_PY1dADM0EeeoXItBHeyjgQ" parameter="">
+      <modifier xmi:type="uml:Constraint" href="pathmap://UML_LIBRARIES/solidity_types.uml#_YgZ80JODEeamY7dTCoYboQ"/>
+    </modifiers>
+  </Contracts:Function>
+</xmi:XMI>

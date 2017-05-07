@@ -1,0 +1,11 @@
+
+Sun May 07 16:50:20 CEST 2017
+================================================================================
+Start of user code PocketMoneyContract default.function
+		if(msg.sender!=donator) throw;
+		
+		if(lastClaimed==0) lastClaimed = now;
+		
+		currentAmount+=msg.value;
+		PocketMoneyDonated(msg.sender,now,msg.value);
+		// End of user code

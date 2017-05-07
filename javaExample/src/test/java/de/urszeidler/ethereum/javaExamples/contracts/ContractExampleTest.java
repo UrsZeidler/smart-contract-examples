@@ -1,33 +1,22 @@
 package de.urszeidler.ethereum.javaExamples.contracts;
 
-import static org.junit.Assert.*;
-
-
-import de.urszeidler.ethereum.javaExamples.contracts.ContractExample.*;
-
+// Start of user code ContractExampleTest.customImports
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.File;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.stream.*;
-import java.math.*;
+import java.util.concurrent.CompletableFuture;
 
-import org.adridadou.ethereum.EthereumFacade;
-import org.adridadou.ethereum.keystore.*;
 import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAccount;
 import org.adridadou.ethereum.values.EthAddress;
 import org.adridadou.ethereum.values.SoliditySource;
-import org.adridadou.ethereum.values.config.ChainId;
-import org.ethereum.crypto.ECKey;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.urszeidler.ethereum.javaExamples.AbstractContractTest;
-import de.urszeidler.ethereum.javaExamples.EthereumInstance;
-
-// Start of user code ContractExampleTest.customImports
+import de.urszeidler.ethereum.javaExamples.contracts.ContractExample.ContractState;
 
 // End of user code
 
@@ -38,6 +27,7 @@ import de.urszeidler.ethereum.javaExamples.EthereumInstance;
  */
 public class ContractExampleTest extends AbstractContractTest{
 
+ 
 	private ContractExample fixture;
 	// Start of user code ContractExampleTest.attributes
 
@@ -46,6 +36,11 @@ public class ContractExampleTest extends AbstractContractTest{
 	@Override
 	protected String getContractName() {
 		return "ContractExample";
+	}
+
+	@Override
+	protected String getQuallifiedContractName() {
+		return "contracts.sol:ContractExample";
 	}
 
 	/**

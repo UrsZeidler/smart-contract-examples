@@ -1,33 +1,18 @@
 package de.urszeidler.ethereum.javaExamples.contracts;
 
-import static org.junit.Assert.*;
-
-
-import de.urszeidler.ethereum.javaExamples.contracts.JavaStructExample.*;
-
+// Start of user code JavaStructExampleTest.customImports
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.stream.*;
-import java.math.*;
+import java.util.concurrent.CompletableFuture;
 
-import org.adridadou.ethereum.EthereumFacade;
-import org.adridadou.ethereum.keystore.*;
 import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAccount;
 import org.adridadou.ethereum.values.EthAddress;
 import org.adridadou.ethereum.values.SoliditySource;
-import org.adridadou.ethereum.values.config.ChainId;
-import org.ethereum.crypto.ECKey;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.urszeidler.ethereum.javaExamples.AbstractContractTest;
-import de.urszeidler.ethereum.javaExamples.EthereumInstance;
-
-// Start of user code JavaStructExampleTest.customImports
 
 // End of user code
 
@@ -38,6 +23,7 @@ import de.urszeidler.ethereum.javaExamples.EthereumInstance;
  */
 public class JavaStructExampleTest extends AbstractContractTest{
 
+ 
 	private JavaStructExample fixture;
 	// Start of user code JavaStructExampleTest.attributes
 
@@ -46,6 +32,11 @@ public class JavaStructExampleTest extends AbstractContractTest{
 	@Override
 	protected String getContractName() {
 		return "JavaStructExample";
+	}
+
+	@Override
+	protected String getQuallifiedContractName() {
+		return "contracts.sol:JavaStructExample";
 	}
 
 	/**
@@ -68,7 +59,7 @@ public class JavaStructExampleTest extends AbstractContractTest{
 	 */
 	protected void createFixture() throws Exception {
 		//Start of user code createFixture
-		CompiledContract compiledContract = getCompiledContract();
+		CompiledContract compiledContract = getCompiledContract("/contracts/combined.json");
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
         fixtureAddress = address.get();
 		setFixture(ethereum.createContractProxy(compiledContract, fixtureAddress, sender, JavaStructExample.class));
