@@ -125,6 +125,13 @@ public abstract class AbstractContractTest {
 	}
 
 	// Start of user code AbstractContractTest.customMethods
-	//TODO: add custom methods
+	
+	/**
+	 * Run a standalone blockchain.
+	 * @return
+	 */
+	protected boolean isStandaloneChain() {
+		return System.getProperty(EthereumInstance.PROP_ETHEREUM_FACADE_PROVIDER)==null;
+	}
 	// End of user code
 }

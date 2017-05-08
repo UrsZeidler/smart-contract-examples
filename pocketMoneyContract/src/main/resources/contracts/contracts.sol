@@ -72,6 +72,7 @@ contract PocketMoneyContract {
 		if(amount>currentAmount) throw;
 		
 		currentAmount-=amount;
+		lastClaimed = now;
 		bool succsess = recipient.send(amount);
 		PocketMoneyClaimed(msg.sender,now,amount,interval,succsess);
 		
