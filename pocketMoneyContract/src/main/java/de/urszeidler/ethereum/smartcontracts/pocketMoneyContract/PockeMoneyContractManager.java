@@ -428,7 +428,7 @@ public class PockeMoneyContractManager {
 		HelpFormatter formatter = new HelpFormatter();
 		String header = "\nA contract to manage pocket money for one recipent (c) Urs Zeidler 2017\n";
 		String footer = "\nexample: \n\n" + buffer.toString();
-		formatter.printHelp(150, "pockeMoneyContract.sh", header, options, footer, true);
+		formatter.printHelp(150, "pocketMoneyContract.sh", header, options, footer, true);
 	}
 
 	public void setMillis(long millis) {

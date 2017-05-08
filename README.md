@@ -5,6 +5,10 @@ some small smart contract examples
 
  ![](https://github.com/UrsZeidler/smart-contract-examples/blob/master/javaExample/doc/ClassDiagram.PNG)
 
+* [pocket money contract] A contract to manage pocket money for one recipient.
+
+ ![](https://github.com/UrsZeidler/smart-contract-examples/blob/master/pocketMoneyContract/doc/ClassDiagram.PNG)
+
 * [openLibrary](https://github.com/UrsZeidler/smart-contract-examples/blob/master/openLibrary/doc/contracts.md) a small and simple example of a library
 
  ![](https://github.com/UrsZeidler/smart-contract-examples/blob/master/openLibrary/doc/ClassDiagram.PNG)

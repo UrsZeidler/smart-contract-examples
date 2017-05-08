@@ -30,7 +30,7 @@ function () public  payable
 A simple command line tool to deploy and manage the contract. See [pocketMoneyContract.conf](etc/pocketMoneyContract.conf) and [pocketMoneyContract.sh](etc/pocketMoneyContract.sh) for details. Need bash and java.
 
 ```
-usage: pockeMoneyContract.sh -c <address> | -d | -l <address> | -p <address,wei> | -s <amount2claim,interval,donator,recipient,address>  [-f <file
+usage: pocketMoneyContract.sh -c <address> | -d | -l <address> | -p <address,wei> | -s <amount2claim,interval,donator,recipient,address>  [-f <file
        alreadyCompiled>] [-h]  [-millis <millisec>]   [-sk <keyFile>] [-sp <password>] [-wca <filename>]
 
 A contract to manage pocket money for one recipent (c) Urs Zeidler 2017
