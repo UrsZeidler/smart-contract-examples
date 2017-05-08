@@ -13,27 +13,37 @@ A contract to manage pocket money for one recipient.
 
 [details](doc/pocketMoney-usecases.md)
 
-![modelImage](doc/packaging.PNG)
+![modelImage](doc/ClassDiagram.PNG)
 
+```
+contract: PocketMoneyContract
+constructor PocketMoneyContract()
+function claimPocketMoney() public  onlyRecipient() 
+function isInitalized() private  returns (bool )
+function () public  payable 
+```
  
-[details](doc/ClassDiagram.md)
+[details](doc/contracts.md)
 
 ### commandline
 
+A simple command line tool to deploy and manage the contract. See [pocketMoneyContract.conf](etc/pocketMoneyContract.conf) and [pocketMoneyContract.sh](etc/pocketMoneyContract.sh) for details. Need bash and java.
+
 ```
-usage: pockeMoneyContract.sh -c <address> | -d <arg> | -l <address> | -p <wei>  [-f <file alreadyCompiled>] [-h]  [-millis <millisec>]  [-sk
-       <keyFile>] [-sp <password>]
+usage: pockeMoneyContract.sh -c <address> | -d | -l <address> | -p <address,wei> | -s <amount2claim,interval,donator,recipient,address>  [-f <file
+       alreadyCompiled>] [-h]  [-millis <millisec>]   [-sk <keyFile>] [-sp <password>] [-wca <filename>]
 
 A contract to manage pocket money for one recipent (c) Urs Zeidler 2017
-
- -c <address>                       Claim the money.
- -d <arg>                           Deploys the contract.
- -f,--file <file alreadyCompiled>   Set the contract source or the compiled json.
- -h                                 show help and usage
- -l <address>                       List the contract properties.
- -millis <millisec>                 The millisec to wait between checking the action.
- -p <wei>                           Pay in wei.
- -sk,--senderKey <keyFile>          Set the sender key file.
- -sp,--senderPass <password>        Set the pass of the key of the sender.
+ -c,--claim <address>                                         Claim the money.
+ -d,--deploy                                                  Deploys the contract.
+ -f,--file <file alreadyCompiled>                             Set the contract source or the compiled json.
+ -h                                                           show help and usage
+ -l,--list <address>                                          List the contract properties.
+ -millis <millisec>                                           The millisec to wait between checking the action.
+ -p,--pay <address,wei>                                       Pay in wei.
+ -s,--set <amount2claim,interval,donator,recipient,address>   Set contract parameters.
+ -sk,--senderKey <keyFile>                                    Set the sender key file.
+ -sp,--senderPass <password>                                  Set the pass of the key of the sender.
+ -wca,--writeContractAddress <filename>                       Write contract to file.
 ```
  

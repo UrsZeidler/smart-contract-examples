@@ -4,6 +4,8 @@
 package de.urszeidler.ethereum.smartcontracts.pocketMoneyContract;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.concurrent.CompletableFuture;
@@ -23,6 +25,7 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionGroup;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.io.IOUtils;
 import org.ethereum.crypto.ECKey;
 import org.spongycastle.util.encoders.Hex;
 
@@ -103,9 +106,8 @@ public class PockeMoneyContractManager {
 					
 					manager.claimMoney(address);
 					
-				}
-				if (commandLine.hasOption("s")) {
-					String[] values = commandLine.getOptionValues("l");
+				}else if (commandLine.hasOption("s")) {
+					String[] values = commandLine.getOptionValues("s");
 					String amount2Claim = values[0];
 					String claimInterval = values[1];
 					String donator = values[2];
@@ -122,6 +124,14 @@ public class PockeMoneyContractManager {
 
 				}
 
+				
+				if(manager.getManager()!=null && commandLine.hasOption("wca")){
+					String[] values = commandLine.getOptionValues("wca");
+					String filename = values[0];
+
+					File file = new File(filename);
+					IOUtils.write(manager.getManager().contractAddress.withLeading0x(), new FileOutputStream(file),"UTF-8");
+				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 				printHelp(options);
@@ -130,11 +140,14 @@ public class PockeMoneyContractManager {
 
 		} catch (ParseException e1) {
 			System.out.println(e1.getMessage());
+			System.out.println("Commandline: "+args);
 			printHelp(options);
 			returnValue = 10;
 		}
-
-		System.exit(returnValue);
+		
+		//prevent from exit the vm
+		if(System.getProperty("NoExit")==null)
+			System.exit(returnValue);
 	}
 
 	public void claimMoney(String address) throws IOException, InterruptedException, ExecutionException {
@@ -342,6 +355,12 @@ public class PockeMoneyContractManager {
 				.desc("The millisec to wait between checking the action.")//
 				.hasArg()//
 				.argName("millisec").numberOfArgs(1).build());
+		options.addOption(Option//
+				.builder("wca")//
+				.longOpt("writeContractAddress")//
+				.desc("Write contract to file.")//
+				.hasArg()//
+				.argName("filename").numberOfArgs(1).build());
 
 		OptionGroup helpOptionGroup = new OptionGroup();
 		helpOptionGroup.addOption(Option.builder("h")//
@@ -352,24 +371,33 @@ public class PockeMoneyContractManager {
 		actionOptionGroup.setRequired(true);
 		actionOptionGroup.addOption(Option//
 				.builder("d")//
+				.longOpt("deploy")//
 				.desc("Deploys the contract.")//
-				.hasArg()//
 				.build());
 		actionOptionGroup.addOption(Option//
 				.builder("p")//
+				.longOpt("pay")//
 				.desc("Pay in wei.")//
 				.hasArg()//
-				.argName("wei").numberOfArgs(1).build());
+				.argName("address,wei").numberOfArgs(2).build());
 		actionOptionGroup.addOption(Option//
 				.builder("l")//
+				.longOpt("list")//
 				.desc("List the contract properties.")//
 				.hasArg()//
 				.argName("address").numberOfArgs(1).build());
 		actionOptionGroup.addOption(Option//
 				.builder("c")//
+				.longOpt("claim")//
 				.desc("Claim the money.")//
 				.hasArg()//
 				.argName("address").numberOfArgs(1).build());
+		actionOptionGroup.addOption(Option//
+				.builder("s")//
+				.longOpt("set")//
+				.desc("Set contract parameters.")//
+				.hasArg()//
+				.argName("amount2claim,interval,donator,recipient,address").numberOfArgs(5).build());
 
 		options.addOptionGroup(actionOptionGroup);
 		// options.addOptionGroup(keyOptionGroup);
