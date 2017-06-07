@@ -1,7 +1,7 @@
 package de.urszeidler.ethereum.javaExamples.contracts;
 
 import java.util.concurrent.CompletableFuture;
-import org.adridadou.ethereum.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.EthAddress;
 
 //Start of user code customized_imports
 
@@ -22,7 +22,7 @@ public interface ContractExample{
 	
 	Boolean locked();
 	
-	org.adridadou.ethereum.values.EthAddress creator();
+	org.adridadou.ethereum.propeller.values.EthAddress creator();
 	
 	ContractState contractState();
 

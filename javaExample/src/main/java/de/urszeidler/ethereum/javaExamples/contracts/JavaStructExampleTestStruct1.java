@@ -9,9 +9,9 @@ import de.urszeidler.ethereum.javaExamples.contracts.JavaStructExample.*;
 public class JavaStructExampleTestStruct1{
 	private String text;
 	private Integer time;
-	private org.adridadou.ethereum.values.EthAddress sender;
+	private org.adridadou.ethereum.propeller.values.EthAddress sender;
 
-	public JavaStructExampleTestStruct1(String text,Integer time,org.adridadou.ethereum.values.EthAddress sender) {
+	public JavaStructExampleTestStruct1(String text,Integer time,org.adridadou.ethereum.propeller.values.EthAddress sender) {
 		super();
 		this.text = text;
 		this.time = time;
@@ -38,7 +38,7 @@ public class JavaStructExampleTestStruct1{
 	 * Getter for sender.
 	 * @return
 	 */
-	public org.adridadou.ethereum.values.EthAddress getSender(){
+	public org.adridadou.ethereum.propeller.values.EthAddress getSender(){
 		return sender;
 	}
 

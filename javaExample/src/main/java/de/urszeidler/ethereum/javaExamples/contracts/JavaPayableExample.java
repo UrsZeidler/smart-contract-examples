@@ -1,10 +1,9 @@
 package de.urszeidler.ethereum.javaExamples.contracts;
 
 import java.util.concurrent.CompletableFuture;
-import org.adridadou.ethereum.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.EthAddress;
 
 //Start of user code customized_imports
-import org.adridadou.ethereum.values.Payable;
 
 //End of user code
 
@@ -16,7 +15,7 @@ import org.adridadou.ethereum.values.Payable;
 **/
 public interface JavaPayableExample{
 	
-	java.math.BigInteger amounts(org.adridadou.ethereum.values.EthAddress key);
+	java.math.BigInteger amounts(org.adridadou.ethereum.propeller.values.EthAddress key);
 
 	/**
 	* This send the ether back.
@@ -25,7 +24,7 @@ public interface JavaPayableExample{
 	/**
 	* This method accept ether as it has the payable modifier.
 	**/
-	org.adridadou.ethereum.values.Payable<Void> recieve();
+	org.adridadou.ethereum.propeller.values.Payable<Void> recieve();
 	/**
 	* Relay the amount to the _to parameter.
 	* 
@@ -33,7 +32,7 @@ public interface JavaPayableExample{
 	* @return
 	*  -
 	**/
-	org.adridadou.ethereum.values.Payable<Boolean> relay(org.adridadou.ethereum.values.EthAddress _to);
+	org.adridadou.ethereum.propeller.values.Payable<Boolean> relay(org.adridadou.ethereum.propeller.values.EthAddress _to);
 
 	//Start of user code additional_methods
 

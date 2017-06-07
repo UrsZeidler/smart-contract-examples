@@ -9,11 +9,11 @@ import de.urszeidler.ethereum.javaExamples.contracts.ContractExample.*;
  */
 public class ReturnContractData_string_address_uint_bool{
 	private String _text;
-	private org.adridadou.ethereum.values.EthAddress _owner;
+	private org.adridadou.ethereum.propeller.values.EthAddress _owner;
 	private Integer _number;
 	private Boolean _locked;
 
-	public ReturnContractData_string_address_uint_bool(String _text,org.adridadou.ethereum.values.EthAddress _owner,Integer _number,Boolean _locked) {
+	public ReturnContractData_string_address_uint_bool(String _text,org.adridadou.ethereum.propeller.values.EthAddress _owner,Integer _number,Boolean _locked) {
 		super();
 		this._text = _text;
 		this._owner = _owner;
@@ -33,7 +33,7 @@ public class ReturnContractData_string_address_uint_bool{
 	 * Getter for _owner.
 	 * @return
 	 */
-	public org.adridadou.ethereum.values.EthAddress get_owner(){
+	public org.adridadou.ethereum.propeller.values.EthAddress get_owner(){
 		return _owner;
 	}
 

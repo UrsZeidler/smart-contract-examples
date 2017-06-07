@@ -8,10 +8,11 @@ import java.io.File;
 import java.math.BigInteger;
 import java.util.concurrent.CompletableFuture;
 
-import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAccount;
-import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.SoliditySource;
+import org.adridadou.ethereum.propeller.keystore.AccountProvider;
+import org.adridadou.ethereum.propeller.solidity.SolidityContractDetails;
+import org.adridadou.ethereum.propeller.values.EthAccount;
+import org.adridadou.ethereum.propeller.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.SoliditySource;
 import org.ethereum.crypto.ECKey;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +32,7 @@ public class JavaOwnerExampleTest extends AbstractContractTest{
  
 	private JavaOwnerExample fixture;
 	// Start of user code JavaOwnerExampleTest.attributes
-	private EthAccount testAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+	private EthAccount testAccount = AccountProvider.fromPrivateKey(BigInteger.valueOf(100000L));
 	private ContractsDeployer deployer;
 	// End of user code
 
@@ -66,7 +67,7 @@ public class JavaOwnerExampleTest extends AbstractContractTest{
 	 */
 	protected void createFixture() throws Exception {
 		//Start of user code createFixture
-		CompiledContract compiledContract = getCompiledContract("/contracts/combined.json");
+		SolidityContractDetails compiledContract = getCompiledContract("/contracts/combined.json");
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
         fixtureAddress = address.get();
 		setFixture(ethereum.createContractProxy(compiledContract, fixtureAddress, sender, JavaOwnerExample.class));

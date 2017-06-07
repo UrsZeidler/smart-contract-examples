@@ -6,9 +6,9 @@ import static org.junit.Assert.assertEquals;
 import java.io.File;
 import java.util.concurrent.CompletableFuture;
 
-import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.SoliditySource;
+import org.adridadou.ethereum.propeller.solidity.SolidityContractDetails;
+import org.adridadou.ethereum.propeller.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.SoliditySource;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -60,7 +60,7 @@ public class JavaEventExample1Test extends JavaEventExampleTest{
 	protected void createFixture() throws Exception {
 		//Start of user code createFixture
 		deployer = new ContractsDeployer(ethereum);
-		CompiledContract compiledContract = getCompiledContract("/contracts/combined.json");
+		SolidityContractDetails compiledContract = getCompiledContract("/contracts/combined.json");
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
         fixtureAddress = address.get();
 		setFixture(ethereum.createContractProxy(compiledContract, fixtureAddress, sender, JavaEventExample1.class));

@@ -8,10 +8,10 @@ import de.urszeidler.ethereum.javaExamples.contracts.ContractExample.*;
  * see {@link ContractExample#returnStateChange()}
  */
 public class ReturnReturnStateChange_address_uint{
-	private org.adridadou.ethereum.values.EthAddress _creator;
+	private org.adridadou.ethereum.propeller.values.EthAddress _creator;
 	private Integer _time;
 
-	public ReturnReturnStateChange_address_uint(org.adridadou.ethereum.values.EthAddress _creator,Integer _time) {
+	public ReturnReturnStateChange_address_uint(org.adridadou.ethereum.propeller.values.EthAddress _creator,Integer _time) {
 		super();
 		this._creator = _creator;
 		this._time = _time;
@@ -21,7 +21,7 @@ public class ReturnReturnStateChange_address_uint{
 	 * Getter for _creator.
 	 * @return
 	 */
-	public org.adridadou.ethereum.values.EthAddress get_creator(){
+	public org.adridadou.ethereum.propeller.values.EthAddress get_creator(){
 		return _creator;
 	}
 

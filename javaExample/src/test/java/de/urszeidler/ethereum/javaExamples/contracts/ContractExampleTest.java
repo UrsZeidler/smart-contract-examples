@@ -9,9 +9,9 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.util.concurrent.CompletableFuture;
 
-import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.SoliditySource;
+import org.adridadou.ethereum.propeller.solidity.SolidityContractDetails;
+import org.adridadou.ethereum.propeller.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.SoliditySource;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -64,7 +64,7 @@ public class ContractExampleTest extends AbstractContractTest{
 	protected void createFixture() throws Exception {
 		//Start of user code createFixture
 		//you could also use the precompiled json
-		CompiledContract compiledContract = getCompiledContract("/contracts/combined.json");
+		SolidityContractDetails compiledContract = getCompiledContract("/contracts/combined.json");
 		String _text = "_text";
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender, _text);
 		fixtureAddress = address.get();

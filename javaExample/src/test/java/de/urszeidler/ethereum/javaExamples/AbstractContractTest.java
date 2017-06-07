@@ -13,13 +13,13 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
-import org.adridadou.ethereum.EthereumFacade;
-import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAccount;
-import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.SoliditySource;
+import org.adridadou.ethereum.propeller.EthereumFacade;
+import org.adridadou.ethereum.propeller.keystore.AccountProvider;
+import org.adridadou.ethereum.propeller.solidity.SolidityContractDetails;
+import org.adridadou.ethereum.propeller.values.EthAccount;
+import org.adridadou.ethereum.propeller.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.SoliditySourceFile;
 import org.apache.commons.io.IOUtils;
-import org.ethereum.crypto.ECKey;
 import org.ethereum.solidity.compiler.CompilationResult;
 import org.ethereum.solidity.compiler.CompilationResult.ContractMetadata;
 import org.junit.BeforeClass;
@@ -33,14 +33,14 @@ import org.spongycastle.util.encoders.Hex;
  */
 public abstract class AbstractContractTest {
 
-	private static Map<String,CompiledContract> contracts = new HashMap<String, CompiledContract>();
+	private static Map<String, SolidityContractDetails> contracts = new HashMap<>();
 
 	protected static EthereumFacade ethereum;
 	protected static EthAccount sender;
 	protected static EthAddress senderAddress;
 
 	protected EthAddress fixtureAddress;
-	protected SoliditySource contractSource;
+	protected SoliditySourceFile contractSource;
 
 	// Start of user code AbstractContractTest.customFields
 	// TODO: add custom attributes
@@ -75,13 +75,12 @@ public abstract class AbstractContractTest {
 			if (property.equalsIgnoreCase("ropsten") || property.equalsIgnoreCase("InfuraRopsten")) {
 
 			} else if (property.equalsIgnoreCase("private")) {
-				sender = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+				sender = AccountProvider.fromPrivateKey((BigInteger.valueOf(100000L)));
 				senderAddress = sender.getAddress();
 			}
 
 		if (sender == null) {// the account for the standalone blockchain
-			sender = new EthAccount(
-					ECKey.fromPrivate(Hex.decode("3ec771c31cac8c0dba77a69e503765701d3c2bb62435888d4ffa38fed60c445c")));
+			sender = AccountProvider.fromPrivateKey(Hex.decode("3ec771c31cac8c0dba77a69e503765701d3c2bb62435888d4ffa38fed60c445c"));
 			senderAddress = sender.getAddress();
 		}
 		// End of user code
@@ -96,8 +95,8 @@ public abstract class AbstractContractTest {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	protected CompiledContract getCompiledContract(String filePath) throws URISyntaxException, FileNotFoundException, IOException {
-		CompiledContract compiledContract = contracts.get(getQuallifiedContractName());
+	protected SolidityContractDetails getCompiledContract(String filePath) throws URISyntaxException, FileNotFoundException, IOException {
+		SolidityContractDetails compiledContract = contracts.get(getQuallifiedContractName());
 		if(compiledContract!=null)
 			return compiledContract;
 
@@ -112,7 +111,9 @@ public abstract class AbstractContractTest {
 			if (optional.isPresent())
 				contractMetadata = result.contracts.get(optional.get());
 		}
-		compiledContract = CompiledContract.from(contractSource, getContractName(), contractMetadata);
+		compiledContract =  new SolidityContractDetails(contractMetadata.abi, contractMetadata.bin,
+				contractMetadata.metadata);
+
 		contracts.put(getQuallifiedContractName(), compiledContract);
 		return compiledContract;
 	}
@@ -125,13 +126,19 @@ public abstract class AbstractContractTest {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract getCompiledContract() throws InterruptedException, ExecutionException {
-		Map<String, CompiledContract> map = ethereum.compile(contractSource).get();
-		CompiledContract contract = map.get(getContractName());
-		if (contract == null)
-			throw new IllegalArgumentException(
-					"The contract '" + getContractName() + "' is not present is the map of contracts:" + map);
-		return contract;
+	public SolidityContractDetails getCompiledContract() throws InterruptedException, ExecutionException {
+		org.adridadou.ethereum.propeller.solidity.CompilationResult compilationResult = ethereum
+				.compile(contractSource);
+		Optional<SolidityContractDetails> contract = compilationResult.findContract(getContractName());
+		if (contract.isPresent()) {
+			return contract.get();
+		} else {
+			contract = compilationResult.findContract(getQuallifiedContractName());
+			if (contract.isPresent())
+				return contract.get();
+		}
+		throw new IllegalArgumentException(
+					"The contract '" + getContractName() + "' is not present is the map of contracts:" + compilationResult.getContracts());
 	}
 
 	// Start of user code AbstractContractTest.customMethods

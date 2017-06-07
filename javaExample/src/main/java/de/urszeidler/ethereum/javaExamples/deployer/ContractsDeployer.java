@@ -1,32 +1,33 @@
 package de.urszeidler.ethereum.javaExamples.deployer;
 
-import rx.Observable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Map;
+import java.net.URISyntaxException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import org.adridadou.ethereum.EthereumFacade;
-import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAccount;
-import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.SoliditySource;
+import org.adridadou.ethereum.propeller.EthereumFacade;
+import org.adridadou.ethereum.propeller.solidity.SolidityContractDetails;
+import org.adridadou.ethereum.propeller.solidity.SolidityEvent;
+import org.adridadou.ethereum.propeller.values.EthAccount;
+import org.adridadou.ethereum.propeller.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.SoliditySource;
+import org.adridadou.ethereum.propeller.values.SoliditySourceFile;
 import org.apache.commons.io.IOUtils;
 import org.ethereum.solidity.compiler.CompilationResult;
 import org.ethereum.solidity.compiler.CompilationResult.ContractMetadata;
 
+import rx.Observable;
 
 import de.urszeidler.ethereum.javaExamples.EthereumInstance;
 import de.urszeidler.ethereum.javaExamples.EthereumInstance.DeployDuo;
 
 import de.urszeidler.ethereum.javaExamples.contracts.*;
-
-
 
 
 /**
@@ -36,9 +37,9 @@ import de.urszeidler.ethereum.javaExamples.contracts.*;
 public class ContractsDeployer {
 
 	private EthereumFacade ethereum;
-	private SoliditySource contractSource;
+	private SoliditySourceFile contractSource;
 	private CompilationResult compiledContracts;
-	private Map<String,CompiledContract> contracts = new HashMap<String, CompiledContract>();
+	private Map<String, SolidityContractDetails> contracts = new HashMap<>();
 	private static String filename = "/contracts/contracts.sol";
 
 	/**
@@ -93,13 +94,14 @@ public class ContractsDeployer {
 	public void setContractSource(String contractSourceFile, boolean compiled) {
 		try {
 			if (!compiled) {
-				contractSource = SoliditySource.from(this.getClass().getResourceAsStream(contractSourceFile));
+		        File contractSrc = new File(this.getClass().getResource(contractSourceFile).toURI());
+				contractSource = SoliditySource.from(contractSrc);
 			} else {
 				String rawJson = IOUtils.toString(this.getClass().getResourceAsStream(contractSourceFile),
 						EthereumFacade.CHARSET);
 				compiledContracts = CompilationResult.parse(rawJson);
 			}
-		} catch (IOException e) {
+		} catch (IOException | URISyntaxException e) {
 			throw new IllegalArgumentException(e);
 		}
 	}
@@ -115,7 +117,7 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public CompletableFuture<EthAddress> deployJavaEventExample(EthAccount sender) throws InterruptedException, ExecutionException{
-		CompiledContract compiledContract = compiledContractJavaEventExample();
+		SolidityContractDetails compiledContract = compiledContractJavaEventExample();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
 		return address;
 	}
@@ -140,7 +142,7 @@ public class ContractsDeployer {
 	 * @return the contract interface
 	 */
 	public JavaEventExample createJavaEventExampleProxy(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractJavaEventExample();
+		SolidityContractDetails compiledContract = compiledContractJavaEventExample();
 		JavaEventExample javaeventexample = ethereum.createContractProxy(compiledContract, address, sender, JavaEventExample.class);
 		return javaeventexample;
 	}
@@ -151,11 +153,10 @@ public class ContractsDeployer {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract compiledContractJavaEventExample() throws InterruptedException, ExecutionException {
+	public SolidityContractDetails compiledContractJavaEventExample() throws InterruptedException, ExecutionException {
 		String contractName = "JavaEventExample";
 		String quallifiedName = "contracts.sol:JavaEventExample";
 		return getCompiledContract(contractName, quallifiedName);
-
 	}
 	/**
 	 * 
@@ -165,11 +166,13 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public Observable<EventEvent1_string_uint> observeEventEvent1_string_uint(EthAddress address) throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractJavaEventExample();
-		Observable<EventEvent1_string_uint> observeEvents = ethereum.observeEvents(compiledContract.getAbi(), address, "Event1", EventEvent1_string_uint.class);
-		return observeEvents;
+		SolidityContractDetails compiledContract = compiledContractJavaEventExample();
+		Optional<SolidityEvent<EventEvent1_string_uint>> eventDefinition = ethereum.findEventDefinition(compiledContract, "Event1", EventEvent1_string_uint.class);
+		if(!eventDefinition.isPresent())
+			throw new IllegalArgumentException("Event 'Event1' not found in contract definition."); 
+			
+		return ethereum.observeEvents(eventDefinition.get(), address);
 	}
-
 
 	/**
 	 * Deploys a 'JavaStructExample' on the blockchain.
@@ -181,7 +184,7 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public CompletableFuture<EthAddress> deployJavaStructExample(EthAccount sender) throws InterruptedException, ExecutionException{
-		CompiledContract compiledContract = compiledContractJavaStructExample();
+		SolidityContractDetails compiledContract = compiledContractJavaStructExample();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
 		return address;
 	}
@@ -206,7 +209,7 @@ public class ContractsDeployer {
 	 * @return the contract interface
 	 */
 	public JavaStructExample createJavaStructExampleProxy(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractJavaStructExample();
+		SolidityContractDetails compiledContract = compiledContractJavaStructExample();
 		JavaStructExample javastructexample = ethereum.createContractProxy(compiledContract, address, sender, JavaStructExample.class);
 		return javastructexample;
 	}
@@ -217,13 +220,11 @@ public class ContractsDeployer {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract compiledContractJavaStructExample() throws InterruptedException, ExecutionException {
+	public SolidityContractDetails compiledContractJavaStructExample() throws InterruptedException, ExecutionException {
 		String contractName = "JavaStructExample";
 		String quallifiedName = "contracts.sol:JavaStructExample";
 		return getCompiledContract(contractName, quallifiedName);
-
 	}
-
 
 	/**
 	 * Deploys a 'JavaEventExample1' on the blockchain.
@@ -235,7 +236,7 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public CompletableFuture<EthAddress> deployJavaEventExample1(EthAccount sender) throws InterruptedException, ExecutionException{
-		CompiledContract compiledContract = compiledContractJavaEventExample1();
+		SolidityContractDetails compiledContract = compiledContractJavaEventExample1();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
 		return address;
 	}
@@ -260,7 +261,7 @@ public class ContractsDeployer {
 	 * @return the contract interface
 	 */
 	public JavaEventExample1 createJavaEventExample1Proxy(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractJavaEventExample1();
+		SolidityContractDetails compiledContract = compiledContractJavaEventExample1();
 		JavaEventExample1 javaeventexample1 = ethereum.createContractProxy(compiledContract, address, sender, JavaEventExample1.class);
 		return javaeventexample1;
 	}
@@ -271,11 +272,10 @@ public class ContractsDeployer {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract compiledContractJavaEventExample1() throws InterruptedException, ExecutionException {
+	public SolidityContractDetails compiledContractJavaEventExample1() throws InterruptedException, ExecutionException {
 		String contractName = "JavaEventExample1";
 		String quallifiedName = "contracts.sol:JavaEventExample1";
 		return getCompiledContract(contractName, quallifiedName);
-
 	}
 	/**
 	 * 
@@ -285,11 +285,13 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public Observable<EventEvent2> observeEventEvent2(EthAddress address) throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractJavaEventExample1();
-		Observable<EventEvent2> observeEvents = ethereum.observeEvents(compiledContract.getAbi(), address, "Event2", EventEvent2.class);
-		return observeEvents;
+		SolidityContractDetails compiledContract = compiledContractJavaEventExample();
+		Optional<SolidityEvent<EventEvent2>> eventDefinition = ethereum.findEventDefinition(compiledContract, "Event1", EventEvent2.class);
+		if(!eventDefinition.isPresent())
+			throw new IllegalArgumentException("Event 'Event1' not found in contract definition."); 
+			
+		return ethereum.observeEvents(eventDefinition.get(), address);
 	}
-
 
 	/**
 	 * Deploys a 'ContractExample' on the blockchain.
@@ -302,7 +304,7 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public CompletableFuture<EthAddress> deployContractExample(EthAccount sender, String _text) throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractContractExample();
+		SolidityContractDetails compiledContract = compiledContractContractExample();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender, _text);
 		return address;
 	}
@@ -327,7 +329,7 @@ public class ContractsDeployer {
 	 * @return the contract interface
 	 */
 	public ContractExample createContractExampleProxy(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractContractExample();
+		SolidityContractDetails compiledContract = compiledContractContractExample();
 		ContractExample contractexample = ethereum.createContractProxy(compiledContract, address, sender, ContractExample.class);
 		return contractexample;
 	}
@@ -338,13 +340,11 @@ public class ContractsDeployer {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract compiledContractContractExample() throws InterruptedException, ExecutionException {
+	public SolidityContractDetails compiledContractContractExample() throws InterruptedException, ExecutionException {
 		String contractName = "ContractExample";
 		String quallifiedName = "contracts.sol:ContractExample";
 		return getCompiledContract(contractName, quallifiedName);
-
 	}
-
 
 	/**
 	 * Deploys a 'ExampleToken' on the blockchain.
@@ -357,7 +357,7 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public CompletableFuture<EthAddress> deployExampleToken(EthAccount sender, java.math.BigInteger _totalTokens) throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractExampleToken();
+		SolidityContractDetails compiledContract = compiledContractExampleToken();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender, _totalTokens);
 		return address;
 	}
@@ -382,7 +382,7 @@ public class ContractsDeployer {
 	 * @return the contract interface
 	 */
 	public ExampleToken createExampleTokenProxy(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractExampleToken();
+		SolidityContractDetails compiledContract = compiledContractExampleToken();
 		ExampleToken exampletoken = ethereum.createContractProxy(compiledContract, address, sender, ExampleToken.class);
 		return exampletoken;
 	}
@@ -393,13 +393,11 @@ public class ContractsDeployer {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract compiledContractExampleToken() throws InterruptedException, ExecutionException {
+	public SolidityContractDetails compiledContractExampleToken() throws InterruptedException, ExecutionException {
 		String contractName = "ExampleToken";
 		String quallifiedName = "contracts.sol:ExampleToken";
 		return getCompiledContract(contractName, quallifiedName);
-
 	}
-
 
 	/**
 	 * Deploys a 'JavaPayableExample' on the blockchain.
@@ -411,7 +409,7 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public CompletableFuture<EthAddress> deployJavaPayableExample(EthAccount sender) throws InterruptedException, ExecutionException{
-		CompiledContract compiledContract = compiledContractJavaPayableExample();
+		SolidityContractDetails compiledContract = compiledContractJavaPayableExample();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
 		return address;
 	}
@@ -436,7 +434,7 @@ public class ContractsDeployer {
 	 * @return the contract interface
 	 */
 	public JavaPayableExample createJavaPayableExampleProxy(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractJavaPayableExample();
+		SolidityContractDetails compiledContract = compiledContractJavaPayableExample();
 		JavaPayableExample javapayableexample = ethereum.createContractProxy(compiledContract, address, sender, JavaPayableExample.class);
 		return javapayableexample;
 	}
@@ -447,13 +445,11 @@ public class ContractsDeployer {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract compiledContractJavaPayableExample() throws InterruptedException, ExecutionException {
+	public SolidityContractDetails compiledContractJavaPayableExample() throws InterruptedException, ExecutionException {
 		String contractName = "JavaPayableExample";
 		String quallifiedName = "contracts.sol:JavaPayableExample";
 		return getCompiledContract(contractName, quallifiedName);
-
 	}
-
 
 	/**
 	 * Deploys a 'JavaOwnerExample' on the blockchain.
@@ -465,7 +461,7 @@ public class ContractsDeployer {
 	 * @throws ExecutionException
 	 */
 	public CompletableFuture<EthAddress> deployJavaOwnerExample(EthAccount sender) throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractJavaOwnerExample();
+		SolidityContractDetails compiledContract = compiledContractJavaOwnerExample();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
 		return address;
 	}
@@ -489,7 +485,7 @@ public class ContractsDeployer {
 	 * @return the contract interface
 	 */
 	public JavaOwnerExample createJavaOwnerExampleProxy(EthAccount sender, EthAddress address) throws IOException, InterruptedException, ExecutionException {
-		CompiledContract compiledContract = compiledContractJavaOwnerExample();
+		SolidityContractDetails compiledContract = compiledContractJavaOwnerExample();
 		JavaOwnerExample javaownerexample = ethereum.createContractProxy(compiledContract, address, sender, JavaOwnerExample.class);
 		return javaownerexample;
 	}
@@ -500,13 +496,11 @@ public class ContractsDeployer {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract compiledContractJavaOwnerExample() throws InterruptedException, ExecutionException {
+	public SolidityContractDetails compiledContractJavaOwnerExample() throws InterruptedException, ExecutionException {
 		String contractName = "JavaOwnerExample";
 		String quallifiedName = "contracts.sol:JavaOwnerExample";
 		return getCompiledContract(contractName, quallifiedName);
-
 	}
-
 
 	/**
 	 * Get the compiled contract by name or qualified name.
@@ -516,24 +510,23 @@ public class ContractsDeployer {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public CompiledContract getCompiledContract(String contractName, String qualifiedName)
+	public SolidityContractDetails getCompiledContract(String contractName, String qualifiedName)
 			throws InterruptedException, ExecutionException {
-		CompiledContract compiledContract = contracts.get(qualifiedName==null ? contractName : qualifiedName);
-		if(compiledContract!=null)
+		SolidityContractDetails solidityContractDetails = null;
+		SolidityContractDetails compiledContract = contracts.get(qualifiedName == null ? contractName : qualifiedName);
+		if (compiledContract != null)
 			return compiledContract;
-		
-		if (compiledContracts == null) {
-			Map<String, CompiledContract> contracts = ethereum.compile(contractSource).get();
-			compiledContract = contracts.get(contractName);
-			if (compiledContract == null) {
-				if (qualifiedName == null || qualifiedName.isEmpty())
-					throw new IllegalArgumentException("Qualified name must not be null or empty.");
 
-				Optional<String> optional = contracts.keySet().stream().filter(s -> {
-					return s.endsWith(qualifiedName);
-				}).findFirst();
-				if (optional.isPresent())
-					compiledContract = contracts.get(optional.get());
+		if (compiledContracts == null) {
+			org.adridadou.ethereum.propeller.solidity.CompilationResult compilationResult = ethereum
+					.compile(contractSource);
+			Optional<SolidityContractDetails> contract = compilationResult.findContract(contractName);
+			if (contract.isPresent()) {
+				solidityContractDetails = contract.get();
+			} else {
+				contract = compilationResult.findContract(qualifiedName);
+				if (contract.isPresent())
+					solidityContractDetails = contract.get();
 			}
 		} else {
 			ContractMetadata contractMetadata = compiledContracts.contracts.get(contractName);
@@ -545,16 +538,16 @@ public class ContractsDeployer {
 						.filter(s -> s.endsWith(qualifiedName)).findFirst();
 				if (optional.isPresent()) {
 					contractMetadata = compiledContracts.contracts.get(optional.get());
-					compiledContract = CompiledContract.from(null, contractName, contractMetadata);
 				}
-			} else
-				compiledContract = CompiledContract.from(null, contractName, contractMetadata);
+			}
+			solidityContractDetails = new SolidityContractDetails(contractMetadata.abi, contractMetadata.bin,
+					contractMetadata.metadata);
 		}
-		if (compiledContract == null)
+		if (solidityContractDetails == null)
 			throw new IllegalArgumentException(
 					"Contract code for '" + contractName + "/" + qualifiedName + "' not found");
 
-		contracts.put(qualifiedName==null ? contractName : qualifiedName, compiledContract);
+		contracts.put(qualifiedName == null ? contractName : qualifiedName, solidityContractDetails);
 		return compiledContract;
 	}
 }

@@ -9,10 +9,11 @@ import java.io.File;
 import java.math.BigInteger;
 import java.util.concurrent.CompletableFuture;
 
-import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAccount;
-import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.SoliditySource;
+import org.adridadou.ethereum.propeller.keystore.AccountProvider;
+import org.adridadou.ethereum.propeller.solidity.SolidityContractDetails;
+import org.adridadou.ethereum.propeller.values.EthAccount;
+import org.adridadou.ethereum.propeller.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.SoliditySource;
 import org.ethereum.crypto.ECKey;
 import org.junit.Before;
 import org.junit.Test;
@@ -66,7 +67,7 @@ public class ExampleTokenTest extends AbstractContractTest{
 	 */
 	protected void createFixture() throws Exception {
 		//Start of user code createFixture
-		CompiledContract compiledContract = getCompiledContract("/contracts/combined.json");
+		SolidityContractDetails compiledContract = getCompiledContract("/contracts/combined.json");
 		Integer totalSupply = 1000;
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender,totalSupply);
         fixtureAddress = address.get();
@@ -92,8 +93,8 @@ public class ExampleTokenTest extends AbstractContractTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  balanceOf(org.adridadou.ethereum.values.EthAddress _owner).
-	 * see {@link ExampleToken#balanceOf( org.adridadou.ethereum.values.EthAddress)}
+	 * Test method for  balanceOf(org.adridadou.ethereum.propeller.values.EthAddress _owner).
+	 * see {@link ExampleToken#balanceOf( org.adridadou.ethereum.propeller.values.EthAddress)}
 	 * @throws Exception
 	 */
 	@Test
@@ -101,7 +102,7 @@ public class ExampleTokenTest extends AbstractContractTest{
 		//Start of user code testBalanceOf_address
 		assertEquals(1000, fixture.balanceOf(senderAddress).intValue());
 		
-		EthAccount testAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+		EthAccount testAccount = AccountProvider.fromPrivateKey(BigInteger.valueOf(100000L));
 		assertTrue(fixture.transfer(testAccount.getAddress(), BigInteger.valueOf(10L)).get());
 		assertEquals(1000-10, fixture.balanceOf(senderAddress).intValue());
 		assertEquals(10, fixture.balanceOf(testAccount.getAddress()).intValue());
@@ -109,14 +110,14 @@ public class ExampleTokenTest extends AbstractContractTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  transfer(org.adridadou.ethereum.values.EthAddress _to,java.math.BigInteger _value).
-	 * see {@link ExampleToken#transfer( org.adridadou.ethereum.values.EthAddress, java.math.BigInteger)}
+	 * Test method for  transfer(org.adridadou.ethereum.propeller.values.EthAddress _to,java.math.BigInteger _value).
+	 * see {@link ExampleToken#transfer( org.adridadou.ethereum.propeller.values.EthAddress, java.math.BigInteger)}
 	 * @throws Exception
 	 */
 	@Test
 	public void testTransfer_address_uint256() throws Exception {
 		//Start of user code testTransfer_address_uint256
-		EthAccount testAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+		EthAccount testAccount = AccountProvider.fromPrivateKey(BigInteger.valueOf(100000L));
 		assertEquals(1000, fixture.balanceOf(senderAddress).intValue());
 		
 		BigInteger value = BigInteger.valueOf(10L);
@@ -127,8 +128,8 @@ public class ExampleTokenTest extends AbstractContractTest{
 		//End of user code
 	}
 	/**
-	 * Test method for  transferFrom(org.adridadou.ethereum.values.EthAddress _from,org.adridadou.ethereum.values.EthAddress _to,java.math.BigInteger _value).
-	 * see {@link ExampleToken#transferFrom( org.adridadou.ethereum.values.EthAddress, org.adridadou.ethereum.values.EthAddress, java.math.BigInteger)}
+	 * Test method for  transferFrom(org.adridadou.ethereum.propeller.values.EthAddress _from,org.adridadou.ethereum.propeller.values.EthAddress _to,java.math.BigInteger _value).
+	 * see {@link ExampleToken#transferFrom( org.adridadou.ethereum.propeller.values.EthAddress, org.adridadou.ethereum.propeller.values.EthAddress, java.math.BigInteger)}
 	 * @throws Exception
 	 */
 	@Test
@@ -136,7 +137,7 @@ public class ExampleTokenTest extends AbstractContractTest{
 		//Start of user code testTransferFrom_address_address_uint256
 		assertEquals(1000, fixture.balanceOf(senderAddress).intValue());
 		
-		EthAccount testAccount = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100000L)));
+		EthAccount testAccount = AccountProvider.fromPrivateKey(BigInteger.valueOf(100000L));
 		
 		assertTrue(fixture.transferFrom(senderAddress, testAccount.getAddress(), BigInteger.valueOf(10L)).get());
 		
