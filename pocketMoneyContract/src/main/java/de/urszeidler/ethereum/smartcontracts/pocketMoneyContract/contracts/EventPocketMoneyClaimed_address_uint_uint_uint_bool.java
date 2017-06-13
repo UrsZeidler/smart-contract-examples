@@ -3,17 +3,17 @@ package de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts;
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts.PocketMoneyContract.*;
 
 /**
- * The Event Objects for the event PocketMoneyClaimed(org.adridadou.ethereum.values.EthAddress _recipient,java.math.BigInteger time,java.math.BigInteger amount,java.math.BigInteger intervals,Boolean succsess).
+ * The Event Objects for the event PocketMoneyClaimed(org.adridadou.ethereum.propeller.values.EthAddress _recipient,java.math.BigInteger time,java.math.BigInteger amount,java.math.BigInteger intervals,Boolean succsess).
  *
  */
 public class EventPocketMoneyClaimed_address_uint_uint_uint_bool{
-	private org.adridadou.ethereum.values.EthAddress _recipient;
+	private org.adridadou.ethereum.propeller.values.EthAddress _recipient;
 	private java.math.BigInteger time;
 	private java.math.BigInteger amount;
 	private java.math.BigInteger intervals;
 	private Boolean succsess;
 
-	public EventPocketMoneyClaimed_address_uint_uint_uint_bool(org.adridadou.ethereum.values.EthAddress _recipient,java.math.BigInteger time,java.math.BigInteger amount,java.math.BigInteger intervals,Boolean succsess) {
+	public EventPocketMoneyClaimed_address_uint_uint_uint_bool(org.adridadou.ethereum.propeller.values.EthAddress _recipient,java.math.BigInteger time,java.math.BigInteger amount,java.math.BigInteger intervals,Boolean succsess) {
 		super();
 		this._recipient = _recipient;
 		this.time = time;
@@ -26,7 +26,7 @@ public class EventPocketMoneyClaimed_address_uint_uint_uint_bool{
 	 * Getter for _recipient.
 	 * @return
 	 */
-	public org.adridadou.ethereum.values.EthAddress get_recipient(){
+	public org.adridadou.ethereum.propeller.values.EthAddress get_recipient(){
 		return _recipient;
 	}
 

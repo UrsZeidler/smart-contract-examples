@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
 
-import org.adridadou.ethereum.EthereumFacade;
-import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.EthValue;
+import org.adridadou.ethereum.propeller.EthereumFacade;
+import org.adridadou.ethereum.propeller.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.EthValue;
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +33,7 @@ public class PocketMoneyContractManagerTest extends AbstractContractTest {
 		manager.setEthereum(ethereum);
 		
 		System.setProperty("NoExit", "1");
-		deployer = new ContractsDeployer(ethereum);
+		deployer = new ContractsDeployer(ethereum,"/contracts/combined.json",true);
 	}
 
 	@Test

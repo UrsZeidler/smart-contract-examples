@@ -1,7 +1,7 @@
 package de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts;
 
 import java.util.concurrent.CompletableFuture;
-import org.adridadou.ethereum.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.EthAddress;
 
 //Start of user code customized_imports
 
@@ -13,11 +13,11 @@ import org.adridadou.ethereum.values.EthAddress;
 **/
 public interface PocketMoneyContract{
 	
-	org.adridadou.ethereum.values.EthAddress owner();
+	org.adridadou.ethereum.propeller.values.EthAddress owner();
 	
-	org.adridadou.ethereum.values.EthAddress donator();
+	org.adridadou.ethereum.propeller.values.EthAddress donator();
 	
-	org.adridadou.ethereum.values.EthAddress recipient();
+	org.adridadou.ethereum.propeller.values.EthAddress recipient();
 	/**
 	* The interval for claiming the amount.
 	**/
@@ -39,12 +39,12 @@ public interface PocketMoneyContract{
 	* Receives the money for the past intervals.
 	**/
 	java.util.concurrent.CompletableFuture<Void> claimPocketMoney();
-	
-	java.util.concurrent.CompletableFuture<Void> setOwner (org.adridadou.ethereum.values.EthAddress aOwner);
 
-	java.util.concurrent.CompletableFuture<Void> setDonator (org.adridadou.ethereum.values.EthAddress aDonator);
+	java.util.concurrent.CompletableFuture<Void> setOwner (org.adridadou.ethereum.propeller.values.EthAddress aOwner);
 
-	java.util.concurrent.CompletableFuture<Void> setRecipient (org.adridadou.ethereum.values.EthAddress aRecipient);
+	java.util.concurrent.CompletableFuture<Void> setDonator (org.adridadou.ethereum.propeller.values.EthAddress aDonator);
+
+	java.util.concurrent.CompletableFuture<Void> setRecipient (org.adridadou.ethereum.propeller.values.EthAddress aRecipient);
 
 	java.util.concurrent.CompletableFuture<Void> setClaimInterval (java.math.BigInteger aClaimInterval);
 

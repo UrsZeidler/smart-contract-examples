@@ -3,15 +3,15 @@ package de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts;
 import de.urszeidler.ethereum.smartcontracts.pocketMoneyContract.contracts.PocketMoneyContract.*;
 
 /**
- * The Event Objects for the event PocketMoneyDonated(org.adridadou.ethereum.values.EthAddress _donator,java.math.BigInteger time,java.math.BigInteger amount).
+ * The Event Objects for the event PocketMoneyDonated(org.adridadou.ethereum.propeller.values.EthAddress _donator,java.math.BigInteger time,java.math.BigInteger amount).
  *
  */
 public class EventPocketMoneyDonated_address_uint_uint{
-	private org.adridadou.ethereum.values.EthAddress _donator;
+	private org.adridadou.ethereum.propeller.values.EthAddress _donator;
 	private java.math.BigInteger time;
 	private java.math.BigInteger amount;
 
-	public EventPocketMoneyDonated_address_uint_uint(org.adridadou.ethereum.values.EthAddress _donator,java.math.BigInteger time,java.math.BigInteger amount) {
+	public EventPocketMoneyDonated_address_uint_uint(org.adridadou.ethereum.propeller.values.EthAddress _donator,java.math.BigInteger time,java.math.BigInteger amount) {
 		super();
 		this._donator = _donator;
 		this.time = time;
@@ -22,7 +22,7 @@ public class EventPocketMoneyDonated_address_uint_uint{
 	 * Getter for _donator.
 	 * @return
 	 */
-	public org.adridadou.ethereum.values.EthAddress get_donator(){
+	public org.adridadou.ethereum.propeller.values.EthAddress get_donator(){
 		return _donator;
 	}
 

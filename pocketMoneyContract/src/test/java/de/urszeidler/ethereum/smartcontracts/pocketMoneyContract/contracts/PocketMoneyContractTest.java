@@ -7,11 +7,12 @@ import java.io.File;
 import java.math.BigInteger;
 import java.util.concurrent.CompletableFuture;
 
-import org.adridadou.ethereum.values.CompiledContract;
-import org.adridadou.ethereum.values.EthAccount;
-import org.adridadou.ethereum.values.EthAddress;
-import org.adridadou.ethereum.values.EthValue;
-import org.adridadou.ethereum.values.SoliditySource;
+import org.adridadou.ethereum.propeller.keystore.AccountProvider;
+import org.adridadou.ethereum.propeller.solidity.SolidityContractDetails;
+import org.adridadou.ethereum.propeller.values.EthAccount;
+import org.adridadou.ethereum.propeller.values.EthAddress;
+import org.adridadou.ethereum.propeller.values.EthValue;
+import org.adridadou.ethereum.propeller.values.SoliditySource;
 import org.ethereum.crypto.ECKey;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,19 +27,21 @@ import rx.Observable;
 
 // End of user code
 
+
 /**
  * Test for the PocketMoneyContract contract.
  *
  */
-public class PocketMoneyContractTest extends AbstractContractTest {
+public class PocketMoneyContractTest extends AbstractContractTest{
 
+ 
 	private PocketMoneyContract fixture;
 	// Start of user code PocketMoneyContractTest.attributes
 
-	private EthAccount recipient = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100001L)));
-	private EthAccount recipient1 = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(200001L)));
-	private EthAccount wrongRecipient = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100002L)));
-	private EthAccount wrongDonator = new EthAccount(ECKey.fromPrivate(BigInteger.valueOf(100003L)));
+	private EthAccount recipient = AccountProvider.fromPrivateKey((BigInteger.valueOf(100001L)));
+	private EthAccount recipient1 = AccountProvider.fromPrivateKey((BigInteger.valueOf(200001L)));
+	private EthAccount wrongRecipient = AccountProvider.fromPrivateKey((BigInteger.valueOf(100002L)));
+	private EthAccount wrongDonator = AccountProvider.fromPrivateKey((BigInteger.valueOf(100003L)));
 	private ContractsDeployer deployer;
 	// End of user code
 
@@ -54,27 +57,29 @@ public class PocketMoneyContractTest extends AbstractContractTest {
 
 	/**
 	 * Read the contract from the file and deploys the contract code.
-	 * 
 	 * @throws Exception
 	 */
 	@Before
 	public void prepareTest() throws Exception {
-		// Start of user code prepareTest
-		File contractSrc = new File(this.getClass().getResource("/contracts/contracts.sol").toURI());
+		//Start of user code prepareTest
+		initTest();
+		File contractSrc = new File(this.getClass().getResource("/contracts/combined.json").toURI());
 		contractSource = SoliditySource.from(contractSrc);
-		deployer = new ContractsDeployer(ethereum);
+		deployer = new ContractsDeployer(ethereum,contractSrc,true);
 		createFixture();
 		// End of user code
 	}
 
+
 	/**
 	 * Create a new fixture by deploying the contract source.
-	 * 
 	 * @throws Exception
 	 */
 	protected void createFixture() throws Exception {
-		// Start of user code createFixture
-		CompiledContract compiledContract = getCompiledContract();
+		//Start of user code createFixture
+		SolidityContractDetails compiledContract = getCompiledContract("/contracts/combined.json");
+
+//		 SolidityContractDetails compiledContract = getCompiledContract();
 		CompletableFuture<EthAddress> address = ethereum.publishContract(compiledContract, sender);
 		fixtureAddress = address.get();
 		setFixture(ethereum.createContractProxy(compiledContract, fixtureAddress, sender, PocketMoneyContract.class));
@@ -85,40 +90,15 @@ public class PocketMoneyContractTest extends AbstractContractTest {
 		this.fixture = f;
 	}
 
+
 	/**
-	 * Test method for claimPocketMoney(). see
-	 * {@link PocketMoneyContract#claimPocketMoney()}
-	 * 
+	 * Test method for  claimPocketMoney().
+	 * see {@link PocketMoneyContract#claimPocketMoney()}
 	 * @throws Exception
 	 */
 	@Test
 	public void testClaimPocketMoney() throws Exception {
-		// Start of user code testClaimPocketMoney
-		testDonateAmount();
-		fixture.setRecipient(recipient1.getAddress()).get();
-		assertEquals(recipient1.getAddress(), fixture.recipient());
-		
-		Observable<EventPocketMoneyClaimed_address_uint_uint_uint_bool> observable = deployer
-				.observeEventPocketMoneyClaimed_address_uint_uint_uint_bool(fixtureAddress);
-		observable.subscribe(e -> System.out.println("EventPocketMoneyClaimed " + e));
-
-		PocketMoneyContract moneyContract = deployer.createPocketMoneyContractProxy(recipient1, fixtureAddress);
-		moneyContract.claimPocketMoney().get();
-		
-
-		assertEquals(BigInteger.valueOf(26L), ethereum.getBalance(recipient1).inWei());
-		// End of user code
-	}
-
-	/**
-	 * Test method for claimPocketMoney(). see
-	 * {@link PocketMoneyContract#claimPocketMoney()}
-	 * 
-	 * @throws Exception
-	 */
-	@Test
-	public void testClaimPocketMoney_Again() throws Exception {
-		// Start of user code testClaimPocketMoney
+		//Start of user code testClaimPocketMoney
 		testDonateAmount();
 		BigInteger claimInterval = BigInteger.valueOf(100L);
 		fixture.setClaimInterval(claimInterval).get();
@@ -151,6 +131,8 @@ public class PocketMoneyContractTest extends AbstractContractTest {
 
 		// End of user code
 	}
+	
+	//Start of user code customTests
 
 	/**
 	 * @throws InterruptedException 
@@ -167,17 +149,6 @@ public class PocketMoneyContractTest extends AbstractContractTest {
 			Thread.sleep(100L);
 	}
 
-	/**
-	 * Test method for (). see {@link PocketMoneyContract#()}
-	 * 
-	 * @throws Exception
-	 */
-	@Test
-	public void test() throws Exception {
-		// Start of user code test
-		// End of user code
-	}
-	// Start of user code customTests
 
 	@Test
 	public void testConstructor() throws Exception {

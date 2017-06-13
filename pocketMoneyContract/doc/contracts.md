@@ -9,7 +9,7 @@
     overview:
 	constructor PocketMoneyContract()
 	function claimPocketMoney() public  onlyRecipient() 
-	function isInitalized() private  returns (bool )
+	function isInitalized() private   constant returns (bool )
 	function () public  payable 
 
 
@@ -42,7 +42,7 @@ Receives the money for the past intervals.
 
 
 
-#### PocketMoneyContract.isInitalized() private  returns (bool )
+#### PocketMoneyContract.isInitalized() private   constant returns (bool )
 
 
 name|type|direction|doc

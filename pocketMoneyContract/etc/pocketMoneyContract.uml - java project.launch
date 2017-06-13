@@ -34,14 +34,14 @@
 <booleanAttribute key="GENERATE_MIX" value="false"/>
 <stringAttribute key="GENERATE_UML_DOC_IMAGE_URL" value="UseCaseDiagram.PNG"/>
 <booleanAttribute key="GENERATE_WEB3" value="false"/>
-<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_address" value="org.adridadou.ethereum.values.EthAddress"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_address" value="org.adridadou.ethereum.propeller.values.EthAddress"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_bool" value="Boolean"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_byte" value="Byte"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_bytes32" value="Byte[]"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_int" value="Integer"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_string" value="String"/>
 <stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint" value="java.math.BigInteger"/>
-<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint256" value="Integer"/>
+<stringAttribute key="GENERATION_JAVA_2_SOLIDITY_TYPE_uint256" value="java.math.BigInteger"/>
 <stringAttribute key="GENERATION_JAVA_INTERFACE_PACKAGE_PREFIX" value="de.urszeidler.ethereum.smartcontracts.pocketMoneyContract"/>
 <stringAttribute key="GENERATION_JAVA_INTERFACE_TARGET" value="/pocketMoneyContract/src/main/java"/>
 <stringAttribute key="GENERATION_JAVA_TEST_TARGET" value="/pocketMoneyContract/src/test/java"/>

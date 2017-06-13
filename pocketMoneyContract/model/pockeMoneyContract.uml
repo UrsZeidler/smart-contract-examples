@@ -172,7 +172,7 @@
     <modifiers xmi:type="Contracts:Modifier" xmi:id="_AKGH8DLyEeeoXItBHeyjgQ" parameter="" modifier="_jncD8DLqEeeoXItBHeyjgQ"/>
   </Contracts:Function>
   <Contracts:Event xmi:id="_uYw6sDL5EeeoXItBHeyjgQ" base_Operation="_uYt3YDL5EeeoXItBHeyjgQ"/>
-  <Contracts:Function xmi:id="_ZbE7oDMAEeeoXItBHeyjgQ" base_Operation="_SmPx0DMAEeeoXItBHeyjgQ"/>
+  <Contracts:Function xmi:id="_ZbE7oDMAEeeoXItBHeyjgQ" base_Operation="_SmPx0DMAEeeoXItBHeyjgQ" returnType="constant"/>
   <Contracts:Constructor xmi:id="_pPEY0DMAEeeoXItBHeyjgQ" base_Operation="_mUmy0DMAEeeoXItBHeyjgQ"/>
   <Contracts:Function xmi:id="_NzrdEDM0EeeoXItBHeyjgQ" base_Operation="_LgLJYDM0EeeoXItBHeyjgQ">
     <modifiers xmi:type="Contracts:Modifier" xmi:id="_PY1dADM0EeeoXItBHeyjgQ" parameter="">

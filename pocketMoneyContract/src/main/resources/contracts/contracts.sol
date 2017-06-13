@@ -69,7 +69,7 @@ contract PocketMoneyContract {
 		uint interval = (now - lastClaimed)/claimInterval;
 		uint amount = amount2Claim * interval;
 		
-		if(amount>currentAmount) throw;
+		if(amount>currentAmount || amount==0) throw;
 		
 		currentAmount-=amount;
 		lastClaimed = now;
@@ -81,7 +81,7 @@ contract PocketMoneyContract {
 	
 	
 	
-	function isInitalized() private  returns (bool ) {
+	function isInitalized() private   constant returns (bool ) {
 		//Start of user code PocketMoneyContract.function.isInitalized
 		return amount2Claim!=0 && donator!=0 && claimInterval!=0 && recipient!=0;
 		//End of user code
