@@ -30,7 +30,7 @@ public class PocketMoneyContractManagerTest extends AbstractContractTest {
 		
 		manager = new PockeMoneyContractManager();
 		manager.setSender(sender);
-		manager.setEthereum(ethereum);
+//		manager.setEthereum(ethereum);
 		
 		System.setProperty("NoExit", "1");
 		deployer = new ContractsDeployer(ethereum,"/contracts/combined.json",true);

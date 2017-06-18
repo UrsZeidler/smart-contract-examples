@@ -52,6 +52,12 @@ public class PockeMoneyContractManager {
 		CompletableFuture<T> doIt();
 	}
 
+	public PockeMoneyContractManager() {
+		super();
+		ethereum = EthereumInstance.getInstance().getEthereum();
+		deployer = new ContractsDeployer(ethereum,"/contracts/combined.json",true);
+	}
+
 	/**
 	 * @param args
 	 */
@@ -279,7 +285,6 @@ public class PockeMoneyContractManager {
 		if (senderKey != null && !senderKey.isEmpty() && sender == null) {
 			sender = unlockAccount(senderKey, senderPass);
 		}
-		deployer = new ContractsDeployer(ethereum);
 		if (managerAddress != null) {
 			setManager(managerAddress);
 		}
@@ -439,10 +444,10 @@ public class PockeMoneyContractManager {
 		this.sender = sender;
 	}
 
-	public void setEthereum(EthereumFacade ethereum) {
-		this.ethereum = ethereum;
-		deployer = new ContractsDeployer(ethereum);
-	}
+//	public void setEthereum(EthereumFacade ethereum) {
+//		this.ethereum = ethereum;
+//		deployer = new ContractsDeployer(ethereum);
+//	}
 
 	public DeployDuo<PocketMoneyContract> getManager() {
 		return manager;
